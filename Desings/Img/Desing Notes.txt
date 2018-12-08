@@ -1,0 +1,8 @@
+bg color
+2d3c50
+opacity
+40
+
+
+navbar color
+ffffff
