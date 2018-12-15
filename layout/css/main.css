@@ -33,13 +33,20 @@ Tags:
 --------------------------------------------------------------*/
 .bg-color-1 { background: #fff !important }
 .bg-color-2 { background: #364559 !important }
-.font-color-1, nav .active-link a { color: #ff3363 !important}
+.font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-cairo { font-family: 'Cairo', sans-serif }
 .font-changa { font-family: 'Changa', sans-serif }
 .f-18 { font-size: 18px }
 .f-24 { font-size: 24px }
 .f-30 { font-size: 30px }
 .font-700 { font-weight: 700 }
+.over {
+    width: 100%;
+    position: absolute;
+    background-color: #37475b;
+    opacity: 0.4;
+    z-index: 100
+}
 /*--------------------------------------------------------------
 2.0 Navgation
 --------------------------------------------------------------*/
@@ -49,7 +56,7 @@ nav .active-link a { color: #706e6e }
 nav .boder { 
     border: 3px solid #d7d7d9;
     padding: 3px 8px 0px;
-    border-radius: 5px;
+    border-radius: 5px
 }
 nav .profile-link .profile-img {
     width: 48px;
@@ -63,6 +70,6 @@ nav .profile-link .profile-img {
 --------------------------------------------------------------*/
 header {
     background-image: url(../img/bg.jpg);
-    background-size: cover;
-    
+    background-size: cover
 }
+header .container { z-index: 200 }
