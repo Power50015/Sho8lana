@@ -47,6 +47,23 @@ Tags:
     opacity: 0.4;
     z-index: 100
 }
+.loginbox{ 
+       position: absolute;
+       transform: translate(-50%,-50%);
+       margin-top: 50%;
+       right: 40%;
+       height: 300PX;
+       width: 350PX;
+       box-sizing: border-box;
+       box-decoration-break:slice;
+       background: rgb(192,192,192,.5)
+       
+    
+}
+form{
+    margin-top:40px;
+}
+
 /*--------------------------------------------------------------
 2.0 Navgation
 --------------------------------------------------------------*/
