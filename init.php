@@ -1,5 +1,5 @@
 <?php 
-  
+    
     $cssDir     =   'layout/css/';
     $jsDir      =   'layout/js/';
     $imgDir     =   'layout/img/';
@@ -10,3 +10,4 @@
 
 
     include $functionDir    . 'functions.php';
+    include 'config.php';
