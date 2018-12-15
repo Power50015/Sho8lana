@@ -1,7 +1,5 @@
 <?php 
-
-    session_start();
-    
+  
     $cssDir     =   'layout/css/';
     $jsDir      =   'layout/js/';
     $imgDir     =   'layout/img/';
