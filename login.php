@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-md-4 ">
                     <div class="loginbox">
-                    <form class="container login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <form class="container login" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
                         <div class="form-group ">
                             <input type="email" name="email" class="form-control login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الإلكتروني ">
                         </div>
