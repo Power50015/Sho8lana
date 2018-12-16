@@ -1,14 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Sho8lana";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+	$dsn = 'mysql:host=localhost;dbname=Sho8lana';
+	$user = 'root';
+	$pass = '';
+	$option = array(
+		PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+	);
+	try {
+		$con = new PDO($dsn, $user, $pass, $option);
+		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	}
+	catch(PDOException $e) {
+		echo 'Failed To Connect' . $e->getMessage();
+	}
