@@ -1,0 +1,92 @@
+/*
+Theme Name: Sho8lana
+Theme URI: https://github.com/Power50015/Sho8lana
+Author: 
+    - Mohamed Mostafa (Team Leader)
+    - Mohamed Atef  (Web Desiner)
+    - Noor Emam (Front-End)
+    - Mostafa Younes (DateBase System)
+Author URI: 
+    - https://github.com/Power50015
+    - https://github.com/mohamed17345
+    - https://github.com/NoorEmam
+    - https://github.com/MostafaYounes159
+Description: 
+Version: 1.0
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: Sho8lana.powerware.site
+Tags: 
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Typography & Colors 
+2.0 Navgation
+3.0 Layout
+    3.1 Index Header Section
+4.0 Media Queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1.0 Typography & Colors
+--------------------------------------------------------------*/
+.bg-color-1 { background: #fff !important }
+.bg-color-2 { background: #364559 !important }
+.font-color-1, nav .active-link a { color: #ff3363 !important }
+.font-cairo { font-family: 'Cairo', sans-serif }
+.font-changa { font-family: 'Changa', sans-serif }
+.f-18 { font-size: 18px }
+.f-24 { font-size: 24px }
+.f-30 { font-size: 30px }
+.font-700 { font-weight: 700 }
+.over {
+    width: 100%;
+    position: absolute;
+    background-color: #37475b;
+    opacity: 0.4;
+    z-index: 100
+}
+.loginbox{ 
+       position: absolute;
+       transform: translate(-50%,-50%);
+       margin-top: 50%;
+       right: 40%;
+       height: 300PX;
+       width: 350PX;
+       box-sizing: border-box;
+       box-decoration-break:slice;
+       background: rgb(192,192,192,.5)
+       
+    
+}
+form{
+    margin-top:40px;
+}
+
+/*--------------------------------------------------------------
+2.0 Navgation
+--------------------------------------------------------------*/
+nav .navbar-brand .logo { width: 120px }
+nav .active-link { text-decoration: line-through }
+nav .active-link a { color: #706e6e }
+nav .boder { 
+    border: 3px solid #d7d7d9;
+    padding: 3px 8px 0px;
+    border-radius: 5px
+}
+nav .profile-link .profile-img {
+    width: 48px;
+    border-radius: 50%
+}
+/*--------------------------------------------------------------
+3.0 Layout
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3.1 Index Header Section
+--------------------------------------------------------------*/
+header {
+    background-image: url(../img/bg.jpg);
+    background-size: cover
+}
+header .container { z-index: 200 }
