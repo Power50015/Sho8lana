@@ -43,14 +43,17 @@
                             </div>
                         </li>
                     </ul>
-                    <!-- cheang With Php -->
 
-                    <!-- <div class="dropdown form-inline my-2 my-lg-0">
+                    <?php 
+                        if (! isset($_SESSION['Username'])) {
+                    ?>
+
+                    <div class="dropdown form-inline my-2 my-lg-0">
                         <a class="nav-link f-24 font-color-1 boder" href="ads.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-align-center"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="login.php">
                                 <i class="fas fa-user-check"></i>
                                 <span class="pl-1"> تسجيل الدخول </span>
                             </a>
@@ -60,7 +63,12 @@
                                 <span class="pl-1"> حساب جديد </span>
                             </a>
                         </div>
-                    </div> -->
+                    </div>
+                    
+                    <?php 
+                        }else {
+                    ?>
+
                     <div class="dropdown form-inline my-2 my-lg-0">
                         <a class="pr-3 pl-3 f-30 font-color-1" href="#"><i class="far fa-bell"></i></a>
                         <a class="pr-3 pl-3 f-30 font-color-1" href="#"><i class="far fa-envelope"></i></a>
@@ -71,7 +79,7 @@
                             <a class="dropdown-item p-1" href="#">
                                 <div class="profile-link">
                                     <img src ="upload/1.jpg" class="profile-img">
-                                    <span class="pl-2">Power</span>
+                                    <span class="pl-2"><?=($_SESSION['Username'])?></span>
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
@@ -88,13 +96,15 @@
                                 <span class="pl-1"> الاعدادات </span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="logout.php">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <span class="pl-1"> خروج </span>
                             </a>
                         </div>
                     </div>
-                    
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
         </nav>
