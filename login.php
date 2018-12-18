@@ -12,13 +12,13 @@
  <div class="over"></div>
 
 <div class="container ">
-            <div class="row">
-                <div class="col-md-3">
+            <div class="row ">
+                <div class="col-md-3 c">
                     <h2 ><span class="badge badge-danger "> تسجيل الدخول </span></h2> 
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 ">
+                <div class="col-md-5 ">
                     <div class="loginbox">
                     <form class="container login">
                         <div class="form-group ">
