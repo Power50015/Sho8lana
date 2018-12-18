@@ -24,8 +24,7 @@
 								WHERE 
                                     `E-mail` = ? 
 								AND 
-                                    `passowrd` = ? 
-								LIMIT 1");
+                                    `passowrd` = ? ");
 		$stmt->execute(array($userEmail, $password));
 		$row = $stmt->fetch();
 		$count = $stmt->rowCount();
