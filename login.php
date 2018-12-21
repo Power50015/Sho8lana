@@ -24,8 +24,7 @@
 								WHERE 
                                     `E-mail` = ? 
 								AND 
-                                    `passowrd` = ? 
-								LIMIT 1");
+                                    `passowrd` = ? ");
 		$stmt->execute(array($userEmail, $password));
 		$row = $stmt->fetch();
 		$count = $stmt->rowCount();
@@ -45,13 +44,13 @@
  <!--<div class="over"></div>-->
 
 <div class="container ">
-            <div class="row">
-                <div class="col-md-3">
+            <div class="row ">
+                <div class="col-md-3 c">
                     <h2 ><span class="badge badge-danger "> تسجيل الدخول </span></h2> 
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 ">
+                <div class="col-md-5 ">
                     <div class="loginbox">
                     <form class="container login" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
                         <div class="form-group ">

@@ -6,7 +6,6 @@
 
     $tempDir        =   'includes/templates/';
     $functionDir    =   'includes/functions/';
-    $languagesDir   =   'includes/languages/';
 
 
     include $functionDir    . 'functions.php';

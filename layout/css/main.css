@@ -34,12 +34,16 @@ Tags:
 .bg-color-1 { background: #fff !important }
 .bg-color-2 { background: #364559 !important }
 .font-color-1, nav .active-link a { color: #ff3363 !important }
+.font-color-2 { color:#fff }
 .font-cairo { font-family: 'Cairo', sans-serif }
 .font-changa { font-family: 'Changa', sans-serif }
 .f-18 { font-size: 18px }
 .f-24 { font-size: 24px }
 .f-30 { font-size: 30px }
+.f-70 {font-size: 70px  }
 .font-700 { font-weight: 700 }
+.c{ margin-top: 50px;}   
+
 .over {
     width: 100%;
     position: absolute;
@@ -59,6 +63,23 @@ Tags:
        background: rgb(192,192,192,.5)
        
     
+}
+.form-1{
+      background: lightgrey;
+     }
+.icon2{
+            font-size: 3em;
+            margin-right:40%;
+            margin-top: 10%;
+      }
+.box {
+    position: absolute;
+    box-sizing: border-box;
+    box-decoration-break: slice;
+    background: rgba(0,0,0,.5);
+    
+    
+
 }
 form{
     margin-top:40px;
@@ -90,3 +111,7 @@ header {
     background-size: cover
 }
 header .container { z-index: 200 }
+.d-60{
+    font-size: 60px;
+    color: beige;
+}
