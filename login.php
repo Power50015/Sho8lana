@@ -41,33 +41,25 @@
 <!-- But Yur Code Here -->
 
 <header>
- <!--<div class="over"></div>-->
-
-<div class="container ">
-            <div class="row ">
-                <div class="col-md-3 c">
-                    <h2 ><span class="badge badge-danger "> تسجيل الدخول </span></h2> 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5 ">
-                    <div class="loginbox">
-                    <form class="container login" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
-                        <div class="form-group ">
-                            <input type="email" name="email" class="form-control login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الإلكتروني ">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="الرقم السري">
-                        </div>
-                        <div class="form-group">
-                            <a href="#"> هل نسيت كلمة السر؟</a>
-                        </div>
-                         <button type="تسجيل الدخول" class="btn btn-danger" style="width:20rem">تسجيل الدخول</button>
-                    </form>
+    <div class="over"></div>
+    <div class="container pt-5 position-relative">
+        <h2 class="bg-color-3 d-inline-block px-3 py-1 f-30 font-cairo text-light">تسجيل الدخول</h2> 
+            <div class="row justify-content-center mt-3">
+                <form class="login col-lg-6 col-sm-12 col-xs-12 d-block p-5 mt-5 rounded mb-5" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
+                    <div class="form-group pt-3 pb-2">
+                        <input type="email" name="email" class="form-control rounded-0 px-3 py-3 font-cairo" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الإلكتروني ">
                     </div>
-                </div>
-           </div>
-
+                    <div class="form-group pt-4">
+                        <input type="password" name="password" class="form-control rounded-0 px-3 py-3 font-cairo" id="exampleInputPassword1" placeholder="الرقم السري">
+                    </div>
+                    <div class="form-group pt-4 pb-5">
+                        <a href="#" class="font-cairo"> هل نسيت كلمة السر؟</a>
+                    </div>
+                    <button type="تسجيل الدخول" class="btn btn-danger d-block w-100 mb-3 py-2 font-cairo f-18">تسجيل الدخول</button>
+                </form>
+            </div>
+    </div>  
+</header>
     
 <?php
     include $tempDir . 'footer.php';

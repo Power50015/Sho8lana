@@ -80,7 +80,7 @@
                 
                 
                 <div class="col-md-4">
-                     <img src="Desings\Img\lady.png" width="560" height="450" alt="">
+                     <img src="<?=($imgDir)?>lady.png" width="560" height="450" alt="">
                 </div>
             
             </div>
