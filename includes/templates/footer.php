@@ -1,7 +1,8 @@
      
-                <div class="container bg-secondary ">
-                <div class="row text-white ">
-                    <div class="col py-5">
+                <div class=" bg-secondary ">
+                <div class="row justify-content-center text-white ">
+                   
+                    <div class="col-md-2 py-5 ">
                     <spin class="f-30">شغلانه</spin><br>
                        <div class="mt-3">
                          <a href="#" class=" text-white">من نحن</a><br>
@@ -13,7 +14,7 @@
                     </div>
                     
                     
-                    <div class="col py-5">
+                    <div class="col-md-2 py-5">
                     <spin class="f-30">اقسام الموقع</spin><br>    
                        <div class="mt-3"> 
                           <a href="#" class="text-white">برمجه</a><br>
@@ -25,7 +26,7 @@
                     </div>
                   
                     
-                    <div class="col py-5 ">
+                    <div class="col-md-2 py-5 ">
                     <spin class="f-30">وسائل الدفع</spin><br>
                         <div class="mt-3">
                            <a href="#" class="text-white" style="font-size:3em;"><i class="fab fa-cc-paypal"></i></a>
@@ -33,26 +34,20 @@
                     </div>
                    
                     
-                    <div class="col py-5">   
+                    <div class="col-md-2 py-5">   
                     <spin class="f-30">تابعنا</spin><br> 
                         <div class="mt-3">
-                          <a href="#" class="text-white" style="font-size:2em;"><i class="fab fa-facebook"></i></a>
-                          <a href="#" class="text-white" style="font-size:2em;"><i class="fab fa-twitter-square"></i></a> 
-                          <a href="#" class="text-white" style="font-size:2em;"><i class="fab fa-instagram"></i></a>
+                          <a href="#" class="text-white mr-2" style="font-size:2.5em;"><i class="fab fa-facebook"></i></a>
+                          <a href="#" class="text-white mr-2" style="font-size:2.5em;"><i class="fab fa-twitter-square"></i></a> 
+                          <a href="#" class="text-white" style="font-size:2.5em;"><i class="fab fa-instagram"></i></a>
                         <div class="mt-3">
                     </div>
+                        </div>
                 </div>
             </div>  
                     
                     
-        <div class="container bg-secondary">
-                    
-                    
-                    
-        </div>
-            
-        
-
+       
 
 
 

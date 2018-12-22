@@ -26,6 +26,7 @@ Tags:
 2.0 Navgation
 3.0 Layout
     3.1 Index Header Section
+    3.2 Login Section
 4.0 Media Queries
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -33,8 +34,14 @@ Tags:
 --------------------------------------------------------------*/
 .bg-color-1 { background: #fff !important }
 .bg-color-2 { background: #364559 !important }
-.bg-color-3 { background: #002233  !important }
+<<<<<<< HEAD
+.bg-color-4 { background: #002233;
+              background-size:empty
+             !important }
 
+=======
+.bg-color-3 { background: #ff3363 !important }
+>>>>>>> 4c68f46e05b8f90d613d1a307dcf36e3ee3b20cb
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
 .font-cairo { font-family: 'Cairo', sans-serif }
@@ -42,11 +49,17 @@ Tags:
 .f-18 { font-size: 18px }
 .f-24 { font-size: 24px }
 .f-30 { font-size: 30px }
+<<<<<<< HEAD
 .f-70 { font-size: 73px }
 .f-85 { font-size:85px  }
 .font-700 { font-weight: 700 }
 .c{ margin-top: 50px;}   
 
+=======
+.f-70 {font-size: 70px  }
+.font-700 { font-weight: 700 } 
+.opc-40 {opacity: 0.4}
+>>>>>>> 4c68f46e05b8f90d613d1a307dcf36e3ee3b20cb
 .over {
     width: 100%;
     position: absolute;
@@ -54,22 +67,6 @@ Tags:
     opacity: 0.4;
     z-index: 100
 }
-.loginbox{ 
-       position: absolute;
-       transform: translate(-50%,-50%);
-       margin-top: 50%;
-       right: 40%;
-       height: 300PX;
-       width: 350PX;
-       box-sizing: border-box;
-       box-decoration-break:slice;
-       background: rgb(192,192,192,.5)
-       
-    
-}
-.form-1{
-      background: lightgrey;
-     }
 .icon2{
             font-size: 3em;
             margin-right:40%;
@@ -79,6 +76,7 @@ Tags:
     position: absolute;
     box-sizing: border-box;
     box-decoration-break: slice;
+<<<<<<< HEAD
     background: rgba(0,0,0,.5);
     width:1000px
     
@@ -87,6 +85,9 @@ Tags:
 }
 form{
     margin-top:40px;
+=======
+    background: rgba(0,0,0,.5)
+>>>>>>> 4c68f46e05b8f90d613d1a307dcf36e3ee3b20cb
 }
 
 /*--------------------------------------------------------------
@@ -119,3 +120,11 @@ header .container { z-index: 200 }
     font-size: 60px;
     color: beige;
 }
+/*--------------------------------------------------------------
+3.2 Login Section
+--------------------------------------------------------------*/
+.login{ 
+    background: rgba(253, 245, 245, 0.5);
+    padding-left: 30px !important;
+    padding-right: 30px !important
+ }
