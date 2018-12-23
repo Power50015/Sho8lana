@@ -78,7 +78,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item p-1" href="#">
                                 <div class="profile-link">
-                                    <img src ="upload/1.jpg" class="profile-img">
+                                    <img src ="upload/2.jpg" class="profile-img">
                                     <span class="pl-2"><?=($_SESSION['Username'])?></span>
                                 </div>
                             </a>

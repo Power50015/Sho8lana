@@ -34,10 +34,8 @@ Tags:
 --------------------------------------------------------------*/
 .bg-color-1 { background: #fff !important }
 .bg-color-2 { background: #364559 !important }
-.bg-color-4 { background: #002233;
-              background-size:empty
-             !important }
 .bg-color-3 { background: #ff3363 !important }
+.bg-color-4 { background: #002233 !important }
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
 .font-cairo { font-family: 'Cairo', sans-serif }
@@ -48,7 +46,6 @@ Tags:
 .f-70 { font-size: 73px }
 .f-85 { font-size:85px  }
 .font-700 { font-weight: 700 }
-.c{ margin-top: 50px;}   
 .f-70 {font-size: 70px  }
 .font-700 { font-weight: 700 } 
 .opc-40 {opacity: 0.4}
@@ -71,10 +68,6 @@ Tags:
     background: rgba(0,0,0,.5);
     width:1000px
 }
-form{
-    margin-top:40px;
-    background: rgba(0,0,0,.5)
-}
 /*--------------------------------------------------------------
 2.0 Navgation
 --------------------------------------------------------------*/
@@ -86,8 +79,10 @@ nav .boder {
     padding: 3px 8px 0px;
     border-radius: 5px
 }
+nav .dropdown-menu.show { left:-5px }
 nav .profile-link .profile-img {
     width: 48px;
+    height: 48px;
     border-radius: 50%
 }
 /*--------------------------------------------------------------
@@ -113,3 +108,7 @@ header .container { z-index: 200 }
     padding-left: 30px !important;
     padding-right: 30px !important
  }
+.login form{
+    margin-top:40px;
+    background: rgba(0,0,0,.5)
+}

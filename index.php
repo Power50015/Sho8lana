@@ -15,16 +15,18 @@
 
 ?>
 <!-- But Your Code Here -->
+<!-- Start The Header Section -->
     <header>
-        <!-- section 1-->
         <div class="over"></div>
         <div class="container position-relative">
             <div class="d-flex align-items-center font-cairo">
             <p class="font-color-2 f-70"> <span class="font-color-1 f-85 ">انجز </span>مشاريعك <br> بالاعتماد على <br> توظيف مستقلين <br> محترفين </p> 
             </div>
         </div>
-        <!-- section 2-->
-        <div class="bg-light">
+    </header>
+<!-- End The Header Section -->
+<!-- Start Why us Section -->
+    <section class="bg-light why-us">
             <div class="container ">
                
             <div class="row">
@@ -86,7 +88,7 @@
         
         </div>
             
-        </div>
+        </section>
        
         
         
@@ -120,8 +122,6 @@
         </div>
         
         </div> 
-        
-    </header>
 <?php
     include $tempDir . 'footer.php';
 ?>
