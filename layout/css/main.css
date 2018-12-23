@@ -41,13 +41,14 @@ Tags:
 .font-color-2 { color:#fff }
 .font-cairo { font-family: 'Cairo', sans-serif }
 .font-changa { font-family: 'Changa', sans-serif }
+.f-2  { font-size: 2.5em}
+.f-3  { font-size: 3em  }
 .f-18 { font-size: 18px }
 .f-24 { font-size: 24px }
 .f-30 { font-size: 30px }
-.f-70 { font-size: 73px }
+.f-70 { font-size: 70px }
+.f-73 { font-size: 73px }
 .f-85 { font-size:85px  }
-.font-700 { font-weight: 700 }
-.f-70 {font-size: 70px  }
 .font-700 { font-weight: 700 } 
 .opc-40 {opacity: 0.4}
 .over {

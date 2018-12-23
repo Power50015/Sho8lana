@@ -28,12 +28,33 @@
 <!-- Start Why us Section -->
     <section class="bg-light why-us">
             <div class="container ">
-               
-            <div class="row">
-                <div class="col c">
-                    <h2 ><span class="badge badge-danger "> لماذا نحن </span></h2>
+                 <div class="row">
+                 <div class="box">
+                 <p class="font-color-2 f-10 font-cairo text-center"> <span class="font-color-1 f-30">إبحث</span>عن خدمات لتنجزها  </p> 
+                    <form>  
+                        <div class="row">
+                        <div class="col">
+                        <div class="form-group">
+                           <select class="form-control bg-dark font-color-2 " id="exampleFormControlSelect1">
+                           <option >القسم/option>
+                           <option>برمجة </option>
+                           <option>تسويق </option>
+                           <option>ترجمة</option>
+                           <option>تصميم</option>
+                           </select>
+                           </div>
+                        </div>
+                        <div class="col">
+                              <button type="إبحث" class="btn btn-dark font-color-2">إبحث</button>
+
+                        </div>
+                </div>  
+             </form>
+        </div>
+        </div>
+        <div class="row" >
+            <h2 class="bg-color-3 d-inline-block px-3 py-5 f-30 font-cairo text-light">لماذا نحن</h2> 
                 </div>
-            </div>
             <div class="row c">
                 <div class="col-md-7">
                     <div class="row">
@@ -96,32 +117,7 @@
         
         
         
-         <div class="container">
-         <div class="box">
-                <p class="font-color-2 f-10 font-cairo text-center"> <span class="font-color-1 f-30">إبحث</span>عن خدمات لتنجزها  </p> 
-                    <form>
-                        
-                        <div class="row">
-                        <div class="col">
-                        <div class="form-group">
-                           <select class="form-control bg-dark font-color-2 " id="exampleFormControlSelect1">
-                           <option >القسم/option>
-                           <option>برمجة </option>
-                           <option>تسويق </option>
-                           <option>ترجمة</option>
-                           <option>تصميم</option>
-                           </select>
-                           </div>
-                        </div>
-                        <div class="col">
-                              <button type="إبحث" class="btn btn-dark font-color-2">إبحث</button>
-
-                        </div>
-                </div>  
-             </form>
-        </div>
-        
-        </div> 
+     
 <?php
     include $tempDir . 'footer.php';
 ?>

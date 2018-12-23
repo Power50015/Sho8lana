@@ -58,7 +58,7 @@
                                 <span class="pl-1"> تسجيل الدخول </span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="sing.php">
                                 <i class="fas fa-user-edit"></i>
                                 <span class="pl-1"> حساب جديد </span>
                             </a>

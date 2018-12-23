@@ -10,7 +10,9 @@
     include 'init.php';
 
     $pageTitle = 'تسجيل الدخول';
-    
+
+    include $tempDir . 'header.php';
+
 ?>
 
 <!-- But Yur Code Here -->
