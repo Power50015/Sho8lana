@@ -34,14 +34,10 @@ Tags:
 --------------------------------------------------------------*/
 .bg-color-1 { background: #fff !important }
 .bg-color-2 { background: #364559 !important }
-<<<<<<< HEAD
 .bg-color-4 { background: #002233;
               background-size:empty
              !important }
-
-=======
 .bg-color-3 { background: #ff3363 !important }
->>>>>>> 4c68f46e05b8f90d613d1a307dcf36e3ee3b20cb
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
 .font-cairo { font-family: 'Cairo', sans-serif }
@@ -49,17 +45,13 @@ Tags:
 .f-18 { font-size: 18px }
 .f-24 { font-size: 24px }
 .f-30 { font-size: 30px }
-<<<<<<< HEAD
 .f-70 { font-size: 73px }
 .f-85 { font-size:85px  }
 .font-700 { font-weight: 700 }
 .c{ margin-top: 50px;}   
-
-=======
 .f-70 {font-size: 70px  }
 .font-700 { font-weight: 700 } 
 .opc-40 {opacity: 0.4}
->>>>>>> 4c68f46e05b8f90d613d1a307dcf36e3ee3b20cb
 .over {
     width: 100%;
     position: absolute;
@@ -76,20 +68,13 @@ Tags:
     position: absolute;
     box-sizing: border-box;
     box-decoration-break: slice;
-<<<<<<< HEAD
     background: rgba(0,0,0,.5);
     width:1000px
-    
-    
-
 }
 form{
     margin-top:40px;
-=======
     background: rgba(0,0,0,.5)
->>>>>>> 4c68f46e05b8f90d613d1a307dcf36e3ee3b20cb
 }
-
 /*--------------------------------------------------------------
 2.0 Navgation
 --------------------------------------------------------------*/
