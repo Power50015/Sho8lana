@@ -1,9 +1,9 @@
-     
-                <div class=" bg-secondary ">
-                <div class="row justify-content-center text-white ">
+<footer class=" bg-secondary ">
+    <div class="container">
+        <div class="row text-white ">
                    
-                    <div class="col-md-2 py-5 ">
-                    <spin class="f-30">شغلانه</spin><br>
+                    <div class="col-md-3 py-5 ">
+                    <h2 class="f-30">شغلانه</h2>
                        <div class="mt-3">
                          <a href="#" class=" text-white">من نحن</a><br>
                          <a href="#" class="text-white">تواصل معنا</a><br>
@@ -14,7 +14,7 @@
                     </div>
                     
                     
-                    <div class="col-md-2 py-5">
+                    <div class="col-md-3 py-5">
                     <spin class="f-30">اقسام الموقع</spin><br>    
                        <div class="mt-3"> 
                           <a href="#" class="text-white">برمجه</a><br>
@@ -26,7 +26,7 @@
                     </div>
                   
                     
-                    <div class="col-md-2 py-5 ">
+                    <div class="col-md-3 py-5 ">
                     <spin class="f-30">وسائل الدفع</spin><br>
                         <div class="mt-3">
                            <a href="#" class="text-white" style="font-size:3em;"><i class="fab fa-cc-paypal"></i></a>
@@ -34,7 +34,7 @@
                     </div>
                    
                     
-                    <div class="col-md-2 py-5">   
+                    <div class="col-md-3 py-5">   
                     <spin class="f-30">تابعنا</spin><br> 
                         <div class="mt-3">
                           <a href="#" class="text-white mr-2" style="font-size:2.5em;"><i class="fab fa-facebook"></i></a>
@@ -44,7 +44,8 @@
                     </div>
                         </div>
                 </div>
-            </div>  
+    </div>
+</footer>  
                     
                     
        
