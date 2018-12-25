@@ -52,10 +52,10 @@
             <div class="row justify-content-center mt-3">
                 <form class="login col-lg-6 col-sm-12 col-xs-12 d-block p-5 mt-5 rounded mb-5" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
                     <div class="form-group pt-3 pb-2">
-                        <input type="email" name="email" required class="form-control rounded-0 px-3 py-3 font-cairo" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الإلكتروني ">
+                        <input type="email" name="email" required class="form-control rounded-0 px-3 py-3 font-cairo" aria-describedby="emailHelp" placeholder="البريد الإلكتروني ">
                     </div>
                     <div class="form-group pt-4">
-                        <input type="password" name="password" required class="form-control rounded-0 px-3 py-3 font-cairo" id="exampleInputPassword1" placeholder="الرقم السري">
+                        <input type="password" name="password" required class="form-control rounded-0 px-3 py-3 font-cairo" placeholder="الرقم السري">
                     </div>
                     <?php if(isset($loginError)){?>
                         <div class="alert alert-danger m-0 p -0 rounded-0" role="alert">

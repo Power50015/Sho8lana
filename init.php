@@ -7,6 +7,6 @@
     $tempDir        =   'includes/templates/';
     $functionDir    =   'includes/functions/';
 
+    include 'config.php';
 
     include $functionDir    . 'functions.php';
-    include 'config.php';

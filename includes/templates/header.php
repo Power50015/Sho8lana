@@ -49,7 +49,7 @@
                     ?>
 
                     <div class="dropdown form-inline my-2 my-lg-0">
-                        <a class="nav-link f-24 font-color-1 boder" href="ads.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link f-24 font-color-1 boder" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-align-center"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
