@@ -126,6 +126,6 @@ header .container { z-index: 200 }
 3.3 information Section
 --------------------------------------------------------------*/
 .personal-img {
-    width: 300px;
-    height: 300px;
+    height: 380px;
+    overflow: hidden
 }
