@@ -24,8 +24,8 @@ Tags:
 ----------------------------------------------------------------
 1.0 Typography & Colors 
 2.0 Navgation
-3.0 Layout
-    3.1 Index Header Section
+3.0 Layouts
+    3.1 Header Section
     3.2 Login Section
 4.0 Media Queries
 --------------------------------------------------------------*/
@@ -37,6 +37,7 @@ Tags:
 .bg-color-3 { background: #ff3363 !important }
 .bg-color-4 { background: #36455A !important }
 .bg-color-5 { background: #949293 !important }
+.bg-color-6 { background: rgb(255, 51, 99, 0.4) !important }
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
 .font-cairo { font-family: 'Cairo', sans-serif }
@@ -58,6 +59,9 @@ Tags:
     opacity: 0.4;
     z-index: 100
 }
+.h-500 {height: 400px}
+
+/* ايه دا !!!!!!!!!!!!!!!!!*/
 .icon2{
             font-size: 3em;
             margin-right:40%;
@@ -70,6 +74,9 @@ Tags:
     background: rgba(0,0,0,.5);
     width:1000px
 }
+/* ايه دا !!!!!!!!!!!!!!!!!*/
+
+
 /*--------------------------------------------------------------
 2.0 Navgation
 --------------------------------------------------------------*/
@@ -91,13 +98,14 @@ nav .profile-link .profile-img {
 3.0 Layout
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-3.1 Index Header Section
+3.1 Header Section
 --------------------------------------------------------------*/
 header {
     background-image: url(../img/bg.jpg);
     background-size: cover
 }
 header .container { z-index: 200 }
+
 .d-60{
     font-size: 60px;
     color: beige;
@@ -113,4 +121,11 @@ header .container { z-index: 200 }
 .login form{
     margin-top:40px;
     background: rgba(0,0,0,.5)
+}
+/*--------------------------------------------------------------
+3.3 information Section
+--------------------------------------------------------------*/
+.personal-img {
+    width: 300px;
+    height: 300px;
 }

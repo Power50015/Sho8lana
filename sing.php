@@ -107,7 +107,7 @@
 
 <!-- But Yur Code Here -->
 
-<header>
+<header id='fullHeader'>
     <div class="over"></div>
     <div class="container pt-5 position-relative">
         <h2 class="bg-color-3 d-inline-block px-3 py-1 f-30 font-cairo text-light">أنشاء حساب جديد</h2> 

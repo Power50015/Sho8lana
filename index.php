@@ -16,12 +16,10 @@
 ?>
 <!-- But Your Code Here -->
 <!-- Start The Header Section -->
-    <header>
+    <header id='fullHeader'>
         <div class="over"></div>
-        <div class="container position-relative">
-            <div class="d-flex align-items-center font-cairo">
-            <p class="font-color-2 f-70"> <span class="font-color-1 f-85 ">انجز </span>مشاريعك <br> بالاعتماد على <br> توظيف مستقلين <br> محترفين </p> 
-            </div>
+        <div class="container position-relative d-flex align-items-center font-cairo">
+            <h1 class="font-color-2 f-70"> <span class="font-color-1 f-85 ">انجز </span>مشاريعك <br> بالاعتماد على <br> توظيف مستقلين <br> محترفين </h1> 
         </div>
     </header>
 <!-- End The Header Section -->
