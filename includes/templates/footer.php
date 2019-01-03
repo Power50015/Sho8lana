@@ -52,6 +52,8 @@
         <script src = "<?=($jsDir)?>jquery.js" ></script>
         <script src = "<?=($jsDir)?>popper.min.js" ></script>
         <script src = "<?=($jsDir)?>bootstrap.min.js" ></script>
+        <!--Upload Btn Plg-->
+        <script src = "<?=($jsDir)?>input-file.js" ></script>
         <!--My Js-->
         <script src = "<?=($jsDir)?>main.js" ></script>
     </body>
