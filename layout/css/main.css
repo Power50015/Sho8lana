@@ -38,10 +38,11 @@ Tags:
 .bg-color-4 { background: #36455A !important }
 .bg-color-5 { background: #949293 !important }
 .bg-color-6 { background: rgb(255, 51, 99, 0.4) !important }
+.bg-color-7 {background: #D7D7D9 !important}
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
-.font-cairo { font-family: 'Cairo', sans-serif }
-.font-changa { font-family: 'Changa', sans-serif }
+.font-cairo,h1,h2,h3,h4,h5,h6 { font-family: 'Cairo', sans-serif }
+.font-changa,p { font-family: 'Changa', sans-serif }
 .f-2  { font-size: 2.5em}
 .f-3  { font-size: 3em  }
 .f-18 { font-size: 18px }
@@ -59,8 +60,12 @@ Tags:
     opacity: 0.4;
     z-index: 100
 }
-.h-500 {height: 400px}
-
+.h-200 {height: 200px}
+.h-500 {height: 500px}
+.hover:hover {
+    cursor: pointer;
+    color: #949293
+}
 /* ايه دا !!!!!!!!!!!!!!!!!*/
 .icon2{
             font-size: 3em;
@@ -106,10 +111,15 @@ header {
 }
 header .container { z-index: 200 }
 
+
+
+
 .d-60{
     font-size: 60px;
     color: beige;
 }
+
+
 /*--------------------------------------------------------------
 3.2 Login Section
 --------------------------------------------------------------*/
@@ -126,11 +136,11 @@ header .container { z-index: 200 }
 3.3 information Section
 --------------------------------------------------------------*/
 .personal-img {
-    height: 380px;
+    height: 250px;
     overflow: hidden
 }
+.personal-img img { z-index: 3}
 .personal-img:hover { cursor: pointer }
-.personal-img img   { z-index: 3 }
 .personal-img .over { z-index: -5 }
 .personal-img:hover .over { z-index: 1000 }
 /*Start Upload Btn */
