@@ -57,6 +57,7 @@
     </div>
 </section>
 <!--End info Section -->
+
 <!--Start certfcate Section -->
 <section class="w-100 bg-color-7 certfcate">
     <div class="container py-5">
@@ -105,6 +106,7 @@
     </div>
 </section>
 <!--End certfcate Section -->
+
 <!--Start dashbord Section -->
 <section class="w-100 bg-color-2 dashbord">
    <div class="container pb-4">
@@ -155,17 +157,49 @@
     </div>
 </section>
 <!--End dashbord Section -->
+
 <!--Start Portfoilo Section -->
 <section class="w-100 bg-color-7 portfoilo">
     <div class="container py-5">
-       <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2"></h2>
+       <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">أعمال سابقه</h2>
        <div>
           <a href="#" class="btn-add"><i class="fas fa-plus"></i></a>
           <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
        </div>
+       <div class="row">
+           <div class="col-lg-3 col-sm-5">
+              <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
+                  <img src="upload/port/3.jpg" class="w-100 h-200">
+                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
+                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
+              </div>
+           </div>
+           <div class="col-lg-3 col-sm-5">
+              <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
+                  <img src="upload/port/j.jpg" class="w-100 h-200">
+                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
+                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
+              </div>
+           </div>
+           <div class="col-lg-3 col-sm-5">
+              <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
+                  <img src="upload/port/M.jpg" class="w-100 h-200">
+                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
+                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
+              </div>
+           </div>
+           <div class="col-lg-3 col-sm-5">
+              <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
+                  <img src="upload/port/5.jpg" class="w-100 h-200">
+                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
+                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
+              </div>
+           </div>
+       </div>
     </div>
 </section>
 <!--End Portfoilo Section -->
+
 <!-- Start Modals -->
 <!-- Start personal-img Model -->
 <div class="modal fade" id="personal-img" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
