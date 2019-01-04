@@ -21,7 +21,7 @@
     </div>
 </header>
 <!--Start info Section -->
-<section class="personal-info py-5">
+<section class="personal-info bg-color-8 py-5">
     <div class="container">
         <div class="row px-5 mb-0">
            <!--Start Img Section -->
@@ -39,17 +39,17 @@
         </div>
         <div class="row justify-content-between">
            <!--Start Btns Section -->
-            <div class="hover col-lg-3 col-sm-12 font-color-2 bg-color-3 px-4 font-700 mt-lg-5 py-3 text-center mb-3" data-toggle="modal" data-target="#website">
+            <div class="hover col-lg-3 col-sm-12 font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center mb-3" data-toggle="modal" data-target="#website">
                 الموقع الشخصي
             </div>
             <!--End Btns Section -->
             <!--Start Btns Section -->
-            <div class="hover col-lg-3 col-sm-12 font-color-2 bg-color-3 px-4 font-700 mt-lg-5 py-3 text-center mb-3" data-toggle="modal" data-target="#paybal">
+            <div class="hover col-lg-3 col-sm-12 font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center mb-3" data-toggle="modal" data-target="#paybal">
                 paybal
             </div>
             <!--End Btns Section -->
             <!--Start Btns Section -->
-            <a href="#" class="hover col-lg-3 col-sm-12 font-color-2 bg-color-3 px-4 font-700 mt-lg-5 py-3 text-center d-block mb-3">
+            <a href="#" class="hover col-lg-3 col-sm-12 font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center d-block mb-3">
                 الرصيد
             </a>
             <!--End Btns Section -->
@@ -58,7 +58,50 @@
 </section>
 <!--End info Section -->
 <!--Start certfcate Section -->
-<section class="h-200 w-100 bg-color-7"></section>
+<section class="w-100 bg-color-7 certfcate">
+    <div class="container py-5">
+       <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">المهارات</h2>
+       <div>
+          <a href="#" class="btn-add"><i class="fas fa-plus"></i></a>
+          <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
+       </div>
+       <div class="row justify-content-between mb-5 mt-3">
+           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="fab fa-html5 d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span></div>
+           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="d-block w-100 h-100 text-center bg-color-1 p-2 f-40 font-700">تصميم مواقع</span></div>
+           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="fab fa-css3 d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span></div>
+           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class=" d-block w-100 h-100 text-center bg-color-1 p-2 f-40 font-700">تسويق</span></div>
+           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="fab fa-node-js d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span></div>
+       </div>
+       <hr class="bg-color-3 mb-5">
+       <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">الشهادات</h2>
+       <div>
+         <a href="#" class="btn-add"><i class="fas fa-plus"></i></a>
+         <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
+        </div>
+       <div class="row justify-content-between mb-5 mt-3">
+           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
+               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Html5 Cer</h4>
+               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
+           </div>
+           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
+               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">CSS3 Cer</h4>
+               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
+           </div>
+           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
+               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Markteing Cer</h4>
+               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
+           </div>
+           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
+               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Comunic Cer</h4>
+               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
+           </div>
+           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
+               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Html5 Cer</h4>
+               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
+           </div>
+       </div>
+    </div>
+</section>
 <!--End certfcate Section -->
 
 

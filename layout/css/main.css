@@ -27,6 +27,8 @@ Tags:
 3.0 Layouts
     3.1 Header Section
     3.2 Login Section
+    3.3 information Section
+    3.4 Certfcate Section
 4.0 Media Queries
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -38,9 +40,13 @@ Tags:
 .bg-color-4 { background: #36455A !important }
 .bg-color-5 { background: #949293 !important }
 .bg-color-6 { background: rgb(255, 51, 99, 0.4) !important }
-.bg-color-7 {background: #D7D7D9 !important}
+.bg-color-7 { background: #D7D7D9 !important}
+.bg-color-8 { background: #EEEEEE !important}
+.bg-color-9 { background: #FF5E87 !important}
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
+.font-color-3 { color: #364559 !important }
+.font-color-4 { color: #949293 !important }
 .font-cairo,h1,h2,h3,h4,h5,h6 { font-family: 'Cairo', sans-serif }
 .font-changa,p { font-family: 'Changa', sans-serif }
 .f-2  { font-size: 2.5em}
@@ -48,9 +54,11 @@ Tags:
 .f-18 { font-size: 18px }
 .f-24 { font-size: 24px }
 .f-30 { font-size: 30px }
+.f-40 { font-size: 40px }
 .f-70 { font-size: 70px }
 .f-73 { font-size: 73px }
 .f-85 { font-size:85px  }
+.f-140 { font-size: 140px }
 .font-700 { font-weight: 700 } 
 .opc-40 {opacity: 0.4}
 .over {
@@ -60,8 +68,9 @@ Tags:
     opacity: 0.4;
     z-index: 100
 }
-.h-200 {height: 200px}
-.h-500 {height: 500px}
+.h-90 { height: 90px }
+.h-200 { height: 200px }
+.h-500 { height: 500px }
 .hover:hover {
     cursor: pointer;
     color: #949293
@@ -151,33 +160,42 @@ header .container { z-index: 200 }
     width: 300px;
     margin: auto;
     display: block;
-    border: 2px solid #555;
+    border: 2px solid #555
   }
 .btn-tertiary:hover, .btn-tertiary:focus {
     color: #888888;
-    border-color: #888888;
+    border-color: #888888
 }
-/* input file style */
 .input-file {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
     overflow: hidden;
     position: absolute;
-    z-index: -1;
+    z-index: -1
 }
 .input-file + .js-labelFile {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 0 10px;
-    cursor: pointer;
+    cursor: pointer
 }
-.input-file + .js-labelFile .icon:before {
-    content: "\f093";
-}
+.input-file + .js-labelFile .icon:before { content: "\f093" }
 .input-file + .js-labelFile.has-file .icon:before {
     content: "\f00c";
-    color: #5AAC7B;
+    color: #5AAC7B
 }
 /*End Upload Btn */
+/*--------------------------------------------------------------
+3.4 Certfcate Section
+--------------------------------------------------------------*/
+.certfcate .btn-add {
+    color: #FF3167;
+    display: inline-block;
+    padding: 0px 5px;
+    margin: 7px;
+    border: 4px solid #eee;
+    font-size: 20px;
+    font-weight: 900
+}
