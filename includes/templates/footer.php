@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12 py-md-5 px-md-2">   
                     <h2 class="f-30">تابعنا</h2>
-                        <ul>
+                        <ul class="p-0">
                            <li class=" d-inline"><a href="https://fb.com" class="text-white mr-2 f-2" ><i class="fab fa-facebook"></i></a></li>
                            <li class="d-inline"><a href="https://twitter.com" class="text-white mr-2 f-2 " ><i class="fab fa-twitter-square"></i></a></li>
                            <li class="d-inline" ><a href="https://instagram.com" class="text-white f-2" ><i class="fab fa-instagram"></i></a></li>

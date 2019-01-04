@@ -37,20 +37,20 @@
             </div>
             <!--End Name Section -->
         </div>
-        <div class="row justify-content-between">
+        <div class="row">
            <!--Start Btns Section -->
-            <div class="hover col-lg-3 col-sm-12 font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center mb-3" data-toggle="modal" data-target="#website">
-                الموقع الشخصي
+            <div class="col-lg-4 col-sm-12" data-toggle="modal" data-target="#website">
+                <h5 class="hover font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center mb-3">الموقع الشخصي</h5>
             </div>
             <!--End Btns Section -->
             <!--Start Btns Section -->
-            <div class="hover col-lg-3 col-sm-12 font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center mb-3" data-toggle="modal" data-target="#paybal">
-                paybal
+            <div class="col-lg-4 col-sm-12" data-toggle="modal" data-target="#paybal">
+               <h5 class="hover font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center mb-3">paybal</h5>
             </div>
             <!--End Btns Section -->
             <!--Start Btns Section -->
-            <a href="#" class="hover col-lg-3 col-sm-12 font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center d-block mb-3">
-                الرصيد
+            <a href="#" class="col-lg-4 col-sm-12 hover">
+                <h5 class="hover font-color-2 bg-color-9 px-4 font-700 mt-lg-5 py-3 text-center mb-3">الرصيد</h5>
             </a>
             <!--End Btns Section -->
         </div>
@@ -66,7 +66,9 @@
           <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
        </div>
        <div class="row justify-content-between mb-5 mt-3">
-           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="fab fa-html5 d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span></div>
+           <div class="col-lg-2 col-sm-6 mb-2 mt-2">
+               <span class="fab fa-html5 d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span>
+           </div>
            <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="d-block w-100 h-100 text-center bg-color-1 p-2 f-40 font-700">تصميم مواقع</span></div>
            <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="fab fa-css3 d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span></div>
            <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class=" d-block w-100 h-100 text-center bg-color-1 p-2 f-40 font-700">تسويق</span></div>
@@ -103,10 +105,68 @@
     </div>
 </section>
 <!--End certfcate Section -->
-
-
+<!--Start dashbord Section -->
+<section class="w-100 bg-color-2 dashbord">
+   <div class="container pb-4">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <div class="text-center mt-5 rounded bg-color-8 p-1 mb-4">
+                    <a href="#" class="hover2 d-block py-5 font-700 f-30 font-color-3">الخدمات المطلوبه <span>10</span></a>
+                    <a href="#" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">اضافه خدمه جديده</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="text-center mt-5 rounded bg-color-8 p-1 mb-4">
+                    <a href="#" class="hover2 d-block py-5 font-700 f-30 font-color-3">العروض المطلوبه <span>8</span></a>
+                    <a href="#" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">تصفح العروض</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+               <div class="text-center my-3 bg-color-8 p-1">
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض تحت الانشاء <span>8</span></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+               <div class="text-center my-3 bg-color-8 p-1">
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض ملغيه <span>8</span></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+               <div class="text-center my-3 bg-color-8 p-1">
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض بأنتظار الرد <span>8</span></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+               <div class="text-center my-3 bg-color-8 p-1">
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">خدمات تحت الانشاء <span>8</span></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+               <div class="text-center my-3 bg-color-8 p-1">
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">الخدمات الملغيه <span>8</span></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+               <div class="text-center my-3 bg-color-8 p-1">
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">خدمات بأنتظار الرد <span>8</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End dashbord Section -->
+<!--Start Portfoilo Section -->
+<section class="w-100 bg-color-7 portfoilo">
+    <div class="container py-5">
+       <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2"></h2>
+       <div>
+          <a href="#" class="btn-add"><i class="fas fa-plus"></i></a>
+          <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
+       </div>
+    </div>
+</section>
+<!--End Portfoilo Section -->
 <!-- Start Modals -->
-
 <!-- Start personal-img Model -->
 <div class="modal fade" id="personal-img" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

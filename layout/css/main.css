@@ -71,10 +71,19 @@ Tags:
 .h-90 { height: 90px }
 .h-200 { height: 200px }
 .h-500 { height: 500px }
+/*Hover Effect 1*/
 .hover:hover {
-    cursor: pointer;
-    color: #949293
+    cursor: pointer !important;
+    color: #364559  !important;
+    text-decoration: none !important
 }
+/*Hover Effect 2*/
+.hover2:hover {
+    cursor: pointer !important;
+    color: #949293 !important;
+    text-decoration: none !important
+}
+
 /* ايه دا !!!!!!!!!!!!!!!!!*/
 .icon2{
             font-size: 3em;
