@@ -83,7 +83,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="dashboard.php">
                                 <i class="fas fa-info-circle"></i>
                                 <span class="pl-1"> لوحه التحكم  </span>
                             </a>

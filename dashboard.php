@@ -114,7 +114,7 @@
             <div class="col-lg-6 col-sm-12">
                 <div class="text-center mt-5 rounded bg-color-8 p-1 mb-4">
                     <a href="#" class="hover2 d-block py-5 font-700 f-30 font-color-3">الخدمات المطلوبه <span>10</span></a>
-                    <a href="#" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">اضافه خدمه جديده</a>
+                    <a href="services.php?do=add" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">اضافه خدمه جديده</a>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12">
