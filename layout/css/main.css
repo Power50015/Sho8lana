@@ -43,6 +43,7 @@ Tags:
 .bg-color-7 { background: #D7D7D9 !important}
 .bg-color-8 { background: #EEEEEE !important}
 .bg-color-9 { background: #FF5E87 !important}
+.bg-color-10 { background: rgb(54,69,90, 0.4) !important }
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
 .font-color-3 { color: #364559 !important }
@@ -83,23 +84,6 @@ Tags:
     color: #949293 !important;
     text-decoration: none !important
 }
-
-/* ايه دا !!!!!!!!!!!!!!!!!*/
-.icon2{
-            font-size: 3em;
-            margin-right:40%;
-            margin-top: 10%;
-      }
-.box {
-    position: absolute;
-    box-sizing: border-box;
-    box-decoration-break: slice;
-    background: rgba(0,0,0,.5);
-    width:1000px
-}
-/* ايه دا !!!!!!!!!!!!!!!!!*/
-
-
 /*--------------------------------------------------------------
 2.0 Navgation
 --------------------------------------------------------------*/
@@ -128,15 +112,6 @@ header {
     background-size: cover
 }
 header .container { z-index: 200 }
-
-
-
-
-.d-60{
-    font-size: 60px;
-    color: beige;
-}
-
 
 /*--------------------------------------------------------------
 3.2 Login Section
