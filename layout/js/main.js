@@ -2,12 +2,7 @@
 $(function () {
     'use strict';
 
-    var stringHeader, headerHeight, typed, error;
-    
-    error = typed();
-    
-    error = 1000;
-    
+    var stringHeader, headerHeight, typed;
     /*Start Header Section*/
     headerHeight = $(window).height() - $('nav').height();
     $('header#fullHeader').css("min-height", headerHeight);
@@ -32,7 +27,7 @@ $(function () {
         /**
          * @property {number} startDelay time before typing starts in milliseconds
          */
-        startDelay: error,
+        startDelay: 1000,
         /**
          * @property {number} backSpeed backspacing speed in milliseconds
          */
