@@ -90,4 +90,6 @@ $(function () {
         contentType: 'html'
     });
 
+    
+    $('#canter-ul').css('left', ($('.row').width() / -2));
 });

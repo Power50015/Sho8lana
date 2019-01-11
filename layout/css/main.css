@@ -29,6 +29,7 @@ Tags:
     3.2 Login Section
     3.3 information Section
     3.4 Certfcate Section
+    3.5 How it's Work Section Section
 4.0 Media Queries
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -67,7 +68,7 @@ body { background: #EEE}
 .f-140 { font-size: 140px }
 .font-700 { font-weight: 700 } 
 .opc-40 {opacity: 0.4}
-.of-y-x { overflow-y: hidden}
+.of-y-x { overflow: hidden}
 .border1 { border:2px solid #36455A }
 .over {
     width: 100%;
@@ -211,3 +212,37 @@ input[type="radio"] + label span, input[type="radio"]:checked + label span {
   -moz-transition: background-color 0.4s linear;
   transition: background-color 0.4s linear
 }
+/*--------------------------------------------------------------
+3.5 How it's Work Section Section
+--------------------------------------------------------------*/
+.how .list-group a.my-btn::after {
+    content: '';
+    width: 10px;
+    height: 100px;
+    display: block;
+    background: #eee;
+    position: relative;
+    left: -26px;
+    top: -1px
+}
+.how .list-group a i {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border:5px solid #D7D7D9 
+}/*
+.how .item2 {
+    left: -100px;
+    top: 160px;
+}
+.how .item3 {
+    top: 300px;
+}
+.how .item4 {
+    left: -100px;
+    top: 400px;
+}
+*/
+/*--------------------------------------------------------------
+4.0 Media Queries
+--------------------------------------------------------------*/
