@@ -94,7 +94,21 @@
     <div class=" container pt-5 pb-5">
         <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-5 mb-4 px-3 py-2 f-24 pr-5">كيف يعمل الموقع</h2>
         <div class="row position-relative">
-            <div class="position-relative" id="canter-ul">
+            <div class="tab-content col-4 offset-2" id="nav-tabContent">
+                <div class="tab-pane fade show active item1 position-relative" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div class="mb-5 p-0 font-color-3 text-center bg-color-11 m-1 col-10 p-3 rounded">
+                        <h5 class="f-20 font-700">قم بتسجيل الدخول</h5>
+                        <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade item3 position-relative" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    <div class="mb-5 p-0 font-color-3 text-center bg-color-11 m-1 col-10 p-3 rounded">
+                        <h5 class="f-20 font-700">أختر العرض</h5>
+                        <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2" id="canter-ul">
                 <div class="list-group" id="list-tab" role="tablist">
                     <a class="font-color-4 my-btn" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
                         <i class="fas fa-address-card f-30 border2 rounded-circle px-2 py-2"></i>
@@ -110,46 +124,46 @@
                     </a>
                 </div>
             </div>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active item1" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                    <div class="mb-5 p-0 font-color-3 text-center">
-                        <div class="bg-color-11 m-1 col-5 p-3 rounded">
-                            <h5 class="f-20 font-700">قم بتسجيل الدخول</h5>
-                            <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
-                        </div>
+            <div class="tab-content col-4" id="nav-tabContent">
+                <div class="tab-pane fade item2 position-relative" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    <div class="mb-5 p-0 font-color-3 text-center bg-color-11 m-1 col-10 p-3 rounded">
+                        <h5 class="f-20 font-700">أضف المشروع</h5>
+                        <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
                     </div>
                 </div>
-                <div class="tab-pane position-absolute fade item2" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                    <div class="mb-5 p-0 font-color-3 text-center">
-                        <div class="bg-color-11 m-1 col-5 p-3 rounded">
-                            <h5 class="f-20 font-700">أضف المشروع</h5>
-                            <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane position-absolute fade item3" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                    <div class="mb-5 p-0 font-color-3 text-center">
-                        <div class="bg-color-11 m-1 col-5 p-3 rounded">
-                            <h5 class="f-20 font-700">أختر العرض</h5>
-                            <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane position-absolute fade item4" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                    <div class="mb-5 p-0 font-color-3 text-center">
-                        <div class="bg-color-11 m-1 col-5 p-3 rounded">
-                            <h5 class="f-20 font-700">استلم المشروع</h5>
-                            <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
-                        </div>
+                <div class="tab-pane fade item4 position-relative" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    <div class="mb-5 p-0 font-color-3 text-center bg-color-11 m-1 col-10 p-3 rounded">
+                        <h5 class="f-20 font-700">استلم المشروع</h5>
+                        <p class="f-18">إذا كانت هذه اول مرة لك على الموقع فعليك بتسجيل الدخول لأول مره</p>
                     </div>
                 </div>
             </div>
+            <a href="sing.php" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-3 hover">سجل دخولك لاول مره الان من هنا</a>
         </div>
     </div>
 </section>
 <!-- End How it's Work Section Section -->
-<section class="h-200">
-
+<section class="">
+    <div class=" container pt-5 pb-5">
+        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-3 mb-4 px-3 py-2 f-24 pr-5">اجدد المشاريع</h2>
+        <p>تصفح مشاريعك و اضف عروضك على المشروع المناسب لك</p>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+        </div>
+    </div>
 </section>
 <?php
     include $tempDir . 'footer.php';

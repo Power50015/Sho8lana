@@ -230,19 +230,18 @@ input[type="radio"] + label span, input[type="radio"]:checked + label span {
     height: 60px;
     text-align: center;
     border:5px solid #D7D7D9 
-}/*
+}
 .how .item2 {
-    left: -100px;
+    position: relative;
     top: 160px;
 }
 .how .item3 {
     top: 300px;
 }
 .how .item4 {
-    left: -100px;
     top: 400px;
 }
-*/
+
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/

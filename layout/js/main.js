@@ -91,5 +91,5 @@ $(function () {
     });
 
     
-    $('#canter-ul').css('left', ($('.row').width() / -2));
+ //   $('#canter-ul').css('left', ($('.row').width() / -2));
 });
