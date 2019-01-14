@@ -1,4 +1,5 @@
-/*global $, window, Typed*/
+/* eslint-disable no-unused-vars */
+/*global $, window, Typed, some_unused_var*/
 $(function () {
     'use strict';
 
@@ -8,6 +9,8 @@ $(function () {
     $('header#fullHeader').css("min-height", headerHeight);
     $('header .d-flex').css("min-height", $('header').height());
     $('header .over').css("min-height", $('header').height());
+    
+    $('#indexSearch').css("margin-top", $('#indexSearch').height() / -2);
 
     //Typed.js is a library that types Plg
 
@@ -87,4 +90,6 @@ $(function () {
         contentType: 'html'
     });
 
+    
+ //   $('#canter-ul').css('left', ($('.row').width() / -2));
 });
