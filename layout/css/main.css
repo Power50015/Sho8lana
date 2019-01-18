@@ -241,7 +241,19 @@ input[type="radio"] + label span, input[type="radio"]:checked + label span {
 .how .item4 {
     top: 400px;
 }
-
+/*--------------------------------------------------------------
+3.5 Offers Section Section
+--------------------------------------------------------------*/
+.index-offers a {
+    color:#36455A
+}
+.index-offers .nav-link.active {
+    background-color: #eee !important;
+    border-radius: 0;
+    color:#36455A;
+    border-bottom: 2px solid #FF3364 
+}
+.index-offers hr { border-color: #FF5E87 }
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/

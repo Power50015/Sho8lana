@@ -143,28 +143,68 @@
     </div>
 </section>
 <!-- End How it's Work Section Section -->
-<section class="">
-    <div class=" container pt-5 pb-5">
+<!-- Start Offers Section Section -->
+<section class="index-offers font-color-3">
+    <div class=" container pt-5">
         <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-3 mb-4 px-3 py-2 f-24 pr-5">اجدد المشاريع</h2>
         <p>تصفح مشاريعك و اضف عروضك على المشروع المناسب لك</p>
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                <a class="nav-link active f-20" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">برمجه</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                <a class="nav-link f-20" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">ترجمه</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                <a class="nav-link f-20" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">تسويق</a>
             </li>
         </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+        <div class="tab-content bg-color-7 mb-5" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row pt-3">
+                    <div class="col-md-7 col-sm-10 offset-md-1">
+                        <a href="#"><h3 class="pl-3 font-700">تصميم موقع تجارى</h3></a>
+                        <h6 class="d-inline-block pl-3 font-700"><i class="far fa-grin-wink"></i> يوسف جو</h6>
+                        <h6 class="d-inline-block ml-4 font-700"><i class="far fa-clone"></i> 3 عروض</h6>
+                        <p class="w-100 bg-color-8 mt-3">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف</p>
+                    </div>
+                    <div class="col-3 order-img d-md-block d-none">
+                        <img class="w-100 mx-4 rounded-circle" src="upload/3c1f3f3aead0ac7e009ee9952e131647.png">
+                    </div>
+                </div>
+                <hr class="m-5">
+                <div class="row pt-3">
+                    <div class="col-md-7 col-sm-10 offset-md-1">
+                        <a href="#"><h3 class="pl-3 font-700">تصميم موقع تجارى</h3></a>
+                        <h6 class="d-inline-block pl-3 font-700"><i class="far fa-grin-wink"></i> يوسف جو</h6>
+                        <h6 class="d-inline-block ml-4 font-700"><i class="far fa-clone"></i> 3 عروض</h6>
+                        <p class="w-100 bg-color-8 mt-3">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف</p>
+                    </div>
+                    <div class="col-3 order-img d-md-block d-none">
+                        <img class="w-100 mx-4 rounded-circle" src="upload/3c1f3f3aead0ac7e009ee9952e131647.png">
+                    </div>
+                </div>
+                <hr class="m-5">
+                <div class="row pt-3">
+                    <div class="col-md-7 col-sm-10 offset-md-1">
+                        <a href="#"><h3 class="pl-3 font-700">تصميم موقع تجارى</h3></a>
+                        <h6 class="d-inline-block pl-3 font-700"><i class="far fa-grin-wink"></i> يوسف جو</h6>
+                        <h6 class="d-inline-block ml-4 font-700"><i class="far fa-clone"></i> 3 عروض</h6>
+                        <p class="w-100 bg-color-8 mt-3">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف</p>
+                    </div>
+                    <div class="col-3 order-img d-md-block d-none">
+                        <img class="w-100 mx-4 rounded-circle" src="upload/3c1f3f3aead0ac7e009ee9952e131647.png">
+                    </div>
+                </div>
+                <hr class="mx-5 mb-0 pb-0">
+            </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
         </div>
+        <a href="sing.php" class="btn btn-lg btn-block mt-3 mb-5 text-white bg-color-3 hover">تصفح جميع المشاريع</a>
     </div>
 </section>
+<!-- End Offers Section Section -->
 <?php
     include $tempDir . 'footer.php';
 ?>
