@@ -184,7 +184,11 @@
 
                 $_SESSION['ProfileImg'] = "upload/avatars/" . $avatar;
 
+                if($myFile != "upload/avatars/0.jpg"){
+
                 unlink($myFile) or die("Couldn't delete file");
+
+                }
 
             }
 

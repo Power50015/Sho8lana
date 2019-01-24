@@ -166,7 +166,7 @@
                         if(isset($succesMsg)) {
                             $_SESSION['Username'] = $username; // Register Session Name
                             $_SESSION['ID'] = $userId; // Register Session ID
-                            $_SESSION['ProfileImg'] = "0.jpg";
+                            $_SESSION['ProfileImg'] = "upload/avatars/0.jpg";
                             
                     ?>
                     <div class="alert m-0 rounded-0 alert-primary" role="alert">
