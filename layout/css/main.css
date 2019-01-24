@@ -177,6 +177,7 @@ header .container { z-index: 200 }
     content: "\f00c";
     color: #5AAC7B
 }
+.h-max-600 { max-height: 600px !important }
 /*End Upload Btn */
 /*--------------------------------------------------------------
 3.4 Certfcate Section
