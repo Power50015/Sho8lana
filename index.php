@@ -25,18 +25,30 @@
 <!-- End The Header Section -->
 <!-- Start Search Bar Section -->
 <section class=" container">
-    <form class="bg-color-10 py-3 mb-5 rounded" id="indexSearch">
+    <form class="bg-color-10 py-3 mb-5 rounded" id="indexSearch" action="services.php?read=<?=($_GET['cats'])?>" method="get">
         <h2 class="text-center font-700 font-color-2 font-700 f-30 mb-5"><span class="font-color-1 f-48">إبحث</span> عن خدمات لتنجزها</h2>
         <div class="row">
             <div class="col-1"></div>
-            <select required class="btn text-white bg-color-2 w-100 font-cairo f-18 col-4" id="inlineFormCustomSelectPref">
+            <select name="cats" required class="btn text-white bg-color-2 w-100 font-cairo f-18 col-4" id="inlineFormCustomSelectPref">
                 <option selected disabled>أختر القسم </option>
-                <option value="1">برمجه</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <?php 
+                    $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
+                    $stmt->execute();
+                    $cats = $stmt->fetchAll();
+                    foreach($cats as $x) {
+                        echo "<option value='" . $x['CatID'] . "'>" . $x['CatName'] . "</option>";
+                        $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
+                        $stmt2->execute();
+                        $subCats = $stmt2->fetchAll();
+                        foreach($subCats as $y) {
+                            echo "<option value='" . $y['CatID'] . "'>  -- " . $y['CatName'] . "</option>";
+                        }
+                    }
+
+                ?>
             </select>
             <div class="col-6">
-                <input type="submit" value="إبحث" name="signup" class="btn text-white bg-color-2 w-100 font-cairo f-24">
+                <input type="submit" value="إبحث"class="btn text-white bg-color-2 w-100 font-cairo f-24">
             </div>
             <div class="col-1"></div>
         </div>

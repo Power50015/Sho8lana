@@ -1,30 +1,36 @@
 <?php
 
-	/*
-	================================================
-	== Template Page
-	================================================
-	*/
+/*
+================================================
+== Template Page
+================================================
+*/
 
-	ob_start(); // Output Buffering Start
+ob_start(); // Output Buffering Start
 
-	session_start();
+session_start();
 
-	$pageTitle = 'الخدمات';
+$pageTitle = 'الخدمات';
 
-	if (isset($_SESSION['Username'])) {
+/*if (isset($_SESSION['Username'])) {*/
 
-        include 'init.php';
+include 'init.php';
+
+include $tempDir . 'header.php';
+
+if (isset($_GET['do'])) {
+    //To do GET Request Work you Must Be A User
+    if (isset($_SESSION['Username'])) {
         
-        include $tempDir . 'header.php';
-
-		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
-
-		if ($do == 'Manage') {
-
-		} elseif ($do == 'add') {
-
-        ?>
+        $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
+        
+        if ($do == 'Manage') {
+            
+            
+            
+        } elseif ($do == 'add') {
+           
+?>
         <header id='fullHeader'>
             <div class="over"></div>
             <div class="container pt-5 position-relative">
@@ -36,9 +42,20 @@
                             </div>
                             <select name="cats" required class="custom-select my-1 mr-sm-2 rounded-0 px-3" id="inlineFormCustomSelectPref">
                                 <option selected disabled>أختر القسم </option>
-                                <option value="1">برمجه</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <?php
+                                    $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
+                                    $stmt->execute();
+                                    $cats = $stmt->fetchAll();
+                                    foreach ($cats as $x) {
+                                        echo "<option value='" . $x['CatID'] . "'>" . $x['CatName'] . "</option>";
+                                        $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
+                                        $stmt2->execute();
+                                        $subCats = $stmt2->fetchAll();
+                                        foreach ($subCats as $y) {
+                                            echo "<option value='" . $y['CatID'] . "'>  -- " . $y['CatName'] . "</option>";
+                                        }
+                                    }
+                                ?>
                             </select>
                             <div class="form-group pt-4">
                                 <textarea required name="det" class="form-control rounded-0 px-3 py-3 font-cairo h-500" placeholder="تفاصيل المشروع"></textarea>
@@ -85,114 +102,118 @@
                                     <span class="js-fileName">اختر ملف للرفع</span>
                                 </label>
                             </div>
-                            <?php if(isset($loginError)){?>
-                                <div class="alert alert-danger m-0 p -0 rounded-0" role="alert">
-                                    هناك خطاء  
-                                </div>
                             <?php
-                                }
+                                if (isset($loginError)) {
                             ?>
+                            <div class="alert alert-danger m-0 p -0 rounded-0" role="alert">
+                                هناك خطاء  
+                            </div>
+                            <?php
+            }
+?>
                             <input type="submit" value="انشر الأن" name="add" class="btn btn-danger d-block w-100 mb-0 py-2 font-cairo f-18">
                         </form>
                     </div>
             </div>  
         </header>
+
         <?php
-
-
-		} elseif ($do == 'Insert') {
+        } elseif ($do == 'Insert') {
             
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
                 $adsName = $_POST['adsName'];
-                $cats = $_POST['cats'];
-                $det = $_POST['det'];
-                $price = $_POST['salry'];
-                $time = $_POST['time'];
-
+                $cats    = $_POST['cats'];
+                $det     = $_POST['det'];
+                $price   = $_POST['salry'];
+                $time    = $_POST['time'];
+                
                 // Validate The Form
-
-				$formErrors = array();
-
-				if (empty($adsName)) {
-					$formErrors[] = 'لا يمكن ترك الاسم فارغ</strong>';
-				}
-
-				if (empty($det)) {
-					$formErrors[] = 'لا يمكن ترك الوصف فارغ';
-				}
-
-				if (empty($price)) {
-					$formErrors[] = 'لا يمكن ترك السعر فارغ';
-				}
-
-				if ($cats == 0) {
-					$formErrors[] = 'يجب اختيار قسم ';
-				}
-
-				// Loop Into Errors Array And Echo It
-
-				foreach($formErrors as $error) {
-					echo '<div class="alert alert-danger">' . $error . '</div>';
-				}
-
-                // Check If There's No Error Proceed The Update Operation
-
-				if (empty($formErrors)) {
-
-					// Insert Userinfo In Database
-
-					$stmt = $con->prepare("INSERT INTO `services` (`id_services`, `service_title`, `service_des`, `service_needTime`, `service_time`, `service_money`, `sections_services`, `user_id`) VALUES  
-                    (:zid, :zname, :zdes, :ztime, now(), :zprice, :zcats , :zuser)");
-
-                    $stmt->execute(array(
-                        'zid' => randomString(11),
-						'zname' 	=> $adsName,
-                        'zdes' 	    => $det,
-                        'ztime'      => $time,
-						'zprice' 	=> $price,
-						'zcats' 	=> $cats,
-						'zuser' 	=> $_SESSION['ID']
-                        )
-                );
-                    
-
-					// Echo Success Message
-
-					$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Inserted</div>';
-
+                
+                $formErrors = array();
+                
+                if (empty($adsName)) {
+                    $formErrors[] = 'لا يمكن ترك الاسم فارغ</strong>';
                 }
                 
-            }else {
-
+                if (empty($det)) {
+                    $formErrors[] = 'لا يمكن ترك الوصف فارغ';
+                }
+                
+                if (empty($price)) {
+                    $formErrors[] = 'لا يمكن ترك السعر فارغ';
+                }
+                
+                if ($cats == 0) {
+                    $formErrors[] = 'يجب اختيار قسم ';
+                }
+                
+                // Loop Into Errors Array And Echo It
+                
+                foreach ($formErrors as $error) {
+                    echo '<div class="alert alert-danger">' . $error . '</div>';
+                }
+                
+                // Check If There's No Error Proceed The Update Operation
+                
+                if (empty($formErrors)) {
+                    
+                    // Insert Userinfo In Database
+                    
+                    $stmt = $con->prepare("INSERT INTO `services` (`id_services`, `service_title`, `service_des`, `service_needTime`, `service_time`, `service_money`, `sections_services`, `user_id`) VALUES  
+                    (:zid, :zname, :zdes, :ztime, now(), :zprice, :zcats , :zuser)");
+                    
+                    $stmt->execute(array(
+                        'zid' => randomString(11),
+                        'zname' => $adsName,
+                        'zdes' => $det,
+                        'ztime' => $time,
+                        'zprice' => $price,
+                        'zcats' => $cats,
+                        'zuser' => $_SESSION['ID']
+                    ));
+                    
+                    
+                    // Echo Success Message
+                    
+                    $theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Inserted</div>';
+                    
+                }
+                
+            } else {
+                
                 echo "<div class='container'>";
-
+                
                 $theMsg = '<div class="alert alert-danger">Sorry You Cant Browse This Page Directly</div>';
-    
+                
                 echo "</div>";
-
+                
             }
+            
+        } elseif ($do == 'Delete') {
+            
+            
+        } else {
+        
+            header('Location: services.php');
+        
+            exit();
+        }
+        
+    } else {
+        
+        header('Location: services.php');
+        
+        exit();
+    }
+} elseif ($_GET['cats']) {
+    
+} else {
+    
+    header('Location: services.php');
+        
+    exit();
+}
+include $tempDir . 'footer.php';
 
-		} elseif ($do == 'Edit') {
-
-
-		} elseif ($do == 'Update') {
-
-
-		} elseif ($do == 'Delete') {
-
-
-		}
-
-        include $tempDir . 'footer.php';
-
-	} else {
-
-		header('Location: sing.php');
-
-		exit();
-	}
-
-	ob_end_flush(); // Release The Output
-
-?>
+ob_end_flush(); // Release The Output

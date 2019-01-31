@@ -214,7 +214,7 @@ input[type="radio"] + label span, input[type="radio"]:checked + label span {
   transition: background-color 0.4s linear
 }
 /*--------------------------------------------------------------
-3.5 How it's Work Section Section
+3.5 How it's Work Section 
 --------------------------------------------------------------*/
 .how .list-group a.my-btn::after {
     content: '';
@@ -243,7 +243,7 @@ input[type="radio"] + label span, input[type="radio"]:checked + label span {
     top: 400px;
 }
 /*--------------------------------------------------------------
-3.5 Offers Section Section
+3.5 Offers Section 
 --------------------------------------------------------------*/
 .index-offers a {
     color:#36455A
@@ -255,6 +255,13 @@ input[type="radio"] + label span, input[type="radio"]:checked + label span {
     border-bottom: 2px solid #FF3364 
 }
 .index-offers hr { border-color: #FF5E87 }
+/*--------------------------------------------------------------
+3.5 Show Services layout 
+--------------------------------------------------------------*/
+main.services aside>div {border: #FF5E8A 5px solid }
+main.services section>div{
+    border: #FF5E8A 5px solid
+}
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/

@@ -36,8 +36,20 @@
                                 الإعلانات
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">برمجه</a>
-                                <a class="dropdown-item" href="#">تسويق</a>
+                                <?php 
+                                    $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
+                                    $stmt->execute();
+                                    $cats = $stmt->fetchAll();
+                                    foreach($cats as $x) {
+                                        echo '<a class="dropdown-item" href="http://localhost/sho8lana/services.php?cats=' . $x['CatID'] . '">-' . $x['CatName'] . "</a>";
+                                        $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
+                                        $stmt2->execute();
+                                        $subCats = $stmt2->fetchAll();
+                                        foreach($subCats as $y) {
+                                            echo '<a class="dropdown-item" href="http://localhost/sho8lana/services.php?cats=' . $y['CatID'] . '">--' . $y['CatName'] . "</a>";
+                                        }
+                                    }
+                                ?>
                             </div>
                         </li>
                     </ul>
