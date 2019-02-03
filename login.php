@@ -1,5 +1,5 @@
 <?php 
-
+    ob_start();
     session_start();
 
     if (isset($_SESSION['Username'])) {
@@ -76,4 +76,5 @@
     
 <?php
     include $tempDir . 'footer.php';
+    ob_end_flush();
 ?>

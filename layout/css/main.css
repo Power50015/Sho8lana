@@ -47,6 +47,7 @@ body { background: #EEE}
 .bg-color-9 { background: #FF5E87 !important}
 .bg-color-10 { background: rgb(54,69,90, 0.4) !important }
 .bg-color-11 { background: #d7d7d9 !important }
+.bg-none { background: none !important }
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
 .font-color-3 { color: #364559 !important }
@@ -258,10 +259,42 @@ input[type="radio"] + label span, input[type="radio"]:checked + label span {
 /*--------------------------------------------------------------
 3.5 Show Services layout 
 --------------------------------------------------------------*/
-main.services aside>div {border: #FF5E8A 5px solid }
-main.services section>div{
-    border: #FF5E8A 5px solid
+main.services aside>div { border: #FF5E8A 5px solid }
+main.services section>a { border: #FF5E8A 5px solid }
+/* archives_wrapper start */
+main.services .price-range .range .range-box { margin: 0 0 10px }
+.price-range .range .price-box {
+    padding: 4px 10px;
+    display: inline-block;
+    border: none;
+    font-weight: 600
 }
+.price-range .ui-widget-content .ui-state-default {
+    background: #222222;
+    border-radius: 100%;
+    cursor: pointer;
+    border: none;
+    margin-top: -2px
+}
+.price-range .ui-widget-content .ui-state-default:focus { outline: none }
+.price-range .ui-widget-content .ui-state-default:last-child {
+    background: #222222;
+    border: none
+}
+.price-range .ui-widget-content {
+    background: #e0e0e0;
+    height: 2px;
+    cursor: pointer;
+}
+.price-range .ui-widget-content {
+    border: none;
+}
+.price-range .ui-slider-handle {
+    width: 15px;
+    height: 15px;
+    top: -5px;
+}
+.ui-slider-horizontal .ui-slider-range { background: #ff3363 !important }
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 /*global $, window, Typed, some_unused_var*/
 $(function () {
-    
+
     "use strict";
-    
+
     var stringHeader, headerHeight, typed, handelError;
     /*Start Header Section*/
     headerHeight = $(window).height() - $("nav").height();
@@ -94,4 +94,19 @@ $(function () {
     } catch (e) { //window.console.log(e); 
     }
     //   $('#canter-ul').css('left', ($('.row').width() / -2));
+    // range js //
+
+    $("#range-price").slider({
+        range: true,
+        min: 10,
+        max: 5000,
+        values: [700, 4500],
+        slide: function (event, ui) {
+            $("#price").val("$" + ui.values[0] + " - " + " $" + ui.values[1]);
+        }
+    });
+
+    $("#price").val("$" + $("#range-price").slider("values", 0) +
+        " - " + " $" + $("#range-price").slider("values", 1));
+
 });
