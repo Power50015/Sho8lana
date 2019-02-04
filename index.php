@@ -25,7 +25,7 @@
 <!-- End The Header Section -->
 <!-- Start Search Bar Section -->
 <section class=" container">
-    <form class="bg-color-10 py-3 mb-5 rounded" id="indexSearch" action="services.php?read=<?=($_GET['cats'])?>" method="get">
+    <form class="bg-color-10 py-3 mb-5 rounded" id="indexSearch" action="services.php?" method="get">
         <h2 class="text-center font-700 font-color-2 font-700 f-30 mb-5"><span class="font-color-1 f-48">إبحث</span> عن خدمات لتنجزها</h2>
         <div class="row">
             <div class="col-1"></div>

@@ -44,12 +44,16 @@
                                     $stmt->execute();
                                     $cats = $stmt->fetchAll();
                                     foreach($cats as $x) {
-                                        echo '<a class="dropdown-item" href="services.php?cats=' . $x['CatID'] . '">-' . $x['CatName'] . "</a>";
                                         $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
                                         $stmt2->execute();
                                         $subCats = $stmt2->fetchAll();
+                                        echo '<a class="dropdown-item font-color-3 font-700" href="services.php?';
                                         foreach($subCats as $y) {
-                                            echo '<a class="dropdown-item" href="services.php?cats=' . $y['CatID'] . '">--' . $y['CatName'] . "</a>";
+                                            echo 'cats%5B%5D=' . $y['CatID'] . '&' ;
+                                        }
+                                        echo '">' . $x['CatName'] . "</a>";
+                                        foreach($subCats as $y) {
+                                            echo '<a class="dropdown-item" href="services.php?cats%5B%5D=' . $y['CatID'] . '">--' . $y['CatName'] . "</a>";
                                         }
                                     }
                                 ?>

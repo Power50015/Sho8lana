@@ -206,16 +206,65 @@ if (isset($_GET['do'])) {
         
         exit();
     }
-} elseif (isset($_GET['cats'])) {
-    
-    
 } elseif (isset($_GET['singl'])) {
-
     
     
-}else {
+    
+} else {
+    $MysqlStat     = "SELECT * FROM `services` WHERE `services_stat` = 0 ";
+    $MysqlStatCont = "SELECT COUNT(*) FROM `services` WHERE `services_stat` = 0 ";
+    if (isset($_GET['cats'])) {
+        if (is_array($_GET['cats'])) {
+        $catsStat = "(`sections_services` = ";
+        foreach ($_GET['cats'] as $s) {
+            $catsStat = $catsStat . $s . " OR `sections_services` = ";
+        }
+        $catsStat      = $catsStat . $_GET['cats'][0] . ")";
+        $MysqlStat     = $MysqlStat ." AND" . $catsStat;
+        $MysqlStatCont = $MysqlStatCont . " AND" . $catsStat;
+        }else {
+            $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatID` = " . $_GET['cats']);
+            $stmt->execute();
+            $cats = $stmt->fetch();
+            if ($cats['CatMain'] == NULL){
+                $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $_GET['cats']);
+                $stmt->execute();
+                $cats = $stmt->fetchAll();
+                $catsStat = "(`sections_services` = ";
+                foreach ($cats as $s) {
+                    $catsStat = $catsStat . $s['CatID'] . " OR `sections_services` = ";
+                    $catsArray [] = $s['CatID'];
+                }
+                $catsStat      = $catsStat . $_GET['cats'] . ")";
+                $MysqlStat     = $MysqlStat ." AND" . $catsStat;
+                $MysqlStatCont = $MysqlStatCont . " AND" . $catsStat;
+            }else {
+                $catsArray[0] = "";
+                $catsArray[1] = $_GET['cats'];
+                $catsStat = "`sections_services` = " . $_GET['cats'];
+                $MysqlStat     = $MysqlStat ." AND" . $catsStat;
+                $MysqlStatCont = $MysqlStatCont . " AND" . $catsStat;
+            }
+        }
+    }
+    if (isset($_GET['time'])) {
+        if ($_GET['time'] != "0") {
+            $MysqlStat     = $MysqlStat . " AND `service_needTime` = '" . $_GET['time'] . "' ";
+            $MysqlStatCont = $MysqlStatCont . " AND `service_needTime` = '" . $_GET['time'] . "' ";
+        }
+    }
+    if (isset($_GET['money'])) {
+                $_GET['money'] = str_replace("$", "", $_GET['money']);
+                $_GET['money'] = str_replace(" ", "", $_GET['money']);
+                $pieces        = explode("-", $_GET['money']);
+                $pieces[0]     = (int) $pieces[0];
+                $pieces[1]     = (int) $pieces[1];
+                $MysqlStat     = $MysqlStat . "AND `service_money` BETWEEN " . $pieces[0] . " AND " . $pieces[1];
+                $MysqlStatCont = $MysqlStatCont . "AND `service_money` BETWEEN " . $pieces[0] . " AND " . $pieces[1];
+    }
+    
 ?>
-    <header class="d-flex h-500">
+<header class="d-flex h-500">
     <div class="over"></div>
     <div class="container position-relative align-self-center text-center">
         <h1 class="d-inline font-color-2 bg-color-6 px-4 font-700">تصفح الإعلانات</h1>
@@ -227,63 +276,122 @@ if (isset($_GET['do'])) {
             <aside class="col-md-4 col-12 my-5">
                 <div class="rounded bg-color-2 text-center pt-5">
                     <h3 class="d-inline-block font-color-2 bg-color-9 px-4 py-2 font-700 mb-5">الأقسام</h3>
-                    <form id="accordion" action="?<?= ($_GET['cats']) ?>" method="GET">
+                    <form id="accordion" action="?" method="GET">
                             <?php
-                                $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
-                                $stmt->execute();
-                                $cats = $stmt->fetchAll();
-                                foreach ($cats as $x) {
-                                    echo '<div class="card-header border-0" id="headingOne">';
-                                    echo '<h5 class="mb-0">';
-                                    $randomBtn = randomName();
-                                    echo '<a class="font-color-2 rounded f-18 bg-color-3 px-5 font-700 hover" data-toggle="collapse" data-target="#'.$randomBtn.'" aria-expanded="true" aria-controls="'.$randomBtn.'" href="#">'.$x['CatName'].'<i class="fas fa-caret-down"></i></a>';
-                                    echo '</h5></div>';
-                                    $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
-                                    $stmt2->execute();
-                                    $subCats = $stmt2->fetchAll();
-                                    $randomBtn2 = randomName();
-                                    echo '<div id="'.$randomBtn.'" class="collapse " aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body">';
-                                    foreach ($subCats as $y) {
-                                        echo '<div class="form-check"><input class="form-check-input" type="checkbox" name="cats[]" value="'.$y['CatID'].'" id="'.$randomBtn2.'">';
-                                        echo '<label class="form-check-label font-color-4" for="'.$randomBtn2.'">'.$y['CatName'].'</label></div>';
-                                    }
-                                    echo '</div></div>';
-                                }
-                            ?>
+    $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
+    $stmt->execute();
+    $cats = $stmt->fetchAll();
+    foreach ($cats as $x) {
+        echo '<div class="card-header border-0" id="headingOne">';
+        echo '<h5 class="mb-0">';
+        $randomBtn = randomName();
+        echo '<a class="font-color-2 rounded f-18 bg-color-3 px-5 font-700 hover" data-toggle="collapse" data-target="#' . $randomBtn . '" aria-expanded="true" aria-controls="' . $randomBtn . '" href="#">' . $x['CatName'] . '<i class="fas fa-caret-down"></i></a>';
+        echo '</h5></div>';
+        $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
+        $stmt2->execute();
+        $subCats    = $stmt2->fetchAll();
+        $randomBtn2 = randomName();
+        echo '<div id="' . $randomBtn . '" class="collapse " aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body">';
+        foreach ($subCats as $y) {
+            echo '<div class="form-check"><input class="form-check-input" type="checkbox" name="cats[]" value="' . $y['CatID'] . '" id="' . $randomBtn2 ;
+            if (is_array($_GET['cats'])){
+                if (in_array($y['CatID'], $_GET['cats'])){
+                echo '" checked >';
+                }
+            }
+            else {
+                if(isset($catsArray)){
+                    if (in_array($y['CatID'], $catsArray)){
+                        echo '" checked >';
+                    }else {
+                        echo '">';
+                    }
+                }else {
+                    echo '">';
+                }
+            }
+            echo '<label class="form-check-label font-color-4" for="' . $randomBtn2 . '">' . $y['CatName'] . '</label></div>';
+        }
+        echo '</div></div>';
+    }
+?>
                         <h6 class="font-color-1 pt-3">مده التسليم</h6>
                         <div class="text-left">
                             <div>
-                                <input type="radio" id="radio00" name="time" value="0" checked />
+                            
+                                <input type="radio" id="radio00" name="time" value="0" 
+                                <?php
+                                if (!isset($_GET['time'])){
+                                    echo "checked";
+                                } else if($_GET['time'] == "0"){
+                                    echo "checked";
+                                } 
+                                ?> />
                                 <label for="radio00" class="font-cairo f-18 font-color-4">
                                     <span class="m-3"></span>أي وقت
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" id="radio01" name="time" value="1" />
+                                <input type="radio" id="radio01" name="time" value="1" 
+                                <?php 
+                                if (isset($_GET['time'])){
+                                    if ($_GET['time'] == "1"){
+                                        echo "checked"; 
+                                    }
+                                }
+                                ?> />
                                 <label for="radio01" class="font-cairo f-18 font-color-4">
                                     <span class="m-3"></span>أقل من اسبوع
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" id="radio02" name="time" value="2" />
+                                <input type="radio" id="radio02" name="time" value="2" 
+                                 <?php 
+                                if (isset($_GET['time'])){
+                                    if ($_GET['time'] == "2"){
+                                        echo "checked"; 
+                                    }
+                                } 
+                                ?> />
                                 <label for="radio02" class="font-cairo f-18 font-color-4">
                                     <span class="m-3"></span>من 1 أسبوع الى 2 اسبوع
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" id="radio03" name="time" value="3" />
+                                <input type="radio" id="radio03" name="time" value="3" 
+                                 <?php 
+                                if (isset($_GET['time'])){
+                                    if ($_GET['time'] == "3"){
+                                        echo "checked"; 
+                                    }
+                                } 
+                                ?> />
                                 <label for="radio03" class="font-cairo f-18 font-color-4">
                                     <span class="m-3"></span>من 2 أسبوع الى شهر
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" id="radio04" name="time" value="4" />
+                                <input type="radio" id="radio04" name="time" value="4" 
+                                 <?php 
+                                if (isset($_GET['time'])){
+                                    if ($_GET['time'] == "4"){
+                                        echo "checked"; 
+                                    }
+                                } 
+                                ?> />
                                 <label for="radio04" class="font-cairo f-18 font-color-4">
                                     <span class="m-3"></span>من شهر الى 3 شهور
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" id="radio05" name="time" value="5" />
+                                <input type="radio" id="radio05" name="time" value="5" 
+                                 <?php 
+                                if (isset($_GET['time'])){
+                                    if ($_GET['time'] == "5"){
+                                        echo "checked"; 
+                                    }
+                                } 
+                                ?> />
                                 <label for="radio05" class="font-cairo f-18 font-color-4">
                                     <span class="m-3"></span>أكثر من 3 شهور
                                 </label>
@@ -306,90 +414,87 @@ if (isset($_GET['do'])) {
             </aside>
             <section class="col-12 col-md-8 my-5">
                 <?php
-                   /* $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
-                    $stmt->execute();
-                    $cats = $stmt->fetchAll();
-                    foreach ($cats as $x) {
-
-                    }*/
-                    try {
-
-    // Find out how many items are in the table
-        $stmt = $con->prepare('SELECT COUNT(*) FROM `services` WHERE `services_stat` = 0');
+    try {
+        
+        // Find out how many items are in the table
+        $stmt = $con->prepare($MysqlStatCont);
         $stmt->execute();
         $total = $stmt->fetchColumn();
-        //$total = $dbh->query('SELECT COUNT(*) FROM `services` WHERE `services_stat` = 0')->fetchColumn();
-
-    // How many items to list per page
-    $limit = 10;
-
-    // How many pages will there be
-    $pages = ceil($total / $limit);
-
-    // What page are we currently on?
-    $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
-        'options' => array(
-            'default'   => 1,
-            'min_range' => 1,
-        ),
-    )));
-
-    // Calculate the offset for the query
-    $offset = ($page - 1)  * $limit;
-
-    // Some information to display to the user
-    $start = $offset + 1;
-    $end = min(($offset + $limit), $total);
-
-    // The "back" link
-    $prevlink = ($page > 1) ? '<a href="?page=1" title="First page">&rsaquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&rsaquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&rsaquo;</span>';
-
-    // The "forward" link
-    $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page">&laquo;</a> <a href="?page=' . $pages . '" title="Last page">&laquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&laquo;</span>';
-
-   
-    // Prepare the paged query
-    $stmt = $con->prepare('SELECT * FROM `services` ORDER BY `service_time` DESC LIMIT :limit OFFSET :offset ');
-
-    // Bind the query params
-    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-    $stmt->execute();
-
-    // Do we have any results?
-    if ($stmt->rowCount() > 0) {
-        // Define how we want to fetch the results
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $iterator = new IteratorIterator($stmt);
-
-        // Display the results
-        foreach ($iterator as $row) {
-            $stx = 'SELECT COUNT(*) FROM `offers` WHERE `OffersService` = "' . $row['id_services'] . '"';
-            $OffersStmt = $con->prepare($stx);
-            $OffersStmt->execute();
-            $totalOffers = $OffersStmt->fetchColumn();
-            $stI = 'SELECT `User_Img` FROM `users` WHERE `User_id` = "' . $row['user_id'] . '"';
-            $stI = $con->prepare($stI);
-            $stI->execute();
-            $MyImg = $stI->fetch();
-            echo '<a class="bg-color-2 rounded row mb-3" href="services.php?singl='.$row['id_services'].'">';
-            echo '<div class="col-md-9 col-12 pt-3"> <h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700">' .$row['service_title'].'</h6>';
-            echo '<div><h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700 mr-2">' .$row['service_time'] . '</h6>';
-            echo '<h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700 mr-2">' .$totalOffers . '</h6>';
-            echo '<h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700 mr-2">' .$row['service_time'] . '</h6></div>';
-            echo '<p class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3">' .substr($row['service_des'],0, 190) . '....</p></div><div class="col-3 h-200 py-3 d-md-block d-none">';
-            echo '<img src="upload\avatars\\'.$MyImg['User_Img'].'" class="h-100 w-100 rounded-circle"></div></a>';
+        
+        // How many items to list per page
+        $limit = 7;
+        
+        // How many pages will there be
+        $pages = ceil($total / $limit);
+        
+        // What page are we currently on?
+        $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+            'options' => array(
+                'default' => 1,
+                'min_range' => 1
+            )
+        )));
+        
+        // Calculate the offset for the query
+        $offset = ($page - 1) * $limit;
+        
+        // Some information to display to the user
+        $start = $offset + 1;
+        $end   = min(($offset + $limit), $total);
+        
+        // The "back" link
+        $prevlink = ($page > 1) ? '<a href="?page=1" title="First page">&rsaquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&rsaquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&rsaquo;</span>';
+        
+        // The "forward" link
+        $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page">&laquo;</a> <a href="?page=' . $pages . '" title="Last page">&laquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&laquo;</span>';
+        
+        
+        // Prepare the paged query
+        $ItemLIM = $MysqlStat . ' ORDER BY `service_time` DESC LIMIT :limit OFFSET :offset ';
+        $stmt = $con->prepare($ItemLIM);
+        
+        // Bind the query params
+        if ($total !=0){
+            $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+            $stmt->execute();
         }
-         // Display the paging information
-            echo '<div id="paging"><p>', $nextlink, ' الصفحه ', $page, ' من ', $pages, ' صفحه, يعرض ',  $total, ' خدمه ', $prevlink, ' </p></div>';
-
-    } else {
-        echo '<p>لا يوجد نتائج للعرض</p>';
+        
+        // Do we have any results?
+        if ($stmt->rowCount() > 0) {
+            // Define how we want to fetch the results
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $iterator = new IteratorIterator($stmt);
+            
+            // Display the results
+            foreach ($iterator as $row) {
+                $stx        = 'SELECT COUNT(*) FROM `offers` WHERE `OffersService` = "' . $row['id_services'] . '"';
+                $OffersStmt = $con->prepare($stx);
+                $OffersStmt->execute();
+                $totalOffers = $OffersStmt->fetchColumn();
+                $stI         = 'SELECT `User_name`, `User_Img` FROM `users` WHERE `User_id` = "' . $row['user_id'] . '"';
+                $stI         = $con->prepare($stI);
+                $stI->execute();
+                $UserPro = $stI->fetch();
+                echo '<a class="bg-color-2 rounded row mb-3" href="services.php?singl=' . $row['id_services'] . '">';
+                echo '<div class="col-md-9 col-12 pt-3"> <h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700">' . $row['service_title'] . '</h6>';
+                echo '<div><h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700 mr-2">' . $row['service_time'] . '</h6>';
+                echo '<h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700 mr-2"> العروض ' . $totalOffers . '</h6>';
+                echo '<h6 class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3 font-700 mr-2">' . $UserPro['User_name'] . '</h6></div>';
+                echo '<p class="f-18 d-inline-block bg-color-5 px-3 py-1 font-color-3">' . substr($row['service_des'], 0, 190) . '....</p></div><div class="col-3 h-200 py-3 d-md-block d-none">';
+                echo '<img src="upload\avatars\\' . $UserPro['User_Img'] . '" class="h-100 w-100 rounded-circle"></div></a>';
+            }
+            // Display the paging information
+            echo '<div id="paging"><p>', $nextlink, ' الصفحه ', $page, ' من ', $pages, ' صفحه, يعرض ', $total, ' خدمه ', $prevlink, ' </p></div>';
+            
+        } else {
+            echo '<p>لا يوجد نتائج للعرض</p>';
+        }
+        
     }
-
-} catch (Exception $e) {
-    echo '<p>', $e->getMessage(), '</p>';
-}
+    catch (Exception $e) {
+        echo '<p>', $e->getMessage(), '</p>';
+    }
 ?> 
             </section>
         </div>
@@ -399,7 +504,8 @@ if (isset($_GET['do'])) {
     /*
     header('Location: services.php');
     
-    exit();*/
+    exit();
+    */
 }
 include $tempDir . 'footer.php';
 
