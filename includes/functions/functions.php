@@ -33,7 +33,6 @@
             $stmt = $con->prepare("SELECT  $select FROM  $from");
 
         }
-        
             $stmt->execute();
 
             $get = $stmt->fetch();

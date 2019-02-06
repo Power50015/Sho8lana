@@ -47,7 +47,9 @@ body { background: #EEE}
 .bg-color-9 { background: #FF5E87 !important}
 .bg-color-10 { background: rgb(54,69,90, 0.4) !important }
 .bg-color-11 { background: #d7d7d9 !important }
+.bg-color-12 { background: #2D3C51 !important }
 .bg-none { background: none !important }
+.border-color-1 { border-color: #364559 !important }
 .font-color-1, nav .active-link a { color: #ff3363 !important }
 .font-color-2 { color:#fff }
 .font-color-3 { color: #364559 !important }
