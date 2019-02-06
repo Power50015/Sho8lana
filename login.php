@@ -1,5 +1,5 @@
 <?php 
-
+    ob_start();
     session_start();
 
     if (isset($_SESSION['Username'])) {
@@ -20,21 +20,22 @@
         
 		// Check If The User Exist In Database
 		$stmt = $con->prepare("SELECT 
-									`User_id`, `name`
+									`User_id`, `User_name`, `User_Img`
 								FROM 
                                     `users` 
 								WHERE 
-                                    `E-mail` = ? 
+                                    `User_E-mail` = ? 
 								AND 
-                                    `passowrd` = ? ");
+                                    `User_passowrd` = ? ");
 		$stmt->execute(array($userEmail, $password));
 		$row = $stmt->fetch();
         $count = $stmt->rowCount();
         
 		// If Count > 0 This Mean The Database Contain Record About This Username
 		if ($count > 0) {
-			$_SESSION['Username'] = $row['name']; // Register Session Name
-			$_SESSION['ID'] = $row['User_id']; // Register Session ID
+			$_SESSION['Username'] = $row['User_name']; // Register Session Name
+            $_SESSION['ID'] = $row['User_id']; // Register Session ID
+            $_SESSION['ProfileImg'] = "upload/avatars/" . $row['User_Img'];
 			header('Location: dashboard.php'); // Redirect To Dashboard Page
 			exit();
         } else {
@@ -75,4 +76,5 @@
     
 <?php
     include $tempDir . 'footer.php';
+    ob_end_flush();
 ?>

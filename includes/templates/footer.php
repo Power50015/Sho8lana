@@ -47,16 +47,45 @@
     
 </footer>  
                     
-                    
        
         <script src = "<?=($jsDir)?>jquery.js" ></script>
+        <script src = "<?=($jsDir)?>jquery-ui.min.js" ></script>
         <script src = "<?=($jsDir)?>popper.min.js" ></script>
         <script src = "<?=($jsDir)?>bootstrap.min.js" ></script>
         <!--Upload Btn Plg-->
         <script src = "<?=($jsDir)?>input-file.js" ></script>
+        
         <!--Typed.js is a library that types Plg-->
         <script src = "<?=($jsDir)?>typed.min.js" ></script>
         <!--My Js-->
         <script src = "<?=($jsDir)?>main.js" ></script>
+        <script>
+        <?php 
+            $MinNum = 10;
+            $MaxNum = 4500;
+         if (isset($_GET['money'])) {
+            $_GET['money'] = str_replace("$", "", $_GET['money']);
+            $_GET['money'] = str_replace(" ", "", $_GET['money']);
+            $pieces        = explode("-", $_GET['money']);
+            $pieces[0]     = (int) $pieces[0];
+            $pieces[1]     = (int) $pieces[1];
+            $MinNum = $pieces[0];
+            $MaxNum = $pieces[1];
+        }
+        ?>
+         $("#range-price").slider({
+        range: true,
+        min: 10,
+        max: 5000,
+        values: [<?=($MinNum)?>, <?=($MaxNum)?>],
+        slide: function (event, ui) {
+            $("#price").val("$" + ui.values[0] + " - " + " $" + ui.values[1]);
+        }
+    });
+
+    $("#price").val("$" + $("#range-price").slider("values", 0) +
+        " - " + " $" + $("#range-price").slider("values", 1));
+        </script>
+
     </body>
 </html>

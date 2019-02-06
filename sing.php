@@ -26,6 +26,8 @@
 
             $username = filter_var($username, FILTER_SANITIZE_STRING);
 
+            $smallCap = strtolower ($username);
+
             if (strlen($username) < 4) {
 
                 $formErrors[] = 'يجب ان يزيد اسم المستخدم عن 4 حروف';
@@ -61,12 +63,12 @@
 					$formErrors[] = 'البريد الالكترونى غير صحيح';
 
                 }
-                if (cheak("`E-mail`", "`users`", "`E-mail` = '$email'")){
+                if (cheak("`User_E-mail`", "`users`", "`User_E-mail` = '$email'")){
                     $formErrors[] = 'البريد الالكترونى موجود بالفعل في قاعده البيانات ';
                 }
 
             }
-            if (cheak('name', 'users', "name = '$username'")){
+            if (cheak("`User_name`", "`users`", "`User_name` = '$username' OR `User_name` = '$smallCap'")){
                 $formErrors[] = 'اسم المستخدم موجود بالفعل في قاعده البيانات ';
             }
         }
@@ -83,9 +85,11 @@
                     $userId = randomString();
                 }while(cheak('`User_id`', 'users', "`User_id` = '$userId'"));
 
+                $userDes = " اضف وصف لنفسك";
+
                 $stmt = $con->prepare("INSERT INTO 
-                                        users(`User_id`, `name`, `passowrd`, `E-mail`)
-                                    VALUES(:sidu, :suser, :spass, :smail)");
+                                        users(`User_id`, `User_name`, `User_passowrd`, `User_E-mail`, `User_Des`, `User_Img`)
+                                    VALUES(:sidu, :suser, :spass, :smail, '$userDes', '0.jpg')");
                 $stmt->execute(array(
                     'sidu'  => $userId,
                     'suser' => $username,
@@ -162,6 +166,7 @@
                         if(isset($succesMsg)) {
                             $_SESSION['Username'] = $username; // Register Session Name
                             $_SESSION['ID'] = $userId; // Register Session ID
+                            $_SESSION['ProfileImg'] = "upload/avatars/0.jpg";
                             
                     ?>
                     <div class="alert m-0 rounded-0 alert-primary" role="alert">

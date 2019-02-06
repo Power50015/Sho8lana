@@ -1,3 +1,6 @@
+<?php
+    ob_start(); // Output Buffering Start
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,8 +12,8 @@
         <!--Fonts-->
         <link rel = "stylesheet" href = "<?=($cssDir)?>all.min.css"/>
         <link rel = "stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:400,600,700|Changa:400,500,600,700">
-
         <link rel = "stylesheet" href = "<?=($cssDir)?>bootstrap.rtl.min.css" />
+        <link rel = "stylesheet" href = "<?=($cssDir)?>jquery-ui.min.css" />
         <link rel = "stylesheet" href = "<?=($cssDir)?>main.css" />
 
     </head>
@@ -27,13 +30,33 @@
                         <li class="nav-item active-link">
                             <a class="nav-link" href="index.php">الرئيسيه <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.php?do=add">أضف خدمه<i class="fas fa-plus px-2"></i></a>
+                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="ads.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="services.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 الإعلانات
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">برمجه</a>
-                                <a class="dropdown-item" href="#">تسويق</a>
+                                <a class="dropdown-item" href="services.php">جميع الإعلانات</a>
+                                <?php 
+                                    $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
+                                    $stmt->execute();
+                                    $cats = $stmt->fetchAll();
+                                    foreach($cats as $x) {
+                                        $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
+                                        $stmt2->execute();
+                                        $subCats = $stmt2->fetchAll();
+                                        echo '<a class="dropdown-item font-color-3 font-700" href="services.php?';
+                                        foreach($subCats as $y) {
+                                            echo 'cats%5B%5D=' . $y['CatID'] . '&' ;
+                                        }
+                                        echo '">' . $x['CatName'] . "</a>";
+                                        foreach($subCats as $y) {
+                                            echo '<a class="dropdown-item" href="services.php?cats%5B%5D=' . $y['CatID'] . '">--' . $y['CatName'] . "</a>";
+                                        }
+                                    }
+                                ?>
                             </div>
                         </li>
                     </ul>
@@ -72,7 +95,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item p-1" href="#">
                                 <div class="profile-link">
-                                    <img src ="upload/2.jpg" class="profile-img">
+                                    <img src ="<?=($_SESSION['ProfileImg'])?>" class="profile-img">
                                     <span class="pl-2"><?=($_SESSION['Username'])?></span>
                                 </div>
                             </a>
@@ -103,3 +126,5 @@
             </div>
         </nav>
         <!--End Nav Bar -->
+<?php
+ob_end_flush(); // Release The Output
