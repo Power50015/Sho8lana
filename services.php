@@ -51,6 +51,101 @@ if (isset($_GET['do'])) {
     </table>
 </div>
 <?php
+                }elseif($_GET['filt'] == 'making'){
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =1 ORDER BY `service_time` DESC");
+                    $stmt->execute();
+                    $services = $stmt->fetchAll();
+?>
+<div class="container pt-5 position-relative">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">عنوان الخدمه المطلوبه</th>
+            <th scope="col">تاريخ الإضافه</th>
+            <th scope="col">الحاله</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    foreach ($services as $x) {
+?>
+    <tr>
+    <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
+    <td><?= ($x['service_time']) ?></td>
+    <td><?= ($x['services_stat']) ?></td>
+    </tr>
+<?php
+                    }
+?>
+        </tbody>
+    </table>
+</div>
+<?php
+
+                }elseif($_GET['filt'] == 'finsh'){
+                    
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat = 2 ORDER BY `service_time` DESC");
+                    $stmt->execute();
+                    $services = $stmt->fetchAll();
+?>
+<div class="container pt-5 position-relative">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">عنوان الخدمه المطلوبه</th>
+            <th scope="col">تاريخ الإضافه</th>
+            <th scope="col">الحاله</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    foreach ($services as $x) {
+?>
+    <tr>
+    <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
+    <td><?= ($x['service_time']) ?></td>
+    <td><?= ($x['services_stat']) ?></td>
+    </tr>
+<?php
+                    }
+?>
+        </tbody>
+    </table>
+</div>
+<?php
+
+                }elseif($_GET['filt'] == 'cansel'){
+                    
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =3 ORDER BY `service_time` DESC");
+                    $stmt->execute();
+                    $services = $stmt->fetchAll();
+?>
+<div class="container pt-5 position-relative">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">عنوان الخدمه المطلوبه</th>
+            <th scope="col">تاريخ الإضافه</th>
+            <th scope="col">الحاله</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    foreach ($services as $x) {
+?>
+    <tr>
+    <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
+    <td><?= ($x['service_time']) ?></td>
+    <td><?= ($x['services_stat']) ?></td>
+    </tr>
+<?php
+                    }
+?>
+        </tbody>
+    </table>
+</div>
+<?php
+
                 } else {
                     $url = "services.php?do=manage&filt=all";
                     header('Location: ' . $url);

@@ -231,44 +231,97 @@ include $tempDir . 'header.php';
         <div class="row">
             <div class="col-lg-6 col-sm-12">
                 <div class="text-center mt-5 rounded bg-color-8 p-1 mb-4">
-                    <a href="services.php?do=manage&filt=all" class="hover2 d-block py-5 font-700 f-30 font-color-3">الخدمات <span>10</span></a>
+                <?php 
+                
+                $sql = "SELECT count(*) FROM `services` WHERE (`services_stat` = 0 OR `services_stat` = 1 OR `services_stat` = 2) AND `user_id` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql);
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                    <a href="services.php?do=manage&filt=all" class="hover2 d-block py-5 font-700 f-30 font-color-3">الخدمات <span><?=($number_of_rows)?></span></a>
                     <a href="services.php?do=add" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">اضافه خدمه جديده</a>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="text-center mt-5 rounded bg-color-8 p-1 mb-4">
-                    <a href="#" class="hover2 d-block py-5 font-700 f-30 font-color-3">العروض <span>8</span></a>
+                <?php 
+                
+                $sql = "SELECT count(*) FROM `offers` WHERE (`OffersStat` = 0 OR `OffersStat` = 1 OR `OffersStat` = 2) AND `OffersUser` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql);
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                    <a href="#" class="hover2 d-block py-5 font-700 f-30 font-color-3">العروض <span><?=($number_of_rows)?></span></a>
                     <a href="services.php" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">تصفح العروض</a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
                <div class="text-center my-3 bg-color-8 p-1">
-                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض تحت الانشاء <span>8</span></a>
+               <?php 
+                
+                $sql = "SELECT count(*) FROM `offers` WHERE (`OffersStat` = 1 ) AND `OffersUser` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql);
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض تحت الانشاء <span><?=($number_of_rows)?></span></a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
                <div class="text-center my-3 bg-color-8 p-1">
-                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض ملغيه <span>8</span></a>
+                              <?php 
+                
+                $sql = "SELECT count(*) FROM `offers` WHERE (`OffersStat` =2 ) AND `OffersUser` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql);
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض منتهيه <span><?=($number_of_rows)?></span></a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
                <div class="text-center my-3 bg-color-8 p-1">
-                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض بأنتظار الرد <span>8</span></a>
+                              <?php 
+                
+                $sql = "SELECT count(*) FROM `offers` WHERE (`OffersStat` = 0 ) AND `OffersUser` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql);
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">عروض بأنتظار الرد <span><?=($number_of_rows)?></span></a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
                <div class="text-center my-3 bg-color-8 p-1">
-                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">خدمات تحت الانشاء <span>8</span></a>
+               <?php 
+                $sql = "SELECT count(*) FROM `services` WHERE services_stat = 1 AND `user_id` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql); 
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                   <a href="services.php?do=manage&filt=making" class="hover2 d-block py-2 font-700 f-24 font-color-3">خدمات تحت الانشاء <span><?=($number_of_rows)?></span></a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
                <div class="text-center my-3 bg-color-8 p-1">
-                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">الخدمات منتهيه <span>8</span></a>
+                <?php 
+                $sql = "SELECT count(*) FROM `services` WHERE services_stat = 2 AND `user_id` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql); 
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                   <a href="services.php?do=manage&filt=finsh" class="hover2 d-block py-2 font-700 f-24 font-color-3">الخدمات منتهيه <span><?=($number_of_rows)?></span></a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
                <div class="text-center my-3 bg-color-8 p-1">
-                   <a href="#" class="hover2 d-block py-2 font-700 f-24 font-color-3">خدمات بأنتظار الرد <span>8</span></a>
+                               <?php 
+                $sql = "SELECT count(*) FROM `services` WHERE services_stat = 0 AND `user_id` = '" .  $_SESSION['ID'] ."'"; 
+                $result = $con->prepare($sql); 
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+?>
+                   <a href="services.php?do=manage&filt=cansel" class="hover2 d-block py-2 font-700 f-24 font-color-3">خدمات بأنتظار الرد <span><?=($number_of_rows)?></span></a>
                 </div>
             </div>
         </div>
