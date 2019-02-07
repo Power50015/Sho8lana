@@ -521,6 +521,34 @@ main.services .price-range .range .range-box {
 /*--------------------------------------------------------------
 3.6 Portfoilo layout 
 --------------------------------------------------------------*/
+.port_grid_section .over {
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.port_grid_section .link-hover div.w-100 {
+    overflow: hidden;
+}
+.port_grid_section .over:hover {
+    opacity: 0.4;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.port_grid_section .link-hover div img {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.port_grid_section .link-hover:hover div img {
+
+    -webkit-transform: scale(1.2) rotate(5deg);
+    -moz-transform: scale(1.2) rotate(5deg);
+    -o-transform: scale(1.2) rotate(5deg);
+    transform: scale(1.2) rotate(5deg);
+}
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/

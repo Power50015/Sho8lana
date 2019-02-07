@@ -1,202 +1,138 @@
-<?php 
-
-    session_start();
-
-    include 'init.php';
-
-    $pageTitle = 'الرئيسيه';
-    
-    if (! isset($_SESSION['Username'])) {
-        header('Location: login.php'); // Redirect To Dashboard Page
-        exit();
-    }
-
-    $stmt = $con->prepare("SELECT  * FROM  `users` WHERE `User_id` = ? AND `User_name` = ?");
-    $stmt->execute(array($_SESSION['ID'], $_SESSION['Username']));
-    $row = $stmt->fetch();
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
-
-        if (isset($_POST['des'])) {
-
-            $username = $_POST['username'];
-
-            $username = filter_var($username, FILTER_SANITIZE_STRING);
-
-            $userDes = $_POST['userDes'];
-
-            $userDes = filter_var($userDes, FILTER_SANITIZE_STRING);
-
-            if($username == '' || $username == NULL) {
-
-                $username = $_SESSION['Username'];
-
+<?php
+session_start();
+include 'init.php';
+$pageTitle = 'الرئيسيه';
+if (!isset($_SESSION['Username'])) {
+    header('Location: login.php'); // Redirect To Dashboard Page
+    exit();
+}
+$stmt = $con->prepare("SELECT  * FROM  `users` WHERE `User_id` = ? AND `User_name` = ?");
+$stmt->execute(array(
+    $_SESSION['ID'],
+    $_SESSION['Username']
+));
+$row = $stmt->fetch();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['des'])) {
+        $username = $_POST['username'];
+        $username = filter_var($username, FILTER_SANITIZE_STRING);
+        $userDes  = $_POST['userDes'];
+        $userDes  = filter_var($userDes, FILTER_SANITIZE_STRING);
+        if ($username == '' || $username == NULL) {
+            $username = $_SESSION['Username'];
+        } else {
+            $smallCap = strtolower($username);
+            if (strlen($username) < 4) {
+                $formErrors[] = 'يجب ان يزيد اسم المستخدم عن 4 حروف';
+            }
+            $username = substr($username, 0, 50);
+            if (cheak("`User_name`", "`users`", "`User_name` = '$username' OR `User_name` = '$smallCap'")) {
+                $formErrors[] = 'اسم المستخدم موجود بالفعل في قاعده البيانات ';
+            }
+        }
+        if ($userDes == '' || $userDes == NULL) {
+            $userDes = $row['User_Des'];
+        } else {
+            if (strlen($userDes) < 10) {
+                $formErrors[] = 'يجب ان يزيد الوصف عن 10 حروف';
             } else {
-
-                $smallCap = strtolower ($username);
-
-                if (strlen($username) < 4) {
-
-                    $formErrors[] = 'يجب ان يزيد اسم المستخدم عن 4 حروف';
-
-                }
-
-                $username = substr($username,0,50);
-
-                if (cheak("`User_name`", "`users`", "`User_name` = '$username' OR `User_name` = '$smallCap'")){
-
-                    $formErrors[] = 'اسم المستخدم موجود بالفعل في قاعده البيانات ';
-
-                }
-
+                $userDes = substr($userDes, 0, 600);
             }
-            if($userDes == '' || $userDes == NULL) {
-
-                $userDes = $row['User_Des'];
-
-            }else {
-                
-                if (strlen($userDes) < 10) {
-
-                    $formErrors[] = 'يجب ان يزيد الوصف عن 10 حروف';
-
-                }else {
-
-                    $userDes = substr($userDes,0,600);
-
-                }
-
-            }
-
-            // Check If There's No Error Proceed The User Add
-
-            if (empty($formErrors)) {
-
-                // Update The Database With This Info
-            
-                $stmt = $con->prepare("UPDATE users SET `User_name` = ?, `User_Des` = ? WHERE `User_id` = ?");
-
-                $stmt->execute(array($username, $userDes, $_SESSION['ID']));
-                
-                if ($stmt) {
-
-                    $_SESSION['Username'] = $username;
-
-                    $row['User_Des'] = $userDes;
-                    
-
-                }
-            } else {
-                echo "<script>";
-                foreach($formErrors as $errors) {
-
-                    echo "alert('" . $errors . " '); "; 
-
-                }
-                echo "</script>";
-
-            }
-                     
         }
-        if (isset($_POST['website'])) {
-
-            $UserWeb = $_POST['webUrl'];
-
-            $UserWeb = filter_var($UserWeb, FILTER_VALIDATE_URL);
-
-            if($UserWeb == '' || $UserWeb == NULL) {
-
-                $UserWeb = $row['User_Site'];
-
+        // Check If There's No Error Proceed The User Add
+        if (empty($formErrors)) {
+            // Update The Database With This Info
+            $stmt = $con->prepare("UPDATE users SET `User_name` = ?, `User_Des` = ? WHERE `User_id` = ?");
+            $stmt->execute(array(
+                $username,
+                $userDes,
+                $_SESSION['ID']
+            ));
+            if ($stmt) {
+                $_SESSION['Username'] = $username;
+                $row['User_Des']      = $userDes;
             }
-
-            $stmt = $con->prepare("UPDATE users SET `User_Site` = ? WHERE `User_id` = ?");
-
-            $stmt->execute(array($UserWeb, $_SESSION['ID']));
-
-            header("Refresh:0");
-
-        }
-        if (isset($_POST['paybal'])) {
-
-            $paybalUrl = $_POST['paybalUrl'];
-
-            $paybalUrl = filter_var($paybalUrl, FILTER_SANITIZE_EMAIL);
-
-            if($paybalUrl == '' || $paybalUrl == NULL) {
-
-                $UserWeb = $row['User_paypal'];
-
+        } else {
+            echo "<script>";
+            foreach ($formErrors as $errors) {
+                echo "alert('" . $errors . " '); ";
             }
-
-            $stmt = $con->prepare("UPDATE users SET `User_paypal` = ? WHERE `User_id` = ?");
-
-            $stmt->execute(array($paybalUrl, $_SESSION['ID']));
-
-            header("Refresh:0");
-
-        }
-        if (isset($_POST['avatarBtn'])) {
-
-            // Upload Variables
-
-            $avatarName = $_FILES['avatar']['name'];
-			$avatarSize = $_FILES['avatar']['size'];
-			$avatarTmp	= $_FILES['avatar']['tmp_name'];
-            $avatarType = $_FILES['avatar']['type'];
-
-			// List Of Allowed File Typed To Upload
-
-			$avatarAllowedExtension = array("jpeg", "jpg", "png");
-
-            // Get Avatar Extension
-            
-            $tmp = explode('.', $avatarName);
-            $file_extension = end($tmp);
-            $avatarExtension = strtolower($file_extension);
-
-            if (empty($avatarName)) {
-                $formErrors[] = 'Avatar Is <strong>Required</strong>';
-            }
-            
-            if (! empty($avatarName) && ! in_array($avatarExtension, $avatarAllowedExtension)) {
-                $formErrors[] = 'This Extension Is Not <strong>Allowed</strong>';
-            }
-
-            if ($avatarSize > 4194304) {
-                $formErrors[] = 'Avatar Cant Be Larger Than <strong>4MB</strong>';
-            }
-
-            // Check If There's No Error Proceed The Update Operation
-
-			if (empty($formErrors)) {
-
-                $myFile = $_SESSION['ProfileImg'];
-                do {
-                     $avatar = randomString() . '_' . $avatarName;
-                } while(cheak('`User_Img`', 'users', "`User_Img` = '$avatar'"));
-
-                move_uploaded_file($avatarTmp, "upload\avatars\\" . $avatar);
-
-                $stmt = $con->prepare("UPDATE users SET `User_Img` = ? WHERE `User_id` = ?");
-
-                $stmt->execute(array($avatar, $_SESSION['ID']));
-
-                $_SESSION['ProfileImg'] = "upload/avatars/" . $avatar;
-
-                if($myFile != "upload/avatars/0.jpg"){
-
-                unlink($myFile) or die("Couldn't delete file");
-
-                }
-
-            }
-
+            echo "</script>";
         }
     }
-    
-    include $tempDir . 'header.php';
-
+    if (isset($_POST['website'])) {
+        $UserWeb = $_POST['webUrl'];
+        $UserWeb = filter_var($UserWeb, FILTER_VALIDATE_URL);
+        if ($UserWeb == '' || $UserWeb == NULL) {
+            $UserWeb = $row['User_Site'];
+        }
+        $stmt = $con->prepare("UPDATE users SET `User_Site` = ? WHERE `User_id` = ?");
+        $stmt->execute(array(
+            $UserWeb,
+            $_SESSION['ID']
+        ));
+        header("Refresh:0");
+    }
+    if (isset($_POST['paybal'])) {
+        $paybalUrl = $_POST['paybalUrl'];
+        $paybalUrl = filter_var($paybalUrl, FILTER_SANITIZE_EMAIL);
+        if ($paybalUrl == '' || $paybalUrl == NULL) {
+            $UserWeb = $row['User_paypal'];
+        }
+        $stmt = $con->prepare("UPDATE users SET `User_paypal` = ? WHERE `User_id` = ?");
+        $stmt->execute(array(
+            $paybalUrl,
+            $_SESSION['ID']
+        ));
+        header("Refresh:0");
+    }
+    if (isset($_POST['avatarBtn'])) {
+        // Upload Variables
+        $avatarName             = $_FILES['avatar']['name'];
+        $avatarSize             = $_FILES['avatar']['size'];
+        $avatarTmp              = $_FILES['avatar']['tmp_name'];
+        $avatarType             = $_FILES['avatar']['type'];
+        // List Of Allowed File Typed To Upload
+        $avatarAllowedExtension = array(
+            "jpeg",
+            "jpg",
+            "png"
+        );
+        // Get Avatar Extension
+        $tmp                    = explode('.', $avatarName);
+        $file_extension         = end($tmp);
+        $avatarExtension        = strtolower($file_extension);
+        if (empty($avatarName)) {
+            $formErrors[] = 'Avatar Is <strong>Required</strong>';
+        }
+        if (!empty($avatarName) && !in_array($avatarExtension, $avatarAllowedExtension)) {
+            $formErrors[] = 'This Extension Is Not <strong>Allowed</strong>';
+        }
+        if ($avatarSize > 4194304) {
+            $formErrors[] = 'Avatar Cant Be Larger Than <strong>4MB</strong>';
+        }
+        // Check If There's No Error Proceed The Update Operation
+        if (empty($formErrors)) {
+            $myFile = $_SESSION['ProfileImg'];
+            do {
+                $avatar = randomString() . '_' . $avatarName;
+            } while (cheak('`User_Img`', 'users', "`User_Img` = '$avatar'"));
+            move_uploaded_file($avatarTmp, "upload\avatars\\" . $avatar);
+            $stmt = $con->prepare("UPDATE users SET `User_Img` = ? WHERE `User_id` = ?");
+            $stmt->execute(array(
+                $avatar,
+                $_SESSION['ID']
+            ));
+            $_SESSION['ProfileImg'] = "upload/avatars/" . $avatar;
+            if ($myFile != "upload/avatars/0.jpg") {
+                if (isset($_FILES[$myFile])) {
+                    unlink($myFile) or die("Couldn't delete file");
+                }
+            }
+        }
+    }
+}
+include $tempDir . 'header.php';
 ?>
 <header class="d-flex h-500">
     <div class="over"></div>
@@ -211,13 +147,13 @@
            <!--Start Img Section -->
             <div class="personal-img position-relative col-lg-3 col-sm-12 p-0 mr-lg-4" data-toggle="modal" data-target="#personal-img">
                 <div class="over h-100"></div>
-                <img src="<?=($_SESSION['ProfileImg'])?>" class="rounded w-100 h-100 position-relative" alt="...">
+                <img src="<?= ($_SESSION['ProfileImg']) ?>" class="rounded w-100 h-100 position-relative" alt="...">
             </div>
             <!--End Img Section -->
             <!--Start Name Section -->
             <div class="col-lg-8 col-sm-12 mt-5 text-sm-center text-lg-left" data-toggle="modal" data-target="#personal-name">
-                <h2 class="hover2 bg-color-2 d-inline rounded font-700 font-color-2 mb-lg-0 mb-4 px-3 py-1"><?=($_SESSION['Username'])?></h2>
-                <p  class="hover2 bg-color-2 d-block rounded font-700 font-color-2 mt-4 p-4 pb-0 text-center"><?=($row['User_Des'])?></p>
+                <h2 class="hover2 bg-color-2 d-inline rounded font-700 font-color-2 mb-lg-0 mb-4 px-3 py-1"><?= ($_SESSION['Username']) ?></h2>
+                <p  class="hover2 bg-color-2 d-block rounded font-700 font-color-2 mt-4 p-4 pb-0 text-center"><?= ($row['User_Des']) ?></p>
             </div>
             <!--End Name Section -->
         </div>
@@ -290,7 +226,6 @@
     </div>
 </section>
 <!--End certfcate Section -->
-
 <!--Start dashbord Section -->
 <section class="w-100 bg-color-2 dashbord">
    <div class="container pb-4">
@@ -341,43 +276,36 @@
     </div>
 </section>
 <!--End dashbord Section -->
-
 <!--Start Portfoilo Section -->
 <section class="w-100 bg-color-7 portfoilo">
+<?php 
+        $stmtpo = $con->prepare("SELECT * FROM `portfoilo` WHERE `PortfoiloUser` = '" . $_SESSION['ID'] . "' LIMIT 4");
+        $stmtpo->execute();
+        $portfoilo = $stmtpo->fetchAll();
+        ?>
     <div class="container py-5">
        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">أعمال سابقه</h2>
        <div>
-          <a href="#" class="btn-add"><i class="fas fa-plus"></i></a>
-          <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
+          <a href="portfoilo.php?do=add" class="btn-add"><i class="fas fa-plus"></i></a>
+          <a href="portfoilo.php?prot=<?= ($_SESSION['ID']) ?>" class="font-color-3 font-700 f-18">عرض الكل</a>
        </div>
        <div class="row">
+       <?php 
+        $stmtpo = $con->prepare("SELECT * FROM `portfoilo` WHERE `PortfoiloUser` = '" . $_SESSION['ID'] . "'ORDER BY `PortfoiloDate` DESC LIMIT 4");
+        $stmtpo->execute();
+        $portfoilo = $stmtpo->fetchAll();
+        foreach ($portfoilo as $po) {
+        ?>
            <div class="col-lg-3 col-sm-5">
               <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
-                  <img src="upload/port/3.jpg" class="w-100 h-200">
-                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
-                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
+                  <img src="upload/port/<?= ($po['PortfoiloImg']) ?>" class="w-100 h-200">
+                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18"><?= ($po['PortfoiloTitle']) ?></h4>
+                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="portfoilo.php?work=<?= ($po['PortfoiloID']) ?>">المزيد</a>
               </div>
            </div>
-           <div class="col-lg-3 col-sm-5">
-              <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
-                  <img src="upload/port/j.jpg" class="w-100 h-200">
-                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
-                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
-              </div>
-           </div>
-           <div class="col-lg-3 col-sm-5">
-              <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
-                  <img src="upload/port/M.jpg" class="w-100 h-200">
-                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
-                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
-              </div>
-           </div>
-           <div class="col-lg-3 col-sm-5">
-              <div class="mb-2 mt-2 bg-color-1 text-center p-2 pb-3">
-                  <img src="upload/port/5.jpg" class="w-100 h-200">
-                  <h4 class="m-3 bg-color-5 p-2 text-center font-color-3 font-700 f-18">تصميم كارت</h4>
-                  <a class="font-color-3 bg-color-5 p-1 f-18 px-4 text-center font-700" href="#">المزيد</a>
-              </div>
+       <?php 
+       }
+       ?>
            </div>
        </div>
     </div>
@@ -389,8 +317,8 @@
 <div class="modal fade" id="personal-img" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content pb-0">
-            <img src="<?=($_SESSION['ProfileImg'])?>" class="w-100 h-max-600" alt="your Img">
-            <form class="form-group pt-3 mb-0" action="<?=($_SERVER['PHP_SELF'])?>" method="POST" enctype="multipart/form-data">
+            <img src="<?= ($_SESSION['ProfileImg']) ?>" class="w-100 h-max-600" alt="your Img">
+            <form class="form-group pt-3 mb-0" action="<?= ($_SERVER['PHP_SELF']) ?>" method="POST" enctype="multipart/form-data">
                 <input type="file" name="avatar" id="file" class="input-file" />
                 <label for="file" class="btn btn-tertiary js-labelFile">
                     <i class="icon fa fa-check"></i>
@@ -407,9 +335,9 @@
 <div class="modal fade" id="personal-name" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content pb-0">
-            <form class="form-group pt-3 mb-0 container" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
-               <input type="name" name="username" class="w-100  my-3" placeholder="<?=($_SESSION['Username'])?>"/>
-                <textarea class="w-100 h-500 my-4" name="userDes" placeholder="<?=($row['User_Des'])?>"></textarea>
+            <form class="form-group pt-3 mb-0 container" action="<?= ($_SERVER['PHP_SELF']) ?>" method="POST">
+                <input type="name" name="username" class="w-100  my-3" placeholder="<?= ($_SESSION['Username']) ?>"/>
+                <textarea class="w-100 h-500 my-4" name="userDes" placeholder="<?= ($row['User_Des']) ?>"></textarea>
                 <input type="submit" name="des" value="اضغط للرفع" class="btn btn-secondary btn-lg btn-block mt-3 mb-3 rounded-0">
             </form>
         </div>
@@ -418,17 +346,18 @@
 <!-- End personal-Des Model -->
 
 <!-- Start WebSite Model -->
-<?php 
- if ($row['User_Site'] != NULL) {
-        $website = $row['User_Site'];
-    }else {
-        $website = 'for exmple >> Powerware.site';
-}?>
+<?php
+if ($row['User_Site'] != NULL) {
+    $website = $row['User_Site'];
+} else {
+    $website = 'for exmple >> Powerware.site';
+}
+?>
 <div class="modal fade" id="website" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content pb-0">
-            <form class="form-group pt-3 mb-0 container" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
-                <input type="url" name="webUrl" class="w-100 my-3" placeholder="<?=($website)?>"/>
+            <form class="form-group pt-3 mb-0 container" action="<?= ($_SERVER['PHP_SELF']) ?>" method="POST">
+                <input type="url" name="webUrl" class="w-100 my-3" placeholder="<?= ($website) ?>"/>
                 <input type="submit" name="website" value="اضغط للرفع" class="btn btn-secondary btn-lg btn-block mt-3 mb-3 rounded-0">
             </form>
         </div>
@@ -436,25 +365,25 @@
 </div>
 <!-- End WebSite Model -->
 <!-- Start Paybal Model -->
-<?php 
- if ($row['User_paypal'] != NULL) {
-        $paybal = $row['User_paypal'];
-    }else {
-        $paybal = 'for exmple >> Power@power.power';
-}?>
+<?php
+if ($row['User_paypal'] != NULL) {
+    $paybal = $row['User_paypal'];
+} else {
+    $paybal = 'for exmple >> Power@power.power';
+}
+?>
 <div class="modal fade" id="paybal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content pb-0">
-            <form class="form-group pt-3 mb-0 container" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
-                <input type="email" name="paybalUrl" class="w-100 my-3" placeholder="<?=($paybal)?>"/>
+            <form class="form-group pt-3 mb-0 container" action="<?= ($_SERVER['PHP_SELF']) ?>" method="POST">
+                <input type="email" name="paybalUrl" class="w-100 my-3" placeholder="<?= ($paybal) ?>"/>
                 <input type="submit" name="paybal" value="اضغط للرفع" class="btn btn-secondary btn-lg btn-block mt-3 mb-3 rounded-0">
             </form>
         </div>
     </div>
 </div>
 <!-- End WebSite Model -->
-
 <!-- End Modals -->
 <?php
-    include $tempDir . 'footer.php';
+include $tempDir . 'footer.php';
 ?>
