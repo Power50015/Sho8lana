@@ -108,10 +108,6 @@
                                 <i class="fas fa-dollar-sign"></i>
                                 <span class="pl-1"> الرصيد </span>
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-sliders-h"></i>
-                                <span class="pl-1"> الاعدادات </span>
-                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="logout.php">
                                 <i class="fas fa-sign-out-alt"></i>

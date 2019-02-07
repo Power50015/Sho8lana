@@ -7,11 +7,13 @@ include $tempDir . 'header.php';
 if (isset($_GET['prot'])) {
     if (!empty($_GET['prot'])) {
         if (cheak('`User_id`', '`users`', '`User_id` = "' . $_GET['prot'] . '"')) {
-            $stmt = $con->prepare("SELECT * FROM `portfoilo` WHERE `PortfoiloUser` = '" . $_GET['prot'] . "'");
+            $stmt = $con->prepare("SELECT * FROM `portfoilo` WHERE `PortfoiloUser` = '" . $_GET['prot'] . "'ORDER BY `PortfoiloDate` DESC");
             $stmt->execute();
             $portfoilo = $stmt->fetchAll();
+            if(isset($_SESSION['ID'])){
+                    if( $_GET['cert'] == $_SESSION['ID'] ){ 
             echo "<div class='mt-4 container'><a class='btn btn-primary btn-lg rounded-0 btn-block bg-color-2' href='portfoilo.php?do=add'>إضافه مشروع</a></div>";
-            foreach ($portfoilo as $x) {
+                    }}foreach ($portfoilo as $x) {
 ?>
 <div class="port_grid_section mb-5">
     <div class="container">

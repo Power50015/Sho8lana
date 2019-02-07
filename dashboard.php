@@ -198,30 +198,29 @@ include $tempDir . 'header.php';
        <hr class="bg-color-3 mb-5">
        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">الشهادات</h2>
        <div>
-         <a href="#" class="btn-add"><i class="fas fa-plus"></i></a>
-         <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
+         <a href="cert.php?do=add" class="btn-add"><i class="fas fa-plus"></i></a>
+         <a href="cert.php?cert=<?=($_SESSION['ID'])?>" class="font-color-3 font-700 f-18">عرض الكل</a>
         </div>
-       <div class="row justify-content-between mb-5 mt-3">
-           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
-               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Html5 Cer</h4>
-               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
+       <div class="row justify-content-center mb-5 mt-3">
+       <?php 
+            $stmt = $con->prepare("SELECT * FROM `cert` WHERE `CertUser` = '" .$_SESSION['ID'] . "'");
+            $stmt->execute();
+            $certs = $stmt->fetchAll();
+            foreach ($certs as $x) {
+       ?>
+           <div class="col-sm-4 col-12 mb-2 mt-2">
+            <div class="bg-color-1 text-center">
+                <h4 class="bg-color-5 p-2 text-center font-color-2 font-700"><?= ($x['CertTitle'])?></h4>
+                <div class="w-100 h-100">
+                    <img src="upload/cert/<?= ($x['Certimg']) ?>" class="w-100 h-200">
+                </div>
+                <a class="w-100 fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="<?= ($x['Certlink'])?>"></a>
+            </div>
            </div>
-           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
-               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">CSS3 Cer</h4>
-               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
-           </div>
-           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
-               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Markteing Cer</h4>
-               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
-           </div>
-           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
-               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Comunic Cer</h4>
-               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
-           </div>
-           <div class="col-lg-2 col-sm-5 mb-2 mt-2 bg-color-1 text-center pb-4">
-               <h4 class="m-3 bg-color-5 p-2 text-center font-color-2 font-700">Html5 Cer</h4>
-               <a class="fas fa-download font-color-3 bg-color-5 p-2 px-4 f-30 text-center font-700" href="#"></a>
-           </div>
+           <?php
+            }
+            ?>
+
        </div>
     </div>
 </section>
@@ -232,14 +231,14 @@ include $tempDir . 'header.php';
         <div class="row">
             <div class="col-lg-6 col-sm-12">
                 <div class="text-center mt-5 rounded bg-color-8 p-1 mb-4">
-                    <a href="#" class="hover2 d-block py-5 font-700 f-30 font-color-3">الخدمات <span>10</span></a>
+                    <a href="services.php?do=manage&filt=all" class="hover2 d-block py-5 font-700 f-30 font-color-3">الخدمات <span>10</span></a>
                     <a href="services.php?do=add" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">اضافه خدمه جديده</a>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="text-center mt-5 rounded bg-color-8 p-1 mb-4">
                     <a href="#" class="hover2 d-block py-5 font-700 f-30 font-color-3">العروض <span>8</span></a>
-                    <a href="#" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">تصفح العروض</a>
+                    <a href="services.php" class="btn btn-lg btn-block mt-3 mb-0 font-color-2 bg-color-9">تصفح العروض</a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
@@ -278,11 +277,6 @@ include $tempDir . 'header.php';
 <!--End dashbord Section -->
 <!--Start Portfoilo Section -->
 <section class="w-100 bg-color-7 portfoilo">
-<?php 
-        $stmtpo = $con->prepare("SELECT * FROM `portfoilo` WHERE `PortfoiloUser` = '" . $_SESSION['ID'] . "' LIMIT 4");
-        $stmtpo->execute();
-        $portfoilo = $stmtpo->fetchAll();
-        ?>
     <div class="container py-5">
        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">أعمال سابقه</h2>
        <div>
