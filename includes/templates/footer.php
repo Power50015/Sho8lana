@@ -1,4 +1,5 @@
-<footer class=" bg-color-4 ">
+<div class="clearfix"></div>
+   <footer class=" bg-color-4">
     <div class="container">
         <div class="row text-white text-center text-md-left py-5 py-md-0">
                     <div class="col-lg-3 col-md-6 col-sm-12 py-md-5 pl-md-3">
