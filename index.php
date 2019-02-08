@@ -161,59 +161,86 @@
         <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-3 mb-4 px-3 py-2 f-24 pr-5">اجدد المشاريع</h2>
         <p>تصفح مشاريعك و اضف عروضك على المشروع المناسب لك</p>
         <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active f-20" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">برمجه</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link f-20" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">ترجمه</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link f-20" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">تسويق</a>
-            </li>
+        <?php 
+            $stmt = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` IS NULL");
+            $stmt->execute();
+            $cats = $stmt->fetchAll();
+            $i=0;
+            foreach($cats as $x){
+                $href[] = "pills-".randomString(12) . "-z";
+                echo '<li class="nav-item">';
+                if($i==0){
+                echo '<a class="nav-link active f-20" id="'.$href[$i].'-tab" data-toggle="pill" href="#'.$href[$i].'" role="tab" aria-controls="'.$href[$i].'" aria-selected="true">'.$x['CatName'].'</a>';
+                }else{
+                echo '<a class="nav-link f-20" id="'.$href[$i].'-tab" data-toggle="pill" href="#'.$href[$i].'" role="tab" aria-controls="'.$href[$i].'" aria-selected="false">'.$x['CatName'].'</a>';
+                }echo '</li>';
+                $i++;
+            }
+        ?>
         </ul>
         <div class="tab-content bg-color-7 mb-5" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row pt-3">
-                    <div class="col-md-7 col-sm-10 offset-md-1">
-                        <a href="#"><h3 class="pl-3 font-700">تصميم موقع تجارى</h3></a>
-                        <h6 class="d-inline-block pl-3 font-700"><i class="far fa-grin-wink"></i> يوسف جو</h6>
-                        <h6 class="d-inline-block ml-4 font-700"><i class="far fa-clone"></i> 3 عروض</h6>
-                        <p class="w-100 bg-color-8 mt-3">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف</p>
-                    </div>
-                    <div class="col-3 order-img d-md-block d-none">
-                        <img class="w-100 mx-4 rounded-circle" src="upload/3c1f3f3aead0ac7e009ee9952e131647.png">
-                    </div>
-                </div>
-                <hr class="m-5">
-                <div class="row pt-3">
-                    <div class="col-md-7 col-sm-10 offset-md-1">
-                        <a href="#"><h3 class="pl-3 font-700">تصميم موقع تجارى</h3></a>
-                        <h6 class="d-inline-block pl-3 font-700"><i class="far fa-grin-wink"></i> يوسف جو</h6>
-                        <h6 class="d-inline-block ml-4 font-700"><i class="far fa-clone"></i> 3 عروض</h6>
-                        <p class="w-100 bg-color-8 mt-3">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف</p>
-                    </div>
-                    <div class="col-3 order-img d-md-block d-none">
-                        <img class="w-100 mx-4 rounded-circle" src="upload/3c1f3f3aead0ac7e009ee9952e131647.png">
-                    </div>
-                </div>
-                <hr class="m-5">
-                <div class="row pt-3">
-                    <div class="col-md-7 col-sm-10 offset-md-1">
-                        <a href="#"><h3 class="pl-3 font-700">تصميم موقع تجارى</h3></a>
-                        <h6 class="d-inline-block pl-3 font-700"><i class="far fa-grin-wink"></i> يوسف جو</h6>
-                        <h6 class="d-inline-block ml-4 font-700"><i class="far fa-clone"></i> 3 عروض</h6>
-                        <p class="w-100 bg-color-8 mt-3">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف</p>
-                    </div>
-                    <div class="col-3 order-img d-md-block d-none">
-                        <img class="w-100 mx-4 rounded-circle" src="upload/3c1f3f3aead0ac7e009ee9952e131647.png">
-                    </div>
-                </div>
-                <hr class="mx-5 mb-0 pb-0">
+            <?php 
+            $i=0;
+            foreach($cats as $x){
+                $stmt = $con->prepare("SELECT CatID FROM `cats` WHERE `CatMain` = " . $x['CatID']);
+                $stmt->execute();
+                $Subcats = $stmt->fetchAll();
+                $numItems = count($Subcats);
+                $j = 0;
+                $SQLSection = "(`sections_services` = ";
+                foreach($Subcats as $y){
+                    if(++$j === $numItems) {
+                        $SQLSection = $SQLSection . $y['CatID'] . " )";
+                    }
+                    else{
+                        $SQLSection = $SQLSection . $y['CatID'] . " OR `sections_services` = ";
+                    }
+                    
+                }
+                if($i==0){
+                    echo '<div class="tab-pane fade show active" id="'.$href[$i].'" role="tabpanel" aria-labelledby="'.$href[$i].'-tab">';
+                    $i++;
+                }else {
+                    echo '<div class="tab-pane fade" id="'.$href[$i].'" role="tabpanel" aria-labelledby="'.$href[$i].'-tab">';
+                    $i++;
+                }
+                $SQLSS = "SELECT * FROM `services` WHERE " .$SQLSection. "AND `services_stat` = 0 ORDER BY `service_time` DESC LIMIT 3";
+                $stmt = $con->prepare($SQLSS);
+                $stmt->execute();
+                $services = $stmt->fetchAll();
+                $g=0;
+                foreach($services as $z) {
+                    echo '<div class="row pt-3"> <div class="col-md-7 col-sm-10 offset-md-1">';
+                    echo '<a href="services.php?singl='.$z['id_services'].'"><h3 class="pl-3 font-700">'.$z['service_title'].'</h3></a>';
+                $sql = "SELECT count(*) FROM `offers` WHERE `OffersService` = '" .$z['id_services']."'"; 
+                $result = $con->prepare($sql); 
+                $result->execute(); 
+                $number_of_rows = $result->fetchColumn(); 
+                $SQLUS = "SELECT `User_name`, `User_Img` FROM `users` WHERE `User_id` = '".$z['user_id']."'";
+                $stmt = $con->prepare($SQLUS);
+                $stmt->execute();
+                $USs = $stmt->fetch();
+                    echo '<h6 class="d-inline-block pl-3 font-700"><i class="far fa-grin-wink"></i> '.$USs['User_name'].'</h6>';
+                    echo '<h6 class="d-inline-block ml-4 font-700"><i class="far fa-clone"></i> '.$number_of_rows.' عروض</h6>';
+                    echo '<p class="w-100 bg-color-8 mt-3">' . substr($z['service_des'] ,0, 500) . '.....</p>';
+                    echo '</div>';
+                    echo '<div class="col-3 order-img d-md-block d-none">';
+                    echo '<img class="w-100 mx-4 rounded-circle" src="upload/avatars/'.$USs['User_Img'].'"/>';
+                    echo '</div></div><hr class="mx-5 mb-0 pb-0">';
+                    $g++;
+                }
+                
+                ?>
+                
+                        
+                    
+                    
+                        
+                    
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+            <?php }?>
         </div>
-        <a href="sing.php" class="btn btn-lg btn-block mt-3 mb-5 text-white bg-color-3 hover">تصفح جميع المشاريع</a>
+        <a href="services.php" class="btn btn-lg btn-block mt-3 mb-5 text-white bg-color-3 hover">تصفح جميع المشاريع</a>
     </div>
 </section>
 <!-- End Offers Section Section -->

@@ -6,9 +6,157 @@ include 'init.php';
 include $tempDir . 'header.php';
 if (isset($_GET['do'])) {
     if (isset($_SESSION['Username'])) {
-        $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
-        if ($do == 'Manage') {
-        } elseif ($do == 'add') {
+        if ($_GET['do'] == 'manage') {
+            if (isset($_GET['filt'])) {
+                if ($_GET['filt'] == 'all') {
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " ORDER BY `service_time` DESC");
+                    $stmt->execute();
+                    $services = $stmt->fetchAll();
+?>
+<div class="container pt-5 position-relative">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">عنوان الخدمه المطلوبه</th>
+            <th scope="col">تاريخ الإضافه</th>
+            <th scope="col">الحاله</th>
+            <th scope="col">حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    foreach ($services as $x) {
+?>
+    <tr>
+    <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
+    <td><?= ($x['service_time']) ?></td>
+    <td><?= ($x['services_stat']) ?></td>
+      <?php
+                        if ($x['services_stat'] == 0) {
+?>
+          <td><a href="services.php?do=delete&serv=<?= ($x['id_services']) ?>" class="btn btn-danger">حذف</a></td>
+          <?php
+                        } else {
+?>
+          <td></td>
+          <?php
+                        }
+?>
+      
+    </tr>
+<?php
+                    }
+?>
+        </tbody>
+    </table>
+</div>
+<?php
+                }elseif($_GET['filt'] == 'making'){
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =1 ORDER BY `service_time` DESC");
+                    $stmt->execute();
+                    $services = $stmt->fetchAll();
+?>
+<div class="container pt-5 position-relative">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">عنوان الخدمه المطلوبه</th>
+            <th scope="col">تاريخ الإضافه</th>
+            <th scope="col">الحاله</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    foreach ($services as $x) {
+?>
+    <tr>
+    <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
+    <td><?= ($x['service_time']) ?></td>
+    <td><?= ($x['services_stat']) ?></td>
+    </tr>
+<?php
+                    }
+?>
+        </tbody>
+    </table>
+</div>
+<?php
+
+                }elseif($_GET['filt'] == 'finsh'){
+                    
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat = 2 ORDER BY `service_time` DESC");
+                    $stmt->execute();
+                    $services = $stmt->fetchAll();
+?>
+<div class="container pt-5 position-relative">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">عنوان الخدمه المطلوبه</th>
+            <th scope="col">تاريخ الإضافه</th>
+            <th scope="col">الحاله</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    foreach ($services as $x) {
+?>
+    <tr>
+    <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
+    <td><?= ($x['service_time']) ?></td>
+    <td><?= ($x['services_stat']) ?></td>
+    </tr>
+<?php
+                    }
+?>
+        </tbody>
+    </table>
+</div>
+<?php
+
+                }elseif($_GET['filt'] == 'cansel'){
+                    
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =3 ORDER BY `service_time` DESC");
+                    $stmt->execute();
+                    $services = $stmt->fetchAll();
+?>
+<div class="container pt-5 position-relative">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">عنوان الخدمه المطلوبه</th>
+            <th scope="col">تاريخ الإضافه</th>
+            <th scope="col">الحاله</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    foreach ($services as $x) {
+?>
+    <tr>
+    <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
+    <td><?= ($x['service_time']) ?></td>
+    <td><?= ($x['services_stat']) ?></td>
+    </tr>
+<?php
+                    }
+?>
+        </tbody>
+    </table>
+</div>
+<?php
+
+                } else {
+                    $url = "services.php?do=manage&filt=all";
+                    header('Location: ' . $url);
+                    exit();
+                }
+            } else {
+                $url = "services.php?do=manage&filt=all";
+                header('Location: ' . $url);
+                exit();
+            }
+        } elseif ($_GET['do'] == 'add') {
 ?>
 <header id='fullHeader'>
     <div class="over"></div>
@@ -88,7 +236,7 @@ if (isset($_GET['do'])) {
 </header>
 
 <?php
-        } elseif ($do == 'Insert') {
+        } elseif ($_GET['do'] == 'insert') {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $adsName    = $_POST['adsName'];
                 $cats       = $_POST['cats'];
@@ -136,7 +284,44 @@ if (isset($_GET['do'])) {
                 $theMsg = '<div class="alert alert-danger">Sorry You Cant Browse This Page Directly</div>';
                 echo "</div>";
             }
-        } elseif ($do == 'Delete') {
+        } elseif ($_GET['do'] == 'delete') {
+            if (isset($_GET['serv'])) {
+                if (!empty($_GET['serv'])) {
+                    if (cheak('*', '`services`', "`id_services` = '" . $_GET['serv'] . "' AND `user_id` = '" . $_SESSION['ID'] . "'")) {
+                        if (cheak('*', '`services`', "`id_services` = '" . $_GET['serv'] . "' AND `services_stat` = 0")) {
+                            $stmt = $con->prepare("SELECT * FROM `offers` WHERE `OffersService` = '" . $_GET['serv'] . "'");
+                            $stmt->execute();
+                            $ddoffers = $stmt->fetchAll();
+                            foreach ($ddoffers as $x) {
+                                $stmt = $con->prepare("DELETE FROM `offers` WHERE `OffersID` = :zid");
+                                $stmt->bindParam(":zid", $x['OffersID']);
+                                $stmt->execute();
+                            }
+                            $stmt = $con->prepare("DELETE FROM `services` WHERE `id_services` = :zid");
+                            $stmt->bindParam(":zid", $_GET['serv']);
+                            $stmt->execute();
+                            $url = "services.php?do=manage&filt=all";
+                            header('Location: ' . $url);
+                        } else {
+                            $url = "services.php?do=manage&filt=all";
+                            header('Location: ' . $url);
+                            exit();
+                        }
+                    } else {
+                        $url = "services.php?do=manage&filt=all";
+                        header('Location: ' . $url);
+                        exit();
+                    }
+                } else {
+                    $url = "services.php?do=manage&filt=all";
+                    header('Location: ' . $url);
+                    exit();
+                }
+            } else {
+                $url = "services.php?do=manage&filt=all";
+                header('Location: ' . $url);
+                exit();
+            }
         } else {
             header('Location: services.php');
             exit();
@@ -403,6 +588,7 @@ if (isset($_GET['do'])) {
                             <?php
                 if (isset($_SESSION['ID'])) {
                     if (($ServicesRow['user_id'] == $_SESSION['ID'])) {
+                        if ($ServicesRow['services_stat'] == 0) {
 ?>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">اختيار العرض </button>
@@ -427,6 +613,7 @@ if (isset($_GET['do'])) {
                                 </div>
                             </div>
                             <?php
+                        }
                     }
                 }
 ?>
@@ -451,7 +638,7 @@ if (isset($_GET['do'])) {
                         <?= ($TimeItNeed) ?>
                     </h6>
                     <h6 class="font-700 f-18 font-color-3 p-3 ">صاحب المشروع</h6>
-                    <div class="row">
+                    <div class="row  border-bottom border-color-1 pb-2">
                         <div class="col-5 pl-4">
                             <a class="hover2" href="profile.php?user=<?= ($ServicesRow['user_id']) ?>"><img class="w-100 rounded-circle" src="upload/avatars/<?= ($UserRow['User_Img']) ?>"></a>
                         </div>
@@ -463,6 +650,35 @@ if (isset($_GET['do'])) {
                             </a>
                         </div>
                     </div>
+                    <?php
+            if ($ServicesRow['services_stat'] != 0) {
+                $stmt = $con->prepare("SELECT * FROM `offers` WHERE  `OffersService`  = ?");
+                $stmt->execute(array(
+                    $ServicesRow['id_services']
+                ));
+                $ACCOffer = $stmt->fetch();
+                $stmt     = $con->prepare("SELECT `User_name`,`User_Img` FROM `users` WHERE  `User_id`  = ?");
+                $stmt->execute(array(
+                    $ACCOffer['OffersUser']
+                ));
+                $ACCUser = $stmt->fetch();
+?>
+                    <h6 class="font-700 f-18 font-color-3 p-3 ">المستقل المقبول</h6>
+                    <div class="row">
+                        <div class="col-5 pl-4">
+                            <a class="hover2" href="profile.php?user=<?= ($ACCOffer['OffersUser']) ?>"><img class="w-100 rounded-circle" src="upload/avatars/<?= ($ACCUser['User_Img']) ?>"></a>
+                        </div>
+                        <div class="col-7 mt-3">
+                            <a class="hover2" href="profile.php?user=<?= ($ACCOffer['OffersUser']) ?>">
+                                <h3 class="font-700 f-18 font-color-3 ">
+                                    <?= ($ACCUser['User_name']) ?>
+                                </h3>
+                            </a>
+                        </div>
+                    </div>
+                    <?php
+            }
+?>
                 </aside>
             </div>
         </div>

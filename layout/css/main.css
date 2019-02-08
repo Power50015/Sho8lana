@@ -35,83 +35,232 @@ Tags:
 /*--------------------------------------------------------------
 1.0 Typography ,Colors & Global Class
 --------------------------------------------------------------*/
-body { background: #EEE}
-.bg-color-1 { background: #fff !important }
-.bg-color-2 { background: #364559 !important }
-.bg-color-3, input[type="radio"]:checked + label span { background: #ff3363 !important }
-.bg-color-4 { background: #36455A !important }
-.bg-color-5 { background: #949293 !important }
-.bg-color-6 { background: rgb(255, 51, 99, 0.4) !important }
-.bg-color-7 { background: #D7D7D9 !important}
-.bg-color-8 { background: #EEEEEE !important}
-.bg-color-9 { background: #FF5E87 !important}
-.bg-color-10 { background: rgb(54,69,90, 0.4) !important }
-.bg-color-11 { background: #d7d7d9 !important }
-.bg-color-12 { background: #2D3C51 !important }
-.bg-none { background: none !important }
-.border-color-1 { border-color: #364559 !important }
-.font-color-1, nav .active-link a { color: #ff3363 !important }
-.font-color-2 { color:#fff }
-.font-color-3 { color: #364559 !important }
-.font-color-4 { color: #949293 !important }
-.font-cairo,h1,h2,h3,h4,h5,h6 { font-family: 'Cairo', sans-serif }
-.font-changa,p { font-family: 'Changa', sans-serif }
-.f-2  { font-size: 2.5em}
-.f-3  { font-size: 3em  }
-.f-10 { font-size: 10px }
-.f-18 { font-size: 18px }
-.f-20 { font-size: 20px }
-.f-24 { font-size: 24px }
-.f-30 { font-size: 30px }
-.f-40 { font-size: 40px }
-.f-48 { font-size: 48px }
-.f-70 { font-size: 70px }
-.f-73 { font-size: 73px }
-.f-85 { font-size:85px  }
-.f-140 { font-size: 140px }
-.font-700 { font-weight: 700 } 
-.opc-40 {opacity: 0.4}
-.of-y-x { overflow: hidden}
-.border1 { border:2px solid #36455A }
+body {
+    background: #eee;
+}
+
+.bg-color-1 {
+    background: #fff !important;
+}
+
+.bg-color-2 {
+    background: #364559 !important;
+}
+
+.bg-color-3,
+input[type="radio"]:checked + label span {
+    background: #ff3363 !important;
+}
+
+.bg-color-4 {
+    background: #36455a !important;
+}
+
+.bg-color-5 {
+    background: #949293 !important;
+}
+
+.bg-color-6 {
+    background: rgb(255, 51, 99, 0.4) !important;
+}
+
+.bg-color-7 {
+    background: #d7d7d9 !important;
+}
+
+.bg-color-8 {
+    background: #eeeeee !important;
+}
+
+.bg-color-9 {
+    background: #ff5e87 !important;
+}
+
+.bg-color-10 {
+    background: rgb(54, 69, 90, 0.4) !important;
+}
+
+.bg-color-11 {
+    background: #d7d7d9 !important;
+}
+
+.bg-color-12 {
+    background: #2d3c51 !important;
+}
+
+.bg-none {
+    background: none !important;
+}
+
+.border-color-1 {
+    border-color: #364559 !important;
+}
+
+.font-color-1,
+nav .active-link a {
+    color: #ff3363 !important;
+}
+
+.font-color-2 {
+    color: #fff;
+}
+
+.font-color-3 {
+    color: #364559 !important;
+}
+
+.font-color-4 {
+    color: #949293 !important;
+}
+
+.font-cairo,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Cairo", sans-serif;
+}
+
+.font-changa,
+p {
+    font-family: "Changa", sans-serif;
+}
+
+.f-2 {
+    font-size: 2.5em;
+}
+
+.f-3 {
+    font-size: 3em;
+}
+
+.f-10 {
+    font-size: 10px;
+}
+
+.f-18 {
+    font-size: 18px;
+}
+
+.f-20 {
+    font-size: 20px;
+}
+
+.f-24 {
+    font-size: 24px;
+}
+
+.f-30 {
+    font-size: 30px;
+}
+
+.f-40 {
+    font-size: 40px;
+}
+
+.f-48 {
+    font-size: 48px;
+}
+
+.f-70 {
+    font-size: 70px;
+}
+
+.f-73 {
+    font-size: 73px;
+}
+
+.f-85 {
+    font-size: 85px;
+}
+
+.f-140 {
+    font-size: 140px;
+}
+
+.font-700 {
+    font-weight: 700;
+}
+
+.opc-40 {
+    opacity: 0.4;
+}
+
+.of-y-x {
+    overflow: hidden;
+}
+
+.border1 {
+    border: 2px solid #36455a;
+}
+
 .over {
     width: 100%;
     position: absolute;
     background-color: #37475b;
     opacity: 0.4;
-    z-index: 100
+    z-index: 100;
 }
-.h-90 { height: 90px }
-.h-200 { height: 200px }
-.h-500 { height: 500px }
+
+.h-90 {
+    height: 90px;
+}
+
+.h-200 {
+    height: 200px;
+}
+
+.h-500 {
+    height: 500px;
+}
+
 /*Hover Effect 1*/
 .hover:hover {
     cursor: pointer !important;
-    color: #364559  !important;
-    text-decoration: none !important
+    color: #364559 !important;
+    text-decoration: none !important;
 }
+
 /*Hover Effect 2*/
 .hover2:hover {
     cursor: pointer !important;
     color: #949293 !important;
-    text-decoration: none !important
+    text-decoration: none !important;
 }
+
 /*--------------------------------------------------------------
 2.0 Navgation
 --------------------------------------------------------------*/
-nav .navbar-brand .logo { width: 120px }
-nav .active-link { text-decoration: line-through }
-nav .active-link a { color: #706e6e }
-nav .boder { 
+nav .navbar-brand .logo {
+    width: 120px;
+}
+
+nav .active-link {
+    text-decoration: line-through;
+}
+
+nav .active-link a {
+    color: #706e6e;
+}
+
+nav .boder {
     border: 3px solid #d7d7d9;
     padding: 3px 8px 0px;
-    border-radius: 5px
+    border-radius: 5px;
 }
-nav .dropdown-menu.show { left:-5px }
+
+nav .dropdown-menu.show {
+    left: -5px;
+}
+
 nav .profile-link .profile-img {
     width: 48px;
     height: 48px;
-    border-radius: 50%
+    border-radius: 50%;
 }
+
 /*--------------------------------------------------------------
 3.0 Layout
 --------------------------------------------------------------*/
@@ -120,32 +269,51 @@ nav .profile-link .profile-img {
 --------------------------------------------------------------*/
 header {
     background-image: url(../img/bg.jpg);
-    background-size: cover
+    background-size: cover;
 }
-header .container { z-index: 200 }
+
+header .container {
+    z-index: 200;
+}
+
 /*--------------------------------------------------------------
 3.2 Login Section
 --------------------------------------------------------------*/
-.login{ 
+.login {
     background: rgba(253, 245, 245, 0.5);
     padding-left: 30px !important;
-    padding-right: 30px !important
- }
-.login form{
-    margin-top:40px;
-    background: rgba(0,0,0,.5)
+    padding-right: 30px !important;
 }
+
+.login form {
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
 /*--------------------------------------------------------------
 3.3 information Section
 --------------------------------------------------------------*/
 .personal-img {
     height: 250px;
-    overflow: hidden
+    overflow: hidden;
 }
-.personal-img img { z-index: 3}
-.personal-img:hover { cursor: pointer }
-.personal-img .over { z-index: -5 }
-.personal-img:hover .over { z-index: 1000 }
+
+.personal-img img {
+    z-index: 3;
+}
+
+.personal-img:hover {
+    cursor: pointer;
+}
+
+.personal-img .over {
+    z-index: -5;
+}
+
+.personal-img:hover .over {
+    z-index: 1000;
+}
+
 /*Start Upload Btn */
 .btn-tertiary {
     color: #555;
@@ -154,149 +322,233 @@ header .container { z-index: 200 }
     width: 300px;
     margin: auto;
     display: block;
-    border: 2px solid #555
-  }
-.btn-tertiary:hover, .btn-tertiary:focus {
-    color: #888888;
-    border-color: #888888
+    border: 2px solid #555;
 }
+
+.btn-tertiary:hover,
+.btn-tertiary:focus {
+    color: #888888;
+    border-color: #888888;
+}
+
 .input-file {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
     overflow: hidden;
     position: absolute;
-    z-index: -1
+    z-index: -1;
 }
+
 .input-file + .js-labelFile {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 0 10px;
-    cursor: pointer
+    cursor: pointer;
 }
-.input-file + .js-labelFile .icon:before { content: "\f093" }
+
+.input-file + .js-labelFile .icon:before {
+    content: "\f093";
+}
+
 .input-file + .js-labelFile.has-file .icon:before {
     content: "\f00c";
-    color: #5AAC7B
+    color: #5aac7b;
 }
-.h-max-600 { max-height: 600px !important }
+
+.h-max-600 {
+    max-height: 600px !important;
+}
+
 /*End Upload Btn */
 /*--------------------------------------------------------------
 3.4 Certfcate Section
 --------------------------------------------------------------*/
 .btn-add {
-    color: #FF3167;
+    color: #ff3167;
     display: inline-block;
     padding: 0px 5px;
     margin: 7px;
     border: 4px solid #eee;
     font-size: 20px;
-    font-weight: 900
+    font-weight: 900;
 }
+
 /*--------------------------------------------------------------
 3.4 Add Services Section
 --------------------------------------------------------------*/
 
 /* Start Radio */
-input[type="radio"] { display: none }
-input[type="radio"] + label { cursor:pointer }
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    cursor: pointer;
+}
+
 input[type="radio"] + label span {
-  display: inline-block;
-  width: 19px;
-  height: 19px;
-  margin: -1px 4px 0 0;
-  vertical-align: middle; 
-  border-radius: 50%;
-  background-color: #292b2a
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #292b2a;
 }
-input[type="radio"] + label span, input[type="radio"]:checked + label span {
-  -webkit-transition: background-color 0.4s linear;
-  -o-transition: background-color 0.4s linear;
-  -moz-transition: background-color 0.4s linear;
-  transition: background-color 0.4s linear
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+    -webkit-transition: background-color 0.4s linear;
+    -o-transition: background-color 0.4s linear;
+    -moz-transition: background-color 0.4s linear;
+    transition: background-color 0.4s linear;
 }
+
 /*--------------------------------------------------------------
 3.5 How it's Work Section 
 --------------------------------------------------------------*/
 .how .list-group a.my-btn::after {
-    content: '';
+    content: "";
     width: 10px;
     height: 100px;
     display: block;
     background: #eee;
     position: relative;
     left: -26px;
-    top: -1px
+    top: -1px;
 }
+
 .how .list-group a i {
     width: 60px;
     height: 60px;
     text-align: center;
-    border:5px solid #D7D7D9 
+    border: 5px solid #d7d7d9;
 }
+
 .how .item2 {
     position: relative;
     top: 160px;
 }
+
 .how .item3 {
     top: 300px;
 }
+
 .how .item4 {
     top: 400px;
 }
+
 /*--------------------------------------------------------------
 3.5 Offers Section 
 --------------------------------------------------------------*/
 .index-offers a {
-    color:#36455A
+    color: #36455a;
 }
+
 .index-offers .nav-link.active {
     background-color: #eee !important;
     border-radius: 0;
-    color:#36455A;
-    border-bottom: 2px solid #FF3364 
+    color: #36455a;
+    border-bottom: 2px solid #ff3364;
 }
-.index-offers hr { border-color: #FF5E87 }
+
+.index-offers hr {
+    border-color: #ff5e87;
+}
+
 /*--------------------------------------------------------------
 3.5 Show Services layout 
 --------------------------------------------------------------*/
-main.services aside>div { border: #FF5E8A 5px solid }
-main.services section>a { border: #FF5E8A 5px solid }
+main.services aside > div {
+    border: #ff5e8a 5px solid;
+}
+
+main.services section > a {
+    border: #ff5e8a 5px solid;
+}
+
 /* archives_wrapper start */
-main.services .price-range .range .range-box { margin: 0 0 10px }
+main.services .price-range .range .range-box {
+    margin: 0 0 10px;
+}
+
 .price-range .range .price-box {
     padding: 4px 10px;
     display: inline-block;
     border: none;
-    font-weight: 600
+    font-weight: 600;
 }
+
 .price-range .ui-widget-content .ui-state-default {
     background: #222222;
     border-radius: 100%;
     cursor: pointer;
     border: none;
-    margin-top: -2px
+    margin-top: -2px;
 }
-.price-range .ui-widget-content .ui-state-default:focus { outline: none }
+
+.price-range .ui-widget-content .ui-state-default:focus {
+    outline: none;
+}
+
 .price-range .ui-widget-content .ui-state-default:last-child {
     background: #222222;
-    border: none
+    border: none;
 }
+
 .price-range .ui-widget-content {
     background: #e0e0e0;
     height: 2px;
     cursor: pointer;
 }
+
 .price-range .ui-widget-content {
     border: none;
 }
+
 .price-range .ui-slider-handle {
     width: 15px;
     height: 15px;
     top: -5px;
 }
-.ui-slider-horizontal .ui-slider-range { background: #ff3363 !important }
+
+.ui-slider-horizontal .ui-slider-range {
+    background: #ff3363 !important;
+}
+
+/*--------------------------------------------------------------
+3.6 Portfoilo layout 
+--------------------------------------------------------------*/
+.port_grid_section .over {
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.port_grid_section .link-hover div.w-100 {
+    overflow: hidden;
+}
+.port_grid_section .over:hover {
+    opacity: 0.4;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.port_grid_section .link-hover div img {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.port_grid_section .link-hover:hover div img {
+
+    -webkit-transform: scale(1.2) rotate(5deg);
+    -moz-transform: scale(1.2) rotate(5deg);
+    -o-transform: scale(1.2) rotate(5deg);
+    transform: scale(1.2) rotate(5deg);
+}
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/
