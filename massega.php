@@ -8,7 +8,6 @@ if (isset($_SESSION['ID'])) {
         include $tempDir . 'header.php';
         if (!empty($_GET['to'])) {
             if (cheak('*', '`users`', '`User_id` = "' . $_GET['to'] . '"')) {
-                if (cheak('*', '`msgs`', '(`msgsFrom` = "' . $_GET['to'] . '" AND `msgsTo` = "' . $_SESSION['ID'] . '") OR (`msgsFrom` = "' . $_SESSION['ID'] . '" AND `msgsTo` = "' . $_GET['to'] . '")')) {
                     $stmt = $con->prepare("SELECT * FROM `msgs` WHERE " . '(`msgsFrom` = "' . $_GET['to'] . '" AND `msgsTo` = "' . $_SESSION['ID'] . '") OR (`msgsFrom` = "' . $_SESSION['ID'] . '" AND `msgsTo` = "' . $_GET['to'] . '") ORDER BY `msgs`.`msgsTime` ASC');
                     $stmt->execute();
                     $msg  = $stmt->fetchAll();
@@ -49,7 +48,7 @@ if (isset($_SESSION['ID'])) {
                     echo "</div>";
 ?>
                     <form class="" method="POST">
-                       <input required type="hidden" value="<?= ($_GET['to']) ?>" id="id-send">
+                    <input required type="hidden" value="<?= ($_GET['to']) ?>" id="id-send">
                         <textarea required class="w-100 h-200" id="msg" name="msgTxt"></textarea>
                         <div class="">
                             <input type="submit" value="ارسل" name="send-msg" id="send-msg" class="btn btn-danger d-block w-100 mb-3 py-2  font-cairo f-18" >
@@ -58,10 +57,6 @@ if (isset($_SESSION['ID'])) {
                     
                         <?php
                     include $tempDir . 'footer.php';
-                } else {
-                    header('Location: index.php');
-                    exit();
-                }
             } else {
                 header('Location: index.php');
                 exit();
