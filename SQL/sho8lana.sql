@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2019 at 09:24 PM
+-- Generation Time: Feb 09, 2019 at 07:31 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -81,6 +81,27 @@ CREATE TABLE `cert` (
 INSERT INTO `cert` (`CertID`, `CertTitle`, `Certimg`, `Certlink`, `CertUser`) VALUES
 ('123', 'شهاده من قوقل', '1_iS3XhLC8QzdOG8eyHtRG2Q.png', 'http://localhost/sho8lana/cert.php?cert=123', '123'),
 ('jbLdQJooSzL', 'Mohmed Mostafa', 'aEjyMx7KrJ_certificate.jpg', 'https://getbootstrap.com/docs/4.0/utilities/colors/', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `msgs`
+--
+
+CREATE TABLE `msgs` (
+  `masgsID` varchar(11) CHARACTER SET utf8 NOT NULL,
+  `msgsText` text CHARACTER SET utf8 NOT NULL,
+  `msgsTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `msgsFrom` varchar(11) CHARACTER SET utf8 NOT NULL,
+  `msgsTo` varchar(11) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `msgs`
+--
+
+INSERT INTO `msgs` (`masgsID`, `msgsText`, `msgsTime`, `msgsFrom`, `msgsTo`) VALUES
+('1u0yg4CTEAn', 'a', '2019-02-09 20:28:11', '123', '8hzIc9FaS8');
 
 -- --------------------------------------------------------
 
@@ -170,6 +191,33 @@ INSERT INTO `services` (`id_services`, `service_title`, `service_des`, `service_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `skills`
+--
+
+CREATE TABLE `skills` (
+  `SkillID` int(11) NOT NULL,
+  `SkillName` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `SkillImg` varchar(1000) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`SkillID`, `SkillName`, `SkillImg`) VALUES
+(1, 'HTML', 'html.jpg'),
+(2, 'CSS', 'css.jpg'),
+(3, 'js', 'js.jpg'),
+(4, 'Java', 'java.jpg'),
+(5, 'Joomla', 'joomla.jpg'),
+(6, 'PHP', 'php.jpg'),
+(7, 'WordPress', 'wordpress.jpg'),
+(8, 'تسويق ', 'تسويق .jpg'),
+(9, 'تصميم مواقع', 'تصميم مواقع.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -190,9 +238,35 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`User_id`, `User_name`, `User_E-mail`, `User_passowrd`, `User_phone`, `User_paypal`, `User_Site`, `User_Des`, `User_Img`) VALUES
-('123', 'Power Mostafa', 'p@p.p', '123', NULL, 'power@power.power', 'http://powerware.site/', 'اي كلام', '0.jpg'),
+('123', 'Power Mostafa', 'p@p.p', '123', NULL, 'power@power.power', 'http://powerware.site/', 'اي كلام', 'i62p3GBWyQ_bg-testimonial.jpg'),
 ('5xuXLbSZ40', 'محمد مصطفي', 'powerismynickname2016@gmail.com', 'powerismynickname2016@gmail.com', NULL, 'power@power.power', 'http://powerware.site/', 'انا مبرمج محترف اعمل في مجال برمجه الويب منذ 7 سنين ... \r\nلدي خبره كبيره في WordPress و Joomla .\r\nعملت كا مستشار في شركه Powerware.site لاكثر من 3 سنين .', '1WIiRuBnra_1.jpg'),
+('8hzIc9FaS8', 'Mohmed Mostafa', 'ffp@pff.comp', 'ffp@pff.comp', NULL, NULL, NULL, ' اضف وصف لنفسك', '0.jpg'),
+('fXr6gzz639', 'xpower', 'xpower@xpower.xpower', 'xpower@xpower.xpower', NULL, NULL, NULL, ' اضف وصف لنفسك', '0.jpg'),
 ('q7C0LE7YxE', 'Mostafa', 'Mostafa@Mostafa.com', 'Mostafa@Mostafa.com', NULL, NULL, NULL, ' اضف وصف لنفسك', 'UZDRNWK9PE_50221118_745051039192163_3259590001083547648_n.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_skill`
+--
+
+CREATE TABLE `user_skill` (
+  `user_skillID` int(11) NOT NULL,
+  `userID_skill` varchar(11) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_skill`
+--
+
+INSERT INTO `user_skill` (`user_skillID`, `userID_skill`) VALUES
+(1, '123'),
+(2, '123'),
+(5, '123'),
+(6, '123'),
+(7, '123'),
+(8, '123'),
+(9, '123');
 
 --
 -- Indexes for dumped tables
@@ -211,6 +285,14 @@ ALTER TABLE `cats`
 ALTER TABLE `cert`
   ADD PRIMARY KEY (`CertID`),
   ADD KEY `CertUser` (`CertUser`);
+
+--
+-- Indexes for table `msgs`
+--
+ALTER TABLE `msgs`
+  ADD PRIMARY KEY (`masgsID`),
+  ADD KEY `msgsFrom` (`msgsFrom`),
+  ADD KEY `msgsTo` (`msgsTo`);
 
 --
 -- Indexes for table `offers`
@@ -237,12 +319,25 @@ ALTER TABLE `services`
   ADD KEY `offer_id` (`offer_id`);
 
 --
+-- Indexes for table `skills`
+--
+ALTER TABLE `skills`
+  ADD PRIMARY KEY (`SkillID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`User_id`),
   ADD UNIQUE KEY `User_name` (`User_name`,`User_E-mail`),
   ADD UNIQUE KEY `User_phone` (`User_phone`);
+
+--
+-- Indexes for table `user_skill`
+--
+ALTER TABLE `user_skill`
+  ADD PRIMARY KEY (`user_skillID`,`userID_skill`),
+  ADD KEY `userID_skill` (`userID_skill`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -253,6 +348,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `cats`
   MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `skills`
+--
+ALTER TABLE `skills`
+  MODIFY `SkillID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -269,6 +370,13 @@ ALTER TABLE `cats`
 --
 ALTER TABLE `cert`
   ADD CONSTRAINT `cert_ibfk_1` FOREIGN KEY (`CertUser`) REFERENCES `users` (`User_id`);
+
+--
+-- Constraints for table `msgs`
+--
+ALTER TABLE `msgs`
+  ADD CONSTRAINT `msgs_ibfk_1` FOREIGN KEY (`msgsFrom`) REFERENCES `users` (`User_id`),
+  ADD CONSTRAINT `msgs_ibfk_2` FOREIGN KEY (`msgsTo`) REFERENCES `users` (`User_id`);
 
 --
 -- Constraints for table `offers`
@@ -292,6 +400,13 @@ ALTER TABLE `services`
   ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`User_id`),
   ADD CONSTRAINT `services_ibfk_2` FOREIGN KEY (`sections_services`) REFERENCES `cats` (`CatID`),
   ADD CONSTRAINT `services_ibfk_3` FOREIGN KEY (`offer_id`) REFERENCES `offers` (`OffersID`);
+
+--
+-- Constraints for table `user_skill`
+--
+ALTER TABLE `user_skill`
+  ADD CONSTRAINT `user_skill_ibfk_1` FOREIGN KEY (`user_skillID`) REFERENCES `skills` (`SkillID`),
+  ADD CONSTRAINT `user_skill_ibfk_2` FOREIGN KEY (`userID_skill`) REFERENCES `users` (`User_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

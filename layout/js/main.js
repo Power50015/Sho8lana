@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-/*global $, window, Typed, some_unused_var*/
+/*global $, window, Typed, some_unused_var, setInterval*/
 $(function () {
     "use strict";
     var stringHeader, headerHeight, typed, handelError;
@@ -10,7 +10,9 @@ $(function () {
     $("header .over").css("min-height", $("header").height());
     handelError = $("#typed");
     $("#indexSearch").css("margin-top", $("#indexSearch").height() / -2);
-    $(".port_grid_section .over").width($(".port_grid_section .position-relative img").width());
+    $(".port_grid_section .over").width(
+        $(".port_grid_section .position-relative img").width()
+    );
     $(window).resize(function () {
         var stringHeader, headerHeight, typed, handelError;
         /*Start Header Section*/
@@ -20,7 +22,9 @@ $(function () {
         $("header .over").css("min-height", $("header").height());
         handelError = $("#typed");
         $("#indexSearch").css("margin-top", $("#indexSearch").height() / -2);
-        $(".port_grid_section .over").width($(".port_grid_section .position-relative img").width());
+        $(".port_grid_section .over").width(
+            $(".port_grid_section .position-relative img").width()
+        );
     });
     //Typed.js is a library that types Plg
 
@@ -103,6 +107,39 @@ $(function () {
     } catch (e) {
         //window.console.log(e);
     }
+    $("#send-msg").click(function (e) {
+        e.preventDefault();
+        var idUser = $("#id-send").val(),
+            msgText = $("#msg").val();
+        $.ajax({
+            url: "massega.php?do=send",
+            type: "POST",
+            data: {
+                i: idUser,
+                m: msgText
+            },
+            success: function (text) {
+                $("#msg").val("");
+            }
+        });
+    });
+
+    function getdata() {
+        var idUser = $("#id-send").val();
+        $.ajax({
+            url: "massega.php?do=res&user=" + idUser,
+            type: "POST",
+            success: function (response) {
+                $(".msg").html(response);
+            }
+        });
+        $('.msg').animate({
+            scrollTop: "9999999"
+        }, 10000);
+    }
+    setInterval(function () {
+        getdata();
+    }, 1500);
     //   $('#canter-ul').css('left', ($('.row').width() / -2));
     // range js //
 });
