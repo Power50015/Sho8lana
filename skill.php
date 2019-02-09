@@ -7,9 +7,12 @@ include $tempDir . 'header.php';
 if (isset($_GET['skills'])) {
     if (!empty($_GET['skills'])) {
         if (cheak('`User_id`', '`users`', '`User_id` = "' . $_GET['skills'] . '"')) {
-            $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" . $_GET['skills'] . "'");
+            try{$stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" . $_GET['skills'] . "'");
             $stmt->execute();
-            $skills = $stmt->fetchAll();
+            $skills = $stmt->fetchAll();}
+            catch (Exception $e) {
+                $skills;
+            }
             $numItems = count($skills);
             $j = 0;
             $SQLSection = "(`SkillID` = ";
@@ -22,9 +25,12 @@ if (isset($_GET['skills'])) {
                     }
                     
             }
-            $stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection);
+             try{$stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection);
             $stmt->execute();
             $skill = $stmt->fetchAll();
+                }catch (Exception $e) {
+                $skill;
+            }
             if(isset($_SESSION['ID'])){
                     if( $_GET['skills'] == $_SESSION['ID'] ){ 
                         $numItems = count($skills);
@@ -39,9 +45,11 @@ if (isset($_GET['skills'])) {
                     }
                     
             }
-                        $stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection);
+                        try{$stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection);
                         $stmt->execute();
-                        $skillSelect = $stmt->fetchAll();
+                        $skillSelect = $stmt->fetchAll();}catch (Exception $e) {
+                $skillSelect;
+            }
                         echo "<div class='mt-4 container'><button type='button' data-toggle='modal' data-target='#exampleModal1' class='btn btn-primary btn-lg rounded-0 btn-block bg-color-2'>إضافه مهاره</button></div>";
                         ?>
                         <!-- Modal -->
@@ -75,7 +83,7 @@ if (isset($_GET['skills'])) {
                 echo'<div class="mb-5">
                         <div class="container">
                             <div class="row">';
-                    foreach ($skill as $x) {
+                    if(!empty($skill)){foreach ($skill as $x) {
 ?>
             <div class="col-6 col-md-3 my-5"><?php
 
@@ -109,7 +117,7 @@ if (isset($_GET['skills'])) {
                 <img src="upload\skills\<?=($x['SkillImg'])?>" class="w-100 h-100" alt="<?=($x['SkillName'])?>" title="<?=($x['SkillName'])?>"/>
             </div>    
 <?php
-            }
+            }}else{}
             echo "</div></div></div>";
         } else {
             header('Location: index.php');

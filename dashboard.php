@@ -198,9 +198,13 @@ include $tempDir . 'header.php';
                         $SQLSection = $SQLSection . $x['user_skillID'] . " AND `SkillID` != ";
                     }
             }
-            $stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection);
+            try {
+                $stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection);
                         $stmt->execute();
                         $skillSelect = $stmt->fetchAll();
+                }catch (Exception $e) {
+                $skillSelect;
+            }
        ?>
        <button type='button' data-toggle='modal' data-target='#exampleModal995' class='btn-add hover'><i class='fas fa-plus'></i></button>
        <!-- Modal -->
@@ -248,7 +252,7 @@ include $tempDir . 'header.php';
                     }
                     
             }
-            $stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection . " LIMIT 6");
+            try{$stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection . " LIMIT 6");
             $stmt->execute();
             $skill = $stmt->fetchAll();
     foreach ($skill as $x) {
@@ -256,6 +260,9 @@ include $tempDir . 'header.php';
         echo '<img src="upload\skills\\'.$x['SkillImg'].'" class="w-100 h-100" alt="'.$x['SkillName'].'" title="'.$x['SkillName'].'"/>';
         echo '</div>';
     }
+               }catch (Exception $e) {
+                $skill;
+            }
            
 ?>
        
