@@ -183,18 +183,84 @@ include $tempDir . 'header.php';
     <div class="container py-5">
        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">المهارات</h2>
        <div>
-          <a href="#" class="btn-add"><i class="fas fa-plus"></i></a>
-          <a href="#" class="font-color-3 font-700 f-18">عرض الكل</a>
+       <?php
+        $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" .  $_SESSION['ID'] . "'");
+            $stmt->execute();
+            $skills = $stmt->fetchAll();
+            $numItems = count($skills);
+            $j = 0;
+            $SQLSection = "(`SkillID` != ";
+            foreach($skills as $x){
+                if(++$j === $numItems) {
+                    $SQLSection = $SQLSection . $x['user_skillID'] . " )";
+                    }
+                    else{
+                        $SQLSection = $SQLSection . $x['user_skillID'] . " AND `SkillID` != ";
+                    }
+            }
+            $stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection);
+                        $stmt->execute();
+                        $skillSelect = $stmt->fetchAll();
+       ?>
+       <button type='button' data-toggle='modal' data-target='#exampleModal995' class='btn-add hover'><i class='fas fa-plus'></i></button>
+       <!-- Modal -->
+<div class="modal fade" id="exampleModal995" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form class="modal-content" action="skill.php?do=insert" method="POST">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">اضف مهارتك</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <select class="btn-block" name="name">
+        <?php
+        foreach($skillSelect as $z){
+            echo '<option value="'.$z['SkillID'].'">'.$z['SkillName'].'</option>';
+        }
+        ?>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" value="اضف" name="add" class="btn btn-primary btn-block">
+      </div>
+    </form>
+  </div>
+</div>
+                        
+          <a href="skill.php?skills=<?=($_SESSION['ID'])?>" class="font-color-3 font-700 f-18">عرض الكل</a>
        </div>
-       <div class="row justify-content-between mb-5 mt-3">
-           <div class="col-lg-2 col-sm-6 mb-2 mt-2">
-               <span class="fab fa-html5 d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span>
-           </div>
-           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="d-block w-100 h-100 text-center bg-color-1 p-2 f-40 font-700">تصميم مواقع</span></div>
-           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="fab fa-css3 d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span></div>
-           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class=" d-block w-100 h-100 text-center bg-color-1 p-2 f-40 font-700">تسويق</span></div>
-           <div class="col-lg-2 col-sm-6 mb-2 mt-2"><span class="fab fa-node-js d-block w-100 h-100 text-center bg-color-1 p-2 f-140 font-700"></span></div>
-       </div>
+       <div class="row justify-content-center mb-5 mt-3">
+<?php
+  $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" .$_SESSION['ID'] . "'");
+            $stmt->execute();
+            $skills = $stmt->fetchAll();
+            $numItems = count($skills);
+            $j = 0;
+            $SQLSection = "(`SkillID` = ";
+            foreach($skills as $x){
+                if(++$j === $numItems) {
+                    $SQLSection = $SQLSection . $x['user_skillID'] . " )";
+                    }
+                    else{
+                        $SQLSection = $SQLSection . $x['user_skillID'] . " OR `SkillID` = ";
+                    }
+                    
+            }
+            $stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection . " LIMIT 6");
+            $stmt->execute();
+            $skill = $stmt->fetchAll();
+    foreach ($skill as $x) {
+        echo '<div class="col-6 col-md-2 mb-2 mt-2">';
+        echo '<img src="upload\skills\\'.$x['SkillImg'].'" class="w-100 h-100" alt="'.$x['SkillName'].'" title="'.$x['SkillName'].'"/>';
+        echo '</div>';
+    }
+           
+?>
+       
+                  
+            </div>
        <hr class="bg-color-3 mb-5">
        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">الشهادات</h2>
        <div>
@@ -203,7 +269,7 @@ include $tempDir . 'header.php';
         </div>
        <div class="row justify-content-center mb-5 mt-3">
        <?php 
-            $stmt = $con->prepare("SELECT * FROM `cert` WHERE `CertUser` = '" .$_SESSION['ID'] . "'");
+            $stmt = $con->prepare("SELECT * FROM `cert` WHERE `CertUser` = '" .$_SESSION['ID'] . "' LIMIT 4");
             $stmt->execute();
             $certs = $stmt->fetchAll();
             foreach ($certs as $x) {

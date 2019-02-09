@@ -11,7 +11,7 @@ if (isset($_GET['prot'])) {
             $stmt->execute();
             $portfoilo = $stmt->fetchAll();
             if(isset($_SESSION['ID'])){
-                    if( $_GET['cert'] == $_SESSION['ID'] ){ 
+                    if( $_GET['prot'] == $_SESSION['ID'] ){ 
             echo "<div class='mt-4 container'><a class='btn btn-primary btn-lg rounded-0 btn-block bg-color-2' href='portfoilo.php?do=add'>إضافه مشروع</a></div>";
                     }}foreach ($portfoilo as $x) {
 ?>
