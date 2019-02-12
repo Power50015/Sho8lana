@@ -9,7 +9,7 @@
 
     include 'init.php';
 
-    $pageTitle = 'الرئيسيه';
+    $pageTitle = 'من نحن';
     
     include $tempDir . 'header.php';
 

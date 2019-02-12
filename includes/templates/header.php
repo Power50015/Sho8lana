@@ -88,7 +88,7 @@
 
                     <div class="dropdown form-inline my-2 my-lg-0">
                         <a class="pr-3 pl-3 f-30 font-color-1" href="#"><i class="far fa-bell"></i></a>
-                        <a class="pr-3 pl-3 f-30 font-color-1" href="#"><i class="far fa-envelope"></i></a>
+                        <a class="pr-3 pl-3 f-30 font-color-1" href="massega.php"><i class="far fa-envelope"></i></a>
                         <a class="nav-link f-24 font-color-1 boder" href="ads.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-align-center"></i>
                         </a>
