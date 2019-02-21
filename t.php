@@ -4,12 +4,15 @@
 
     include 'init.php';
 
-    $pageTitle = 'الإعلانات';
+    $pageTitle = 'الصفحة الشخصية';
 
     include $tempDir . 'header.php';
 
     
 ?>
+
+
+
 <?php
     include $tempDir . 'footer.php';
 ?>
