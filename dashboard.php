@@ -428,7 +428,7 @@ include $tempDir . 'header.php';
        ?>
            </div>
        </div>
-    </div>
+    
 </section>
 <!--End Portfoilo Section -->
 
