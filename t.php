@@ -4,7 +4,7 @@
 
     include 'init.php';
 
-    $pageTitle = 'الصفحة الشخصية';
+    $pageTitle = '';
 
     include $tempDir . 'header.php';
 
