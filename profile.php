@@ -1,5 +1,7 @@
 <?php 
 
+    ob_start();
+
     session_start();
 
     include 'init.php';
@@ -7,8 +9,8 @@
     $pageTitle = 'الصفحة الشخصية';
 
     include $tempDir . 'header.php';
-
-    
+    if (isset ($_GET['user'])) {
+        if (cheak('`User_id`', '`users`', '`User_id` = "' . $_GET['user'] . '"')) {
 ?>
 <header id='fullHeader'>
     <div class="over"></div>
@@ -18,16 +20,27 @@
         <div class="row px-5 mb-0">
             
             <div class="col-lg-8 col-sm-12  text-sm-center text-lg-left" data-toggle="modal" data-target="#personal-name">
-                
-                <p  class="hover2 bg-color-2 d-block rounded font-700 font-color-2  p-4 pb-0 text-center"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</p>
+                <?php 
+                $stmt   = $con->prepare("SELECT `User_id`,`User_name`,`User_Site`,`User_Des`,`User_Img` FROM `users` WHERE  `User_id`  = ?");
+                $stmt->execute(array(
+                $_GET['user']
+                ));
+                $UserRow = $stmt->fetch();
+                ?>
+                <p  class="hover2 bg-color-2 d-block rounded font-700 font-color-2  p-4 pb-0 text-center"> <?php 
+                if ($UserRow['User_Des'] != " اضف وصف لنفسك"){
+                    echo $UserRow['User_Des'];
+                }else {
+
+                }?></p>
                 <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mt-5 mb-lg-0 mb-4 px-4 py-2"> الشهادات </h2>
                 <div class="mt-2">
-                <a href="" class="font-color-3 font-700 f-18 ">عرض الكل</a> 
+                <a href="cert.php?cert=<?=($_GET['user'])?>" class="font-color-3 font-700 f-18 ">عرض الكل</a> 
                 </div>
             </div>
             <div class="personal-img position-relative col-lg-3 col-sm-12 p-0 mr-lg-4" data-toggle="modal" data-target="#personal-img">
                 <div class="over h-100"></div>
-                <img src="upload\2.jpg" class="rounded w-100 h-100 position-relative" alt="...">
+                <img src="upload/avatars/<?=($UserRow['User_Img'])?>" class="rounded w-100 h-100 position-relative" alt="...">
             </div>
            
             
@@ -43,14 +56,16 @@
     <div class="col-lg-8  col-sm-12 ">
         
            <div class="row">
+           <?php 
+            $stmt = $con->prepare("SELECT * FROM `cert` WHERE `CertUser` = '" . $_GET['user'] . "' LIMIT 2");
+            $stmt->execute();
+            $certs = $stmt->fetchAll();
+            foreach ($certs as $x) {
+            ?>
             <div class="col-5">
-                <img src="upload\cert\1_iS3XhLC8QzdOG8eyHtRG2Q.png" class="rounded w-100 h-100 position-relative" alt="...">
+                <img src="upload\cert\<?=($x['Certimg'])?>" class="rounded w-100 h-100 position-relative" alt="...">
             </div>
-            <div class="col-5">
-                <img src="upload\cert\aEjyMx7KrJ_certificate.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-            </div>
-           
-           
+            <?php }?>
         </div>
         
          
@@ -58,7 +73,7 @@
 
    </div>
     <div class="col-lg-3 col-sm-12">
-        <h2 class="hover2  font-color-2   bg-color-2 px-4 font-700 mb-lg-0 mb-3 py-3">Nora Emam</h2>
+        <h2 class="hover2  font-color-2  bg-color-2 px-4 font-700 mb-lg-0 mb-3 py-3"><?=($UserRow['User_name'])?></h2>
         <div class="mt-4  ">
         <a type="link" class="hover2  font-color-2 f-20 text-white  bg-color-2 px-4 font-700  py-3" data-toggle="modal" data-target="#exampleModal">
         <i class="fas fa-tv"></i>   الموقع الشخصي
@@ -75,10 +90,7 @@
         </button>
       </div>
       <div class="modal-body">
-       <input type="text" class="form-control" placeholder="/http://powerware.site" aria-label="/http://powerware.site" aria-describedby="basic-addon1">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary "  data-dismiss="modal"> اضغط للرفع </button>
+       <input type="text" class="form-control" value="<?=($UserRow['User_Site'])?>" placeholder="<?=($UserRow['User_Site'])?>" aria-label="/http://powerware.site" aria-describedby="basic-addon1">
       </div>
     </div>
   </div>
@@ -99,48 +111,60 @@
     <div class="col">
         <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mt-4 mb-lg-0 mb-4 px-4 py-2"> المهارات  </h2>
             <div class="mt-2">
-            <a href="" class="font-color-3 font-700 f-18 ">عرض الكل</a> 
+            <a href="skill.php?skills=<?=($_GET['user'])?>" class="font-color-3 font-700 f-18 ">عرض الكل</a> 
             </div>
         <div class="row mt-3">
-            <div class="col-2">
-                <img src="upload\skills\php.jpg" class="rounded w-100 h-100 position-relative" alt="...">
+        <?php
+  $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" .$_SESSION['ID'] . "'");
+            $stmt->execute();
+            $skills = $stmt->fetchAll();
+            $numItems = count($skills);
+            $j = 0;
+            $SQLSection = "(`SkillID` = ";
+            foreach($skills as $x){
+                if(++$j === $numItems) {
+                    $SQLSection = $SQLSection . $x['user_skillID'] . " )";
+                    }
+                    else{
+                        $SQLSection = $SQLSection . $x['user_skillID'] . " OR `SkillID` = ";
+                    }
+                    
+            }
+            try{$stmt = $con->prepare("SELECT * FROM `skills` WHERE " .  $SQLSection . " LIMIT 6");
+            $stmt->execute();
+            $skill = $stmt->fetchAll();
+    foreach ($skill as $x) {
+       ?>
+    <div class="col-2">
+                <img src="upload\skills\<?=($x['SkillImg'])?>" class="rounded w-100 h-100 position-relative" alt="<?=($x['SkillName'])?>" title="<?=($x['SkillName'])?>"/>
             </div>
-            <div class="col-2">
-                <img src="upload\skills\js.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-            </div>
-            <div class="col-2">
-                <img src="upload\skills\joomla.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-            </div>
-            <div class="col-2">
-                <img src="upload\skills\html.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-            </div>
-            <div class="col-2">
-                <img src="upload\skills\css.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-            </div>
+       <?php
+    }
+               }catch (Exception $e) {
+                $skill;
+            }
+           
+?>
+            
+
         </div>
        
         <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mt-5 mb-lg-0 mb-4 px-4 py-2"> الأعمال السابقة  </h2>
             <div class="mt-2">
-            <a href="" class="font-color-3 font-700 f-18 ">عرض الكل</a> 
+            <a href="portfoilo.php?prot=<?=($_GET['user'])?>" class="font-color-3 font-700 f-18 ">عرض الكل</a> 
             </div>
-        
             <div class="row mt-3 mb-5">
+             <?php 
+        $stmtpo = $con->prepare("SELECT * FROM `portfoilo` WHERE `PortfoiloUser` = '" . $_GET['user'] . "'ORDER BY `PortfoiloDate` DESC LIMIT 4");
+        $stmtpo->execute();
+        $portfoilo = $stmtpo->fetchAll();
+        foreach ($portfoilo as $po) {
+        ?>
             <div class="col-3 ">
-                <img src="upload\port\sRIB63W76n_3.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-                <h6 class="hover font-color-2 bg-color-9 px-4 font-700  py-3 text-center mb-3">  تصميم business card </h6>
+                <img src="upload/port/<?= ($po['PortfoiloImg']) ?>" class="rounded w-100 h-100 position-relative" alt="...">
+                <h6 class="hover font-color-2 bg-color-9 px-4 font-700  py-3 text-center mb-3"><?= ($po['PortfoiloTitle']) ?> </h6>
             </div>
-            <div class="col-3 ">
-                <img src="upload\port\nMNMlUSB2T_M.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-                <h6 class="hover font-color-2 bg-color-9 px-4 font-700  py-3 text-center mb-3"> تصميم فلاير وبورشور  </h6>
-            </div>
-            <div class="col-3 ">
-                <img src="upload\port\1st8t43VcK_5.jpg" class="rounded w-100 h-100 position-relative" alt="...">
-                <h6 class="hover font-color-2 bg-color-9 px-4 font-700  py-3 text-center mb-3">  تصميم business card </h6>
-            </div>
-             <div class="col-3 ">
-                <img src="upload\port\1W98zV3mt2_3s0xYRTHjG_402813-Zs0Y8-1531561227-Login-Form-1.0.png" class="rounded w-100 h-100 position-relative" alt="...">
-                <h6 class="hover font-color-2 bg-color-9 px-4 font-700  py-3 text-center mb-3">  تصميم website </h6> 
-            </div>
+        <?php }?>
            
         </div>
             
@@ -153,4 +177,13 @@
 
 <?php
     include $tempDir . 'footer.php';
+      }else {
+            header('Location: services.php');
+            exit();
+       }
+     }else {
+            header('Location: services.php');
+            exit();
+       }
+       ob_end_flush();
 ?>

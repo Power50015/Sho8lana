@@ -34,10 +34,10 @@ if (isset($_SESSION['ID'])) {
 ?>  
                             <div class= 'row bg-color-5 mb-2'>
                                 <div class='col-3 col-md-2'>
-                                    <a href="#"><img src="upload/avatars/<?= ($msgUser['User_Img']) ?>" class="w-100 h-200 d-none d-md-block rounded-circle"></a>
+                                    <a href="profile.php?user=<?=($_GET['to'])?>"><img src="upload/avatars/<?= ($msgUser['User_Img']) ?>" class="w-100 h-200 d-none d-md-block rounded-circle"></a>
                                 </div>
                                 <div class="col-9 col-md-10 pr-5 pt-2">
-                                        <a href="#"><h4 class="font-color-2"><?= ($msgUser['User_name']) ?></h4></a>
+                                        <a href="profile.php?user=<?=($_GET['to'])?>"><h4 class="font-color-2"><?= ($msgUser['User_name']) ?></h4></a>
                                         <p  class="font-color-2"><?= ($x['msgsText']) ?></p>
                                         <h6 class="font-color-2"><?= ($x['msgsTime']) ?></h6>
                                 </div>
