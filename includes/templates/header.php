@@ -93,7 +93,7 @@
                             <i class="fas fa-align-center"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item p-1" href="#">
+                            <a class="dropdown-item p-1" href="profile.php?user=<?=($_SESSION['ID'])?>">
                                 <div class="profile-link">
                                     <img src ="<?=($_SESSION['ProfileImg'])?>" class="profile-img">
                                     <span class="pl-2"><?=($_SESSION['Username'])?></span>

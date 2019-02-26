@@ -645,7 +645,7 @@ if (isset($_GET['do'])) {
                             <a class="hover2" href="profile.php?user=<?= ($ServicesRow['user_id']) ?>"><img class="w-100 rounded-circle" src="upload/avatars/<?= ($UserRow['User_Img']) ?>"></a>
                         </div>
                         <div class="col-7 mt-3">
-                            <a class="hover2" href="#">
+                            <a class="hover2" href="profile.php?user=<?=($UserRow['User_id'])?>">
                                 <h3 class="font-700 f-18 font-color-3 ">
                                     <?= ($UserRow['User_name']) ?>
                                 </h3>
