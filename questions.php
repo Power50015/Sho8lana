@@ -14,9 +14,10 @@
     <div class="over"></div>
     <div class="container pt-5 position-relative">
         <h2 class="bg-color-3 d-inline-block px-3 py-1 f-30 font-cairo text-light">الأسئلة الأكثر شيوعا </h2> 
-            <div class="row justify-content-center mt-3">
+            <div class="row justify-content-center mt-5">
+                <div class="col-8">
                 <div class="accordion" id="accordionExample">
-  <div class="card">
+  <div class="card ">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -67,6 +68,7 @@
   </div>
 </div>
             </div>
+        </div>
     </div>  
     
 </header>
