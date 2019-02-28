@@ -178,11 +178,11 @@
 <?php
     include $tempDir . 'footer.php';
       }else {
-            header('Location: services.php');
+            header('Location: index.php');
             exit();
        }
      }else {
-            header('Location: services.php');
+            header('Location: index.php');
             exit();
        }
        ob_end_flush();
