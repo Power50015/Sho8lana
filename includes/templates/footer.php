@@ -7,8 +7,7 @@
                        <ul class="list-unstyled">
                            <li><a href="about.php" class=" text-white">من نحن</a></li>
                            <li><a href="#" class="text-white">تواصل معنا</a></li>
-                           <li><a href="#" class="text-white">سياسه الاستخدام</a></li>
-                           <li><a href="#" class="text-white">كيف تضمن حقك</a></li>
+                           <li><a href="questions.php" class="text-white">سياسه الاستخدام</a></li>
                            <li><a href="#" class="text-white">الشكاوي</a>
                         </ul>
                     </div>

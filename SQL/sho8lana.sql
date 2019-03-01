@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2019 at 07:31 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Feb 19, 2019 at 02:43 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `sho8lana`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` varchar(50) NOT NULL,
+  `admin_name` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL,
+  `admin_img` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -85,6 +98,20 @@ INSERT INTO `cert` (`CertID`, `CertTitle`, `Certimg`, `Certlink`, `CertUser`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comblaints`
+--
+
+CREATE TABLE `comblaints` (
+  `comblaint_id` varchar(50) NOT NULL,
+  `comblaint_des` varchar(500) DEFAULT NULL,
+  `comblaint_date` date DEFAULT NULL,
+  `comblaint_admin` varchar(50) NOT NULL,
+  `comblaint_user` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `msgs`
 --
 
@@ -127,6 +154,20 @@ CREATE TABLE `offers` (
 INSERT INTO `offers` (`OffersID`, `OffersDed`, `OffersTime`, `PriceOffers`, `OffersService`, `OffersUser`, `OffersNeedTime`, `OffersStat`) VALUES
 ('1', 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.\r\nإذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.\r\nومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.\r\nهذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.', '2019-02-03', 200, '6l1z04wbmlF', '5xuXLbSZ40', 1, 1),
 ('lZvU58YYoOn', 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع. ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق. هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.\r\n\r\n', '2019-02-06', 12, 'Aqee8zqXxVJ', '123', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penalties`
+--
+
+CREATE TABLE `penalties` (
+  `penaltie_id` varchar(50) NOT NULL,
+  `penaltie_des` varchar(500) DEFAULT NULL,
+  `end_penaltie` date DEFAULT NULL,
+  `start_penaltie` date DEFAULT NULL,
+  `penaltie_user` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -268,9 +309,27 @@ INSERT INTO `user_skill` (`user_skillID`, `userID_skill`) VALUES
 (8, '123'),
 (9, '123');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `violations`
+--
+
+CREATE TABLE `violations` (
+  `violation_id` varchar(11) NOT NULL,
+  `violation_des` varchar(500) DEFAULT NULL,
+  `violation_admin` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `cats`
@@ -287,6 +346,13 @@ ALTER TABLE `cert`
   ADD KEY `CertUser` (`CertUser`);
 
 --
+-- Indexes for table `comblaints`
+--
+ALTER TABLE `comblaints`
+  ADD KEY `comblaints_ibfk_2` (`comblaint_user`),
+  ADD KEY `comblaint_fk3` (`comblaint_admin`);
+
+--
 -- Indexes for table `msgs`
 --
 ALTER TABLE `msgs`
@@ -301,6 +367,12 @@ ALTER TABLE `offers`
   ADD PRIMARY KEY (`OffersID`),
   ADD KEY `OffersUser` (`OffersUser`),
   ADD KEY `OffersService` (`OffersService`);
+
+--
+-- Indexes for table `penalties`
+--
+ALTER TABLE `penalties`
+  ADD KEY `penaltie_user` (`penaltie_user`);
 
 --
 -- Indexes for table `portfoilo`
@@ -340,6 +412,13 @@ ALTER TABLE `user_skill`
   ADD KEY `userID_skill` (`userID_skill`);
 
 --
+-- Indexes for table `violations`
+--
+ALTER TABLE `violations`
+  ADD PRIMARY KEY (`violation_id`),
+  ADD KEY `violation_admin` (`violation_admin`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -363,50 +442,69 @@ ALTER TABLE `skills`
 -- Constraints for table `cats`
 --
 ALTER TABLE `cats`
-  ADD CONSTRAINT `cats_ibfk_1` FOREIGN KEY (`CatMain`) REFERENCES `cats` (`CatID`);
+  ADD CONSTRAINT `cats_ibfk_1` FOREIGN KEY (`CatMain`) REFERENCES `cats` (`CatID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cert`
 --
 ALTER TABLE `cert`
-  ADD CONSTRAINT `cert_ibfk_1` FOREIGN KEY (`CertUser`) REFERENCES `users` (`User_id`);
+  ADD CONSTRAINT `cert_ibfk_1` FOREIGN KEY (`CertUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `comblaints`
+--
+ALTER TABLE `comblaints`
+  ADD CONSTRAINT `comblaint_fk3` FOREIGN KEY (`comblaint_admin`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comblaints_ibfk_2` FOREIGN KEY (`comblaint_user`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `msgs`
 --
 ALTER TABLE `msgs`
-  ADD CONSTRAINT `msgs_ibfk_1` FOREIGN KEY (`msgsFrom`) REFERENCES `users` (`User_id`),
-  ADD CONSTRAINT `msgs_ibfk_2` FOREIGN KEY (`msgsTo`) REFERENCES `users` (`User_id`);
+  ADD CONSTRAINT `msgs_ibfk_1` FOREIGN KEY (`msgsFrom`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `msgs_ibfk_2` FOREIGN KEY (`msgsTo`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `offers`
 --
 ALTER TABLE `offers`
-  ADD CONSTRAINT `offers_ibfk_1` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`),
-  ADD CONSTRAINT `offers_ibfk_2` FOREIGN KEY (`OffersUser`) REFERENCES `users` (`User_id`),
+  ADD CONSTRAINT `offers_ibfk_1` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `offers_ibfk_2` FOREIGN KEY (`OffersUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `offers_ibfk_3` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `offers_ibfk_4` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`);
+
+--
+-- Constraints for table `penalties`
+--
+ALTER TABLE `penalties`
+  ADD CONSTRAINT `penalties_ibfk_1` FOREIGN KEY (`penaltie_user`) REFERENCES `users` (`User_id`);
 
 --
 -- Constraints for table `portfoilo`
 --
 ALTER TABLE `portfoilo`
-  ADD CONSTRAINT `portfoilo_ibfk_1` FOREIGN KEY (`PortfoiloUser`) REFERENCES `users` (`User_id`);
+  ADD CONSTRAINT `portfoilo_ibfk_1` FOREIGN KEY (`PortfoiloUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `services`
 --
 ALTER TABLE `services`
-  ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`User_id`),
-  ADD CONSTRAINT `services_ibfk_2` FOREIGN KEY (`sections_services`) REFERENCES `cats` (`CatID`),
-  ADD CONSTRAINT `services_ibfk_3` FOREIGN KEY (`offer_id`) REFERENCES `offers` (`OffersID`);
+  ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `services_ibfk_2` FOREIGN KEY (`sections_services`) REFERENCES `cats` (`CatID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `services_ibfk_3` FOREIGN KEY (`offer_id`) REFERENCES `offers` (`OffersID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_skill`
 --
 ALTER TABLE `user_skill`
-  ADD CONSTRAINT `user_skill_ibfk_1` FOREIGN KEY (`user_skillID`) REFERENCES `skills` (`SkillID`),
-  ADD CONSTRAINT `user_skill_ibfk_2` FOREIGN KEY (`userID_skill`) REFERENCES `users` (`User_id`);
+  ADD CONSTRAINT `user_skill_ibfk_1` FOREIGN KEY (`user_skillID`) REFERENCES `skills` (`SkillID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_skill_ibfk_2` FOREIGN KEY (`userID_skill`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `violations`
+--
+ALTER TABLE `violations`
+  ADD CONSTRAINT `violations_ibfk_1` FOREIGN KEY (`violation_admin`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
