@@ -359,6 +359,7 @@ INTO `portfoilo` (`PortfoiloID`, `PortfoiloTitle`, `PortfoiloDes`, `PortfoiloDat
                         $stmt->execute();
                         $url = "portfoilo.php?prot=" . $_SESSION['ID'];
                         header('Location: ' . $url);
+                        exit();
                     } else {
                         $url = "portfoilo.php?prot=" . $_SESSION['ID'];
                         header('Location: ' . $url);
