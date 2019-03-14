@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
--- https://www.phpmyadmin.net/
+-- version 4.2.11
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2019 at 02:43 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Mar 13, 2019 at 03:10 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `sho8lana`
@@ -28,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE IF NOT EXISTS `admin` (
   `admin_id` varchar(50) NOT NULL,
   `admin_name` varchar(50) DEFAULT NULL,
   `pass` varchar(50) DEFAULT NULL,
@@ -41,11 +39,11 @@ CREATE TABLE `admin` (
 -- Table structure for table `cats`
 --
 
-CREATE TABLE `cats` (
-  `CatID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cats` (
+`CatID` int(11) NOT NULL,
   `CatName` varchar(50) CHARACTER SET utf8 NOT NULL,
   `CatMain` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cats`
@@ -79,7 +77,7 @@ INSERT INTO `cats` (`CatID`, `CatName`, `CatMain`) VALUES
 -- Table structure for table `cert`
 --
 
-CREATE TABLE `cert` (
+CREATE TABLE IF NOT EXISTS `cert` (
   `CertID` varchar(11) CHARACTER SET utf8 NOT NULL,
   `CertTitle` varchar(500) CHARACTER SET utf8 NOT NULL,
   `Certimg` varchar(500) CHARACTER SET utf8 NOT NULL,
@@ -101,7 +99,7 @@ INSERT INTO `cert` (`CertID`, `CertTitle`, `Certimg`, `Certlink`, `CertUser`) VA
 -- Table structure for table `comblaints`
 --
 
-CREATE TABLE `comblaints` (
+CREATE TABLE IF NOT EXISTS `comblaints` (
   `comblaint_id` varchar(50) NOT NULL,
   `comblaint_des` varchar(500) DEFAULT NULL,
   `comblaint_date` date DEFAULT NULL,
@@ -112,10 +110,36 @@ CREATE TABLE `comblaints` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `evaluations`
+--
+
+CREATE TABLE IF NOT EXISTS `evaluations` (
+  `evaluation_id` varchar(50) NOT NULL DEFAULT '',
+  `evaluation_provider` float NOT NULL,
+  `des_evaluation_porvider` text,
+  `evaluation_percenter` float NOT NULL,
+  `des_evaluation_persenter` text,
+  `service_id` varchar(20) NOT NULL,
+  `user_id_provider` varchar(50) DEFAULT NULL,
+  `user_id_persenter` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `evaluations`
+--
+
+INSERT INTO `evaluations` (`evaluation_id`, `evaluation_provider`, `des_evaluation_porvider`, `evaluation_percenter`, `des_evaluation_persenter`, `service_id`, `user_id_provider`, `user_id_persenter`) VALUES
+('1', 0, NULL, 0, NULL, '', '5xuXLbSZ40', '123'),
+('2', 0, NULL, 0, NULL, '', 'fXr6gzz639', '8hzIc9FaS8'),
+('3', 5, 'جيد', 8, 'جيد جدا', '6l1z04wbblF', '5xuXLbSZ40', '8hzIc9FaS8');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `msgs`
 --
 
-CREATE TABLE `msgs` (
+CREATE TABLE IF NOT EXISTS `msgs` (
   `masgsID` varchar(11) CHARACTER SET utf8 NOT NULL,
   `msgsText` text CHARACTER SET utf8 NOT NULL,
   `msgsTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -136,7 +160,7 @@ INSERT INTO `msgs` (`masgsID`, `msgsText`, `msgsTime`, `msgsFrom`, `msgsTo`) VAL
 -- Table structure for table `offers`
 --
 
-CREATE TABLE `offers` (
+CREATE TABLE IF NOT EXISTS `offers` (
   `OffersID` varchar(11) CHARACTER SET utf8 NOT NULL,
   `OffersDed` varchar(1500) CHARACTER SET utf8 NOT NULL,
   `OffersTime` date NOT NULL,
@@ -161,7 +185,7 @@ INSERT INTO `offers` (`OffersID`, `OffersDed`, `OffersTime`, `PriceOffers`, `Off
 -- Table structure for table `penalties`
 --
 
-CREATE TABLE `penalties` (
+CREATE TABLE IF NOT EXISTS `penalties` (
   `penaltie_id` varchar(50) NOT NULL,
   `penaltie_des` varchar(500) DEFAULT NULL,
   `end_penaltie` date DEFAULT NULL,
@@ -175,7 +199,7 @@ CREATE TABLE `penalties` (
 -- Table structure for table `portfoilo`
 --
 
-CREATE TABLE `portfoilo` (
+CREATE TABLE IF NOT EXISTS `portfoilo` (
   `PortfoiloID` varchar(11) CHARACTER SET utf8 NOT NULL,
   `PortfoiloTitle` varchar(500) CHARACTER SET utf8 NOT NULL,
   `PortfoiloDes` text CHARACTER SET utf8 NOT NULL,
@@ -202,7 +226,7 @@ INSERT INTO `portfoilo` (`PortfoiloID`, `PortfoiloTitle`, `PortfoiloDes`, `Portf
 -- Table structure for table `services`
 --
 
-CREATE TABLE `services` (
+CREATE TABLE IF NOT EXISTS `services` (
   `id_services` varchar(11) NOT NULL,
   `service_title` varchar(100) DEFAULT NULL,
   `service_des` text,
@@ -235,11 +259,11 @@ INSERT INTO `services` (`id_services`, `service_title`, `service_des`, `service_
 -- Table structure for table `skills`
 --
 
-CREATE TABLE `skills` (
-  `SkillID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `skills` (
+`SkillID` int(11) NOT NULL,
   `SkillName` varchar(100) CHARACTER SET utf8 NOT NULL,
   `SkillImg` varchar(1000) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `skills`
@@ -262,7 +286,7 @@ INSERT INTO `skills` (`SkillID`, `SkillName`, `SkillImg`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `User_id` varchar(11) NOT NULL,
   `User_name` varchar(50) NOT NULL,
   `User_E-mail` varchar(50) NOT NULL,
@@ -291,7 +315,7 @@ INSERT INTO `users` (`User_id`, `User_name`, `User_E-mail`, `User_passowrd`, `Us
 -- Table structure for table `user_skill`
 --
 
-CREATE TABLE `user_skill` (
+CREATE TABLE IF NOT EXISTS `user_skill` (
   `user_skillID` int(11) NOT NULL,
   `userID_skill` varchar(11) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -315,7 +339,7 @@ INSERT INTO `user_skill` (`user_skillID`, `userID_skill`) VALUES
 -- Table structure for table `violations`
 --
 
-CREATE TABLE `violations` (
+CREATE TABLE IF NOT EXISTS `violations` (
   `violation_id` varchar(11) NOT NULL,
   `violation_des` varchar(500) DEFAULT NULL,
   `violation_admin` varchar(50) NOT NULL
@@ -329,94 +353,85 @@ CREATE TABLE `violations` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`);
+ ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `cats`
 --
 ALTER TABLE `cats`
-  ADD PRIMARY KEY (`CatID`),
-  ADD KEY `CatMain` (`CatMain`);
+ ADD PRIMARY KEY (`CatID`), ADD KEY `CatMain` (`CatMain`);
 
 --
 -- Indexes for table `cert`
 --
 ALTER TABLE `cert`
-  ADD PRIMARY KEY (`CertID`),
-  ADD KEY `CertUser` (`CertUser`);
+ ADD PRIMARY KEY (`CertID`), ADD KEY `CertUser` (`CertUser`);
 
 --
 -- Indexes for table `comblaints`
 --
 ALTER TABLE `comblaints`
-  ADD KEY `comblaints_ibfk_2` (`comblaint_user`),
-  ADD KEY `comblaint_fk3` (`comblaint_admin`);
+ ADD KEY `comblaints_ibfk_2` (`comblaint_user`), ADD KEY `comblaint_fk3` (`comblaint_admin`);
+
+--
+-- Indexes for table `evaluations`
+--
+ALTER TABLE `evaluations`
+ ADD PRIMARY KEY (`evaluation_id`);
 
 --
 -- Indexes for table `msgs`
 --
 ALTER TABLE `msgs`
-  ADD PRIMARY KEY (`masgsID`),
-  ADD KEY `msgsFrom` (`msgsFrom`),
-  ADD KEY `msgsTo` (`msgsTo`);
+ ADD PRIMARY KEY (`masgsID`), ADD KEY `msgsFrom` (`msgsFrom`), ADD KEY `msgsTo` (`msgsTo`);
 
 --
 -- Indexes for table `offers`
 --
 ALTER TABLE `offers`
-  ADD PRIMARY KEY (`OffersID`),
-  ADD KEY `OffersUser` (`OffersUser`),
-  ADD KEY `OffersService` (`OffersService`);
+ ADD PRIMARY KEY (`OffersID`), ADD KEY `OffersUser` (`OffersUser`), ADD KEY `OffersService` (`OffersService`);
 
 --
 -- Indexes for table `penalties`
 --
 ALTER TABLE `penalties`
-  ADD KEY `penaltie_user` (`penaltie_user`);
+ ADD KEY `penaltie_user` (`penaltie_user`);
 
 --
 -- Indexes for table `portfoilo`
 --
 ALTER TABLE `portfoilo`
-  ADD PRIMARY KEY (`PortfoiloID`),
-  ADD KEY `PortfoiloUser` (`PortfoiloUser`);
+ ADD PRIMARY KEY (`PortfoiloID`), ADD KEY `PortfoiloUser` (`PortfoiloUser`);
 
 --
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
-  ADD PRIMARY KEY (`id_services`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `sections_services` (`sections_services`),
-  ADD KEY `offer_id` (`offer_id`);
+ ADD PRIMARY KEY (`id_services`), ADD KEY `user_id` (`user_id`), ADD KEY `sections_services` (`sections_services`), ADD KEY `offer_id` (`offer_id`);
 
 --
 -- Indexes for table `skills`
 --
 ALTER TABLE `skills`
-  ADD PRIMARY KEY (`SkillID`);
+ ADD PRIMARY KEY (`SkillID`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`User_id`),
-  ADD UNIQUE KEY `User_name` (`User_name`,`User_E-mail`),
-  ADD UNIQUE KEY `User_phone` (`User_phone`);
+ ADD PRIMARY KEY (`User_id`), ADD UNIQUE KEY `User_name` (`User_name`,`User_E-mail`), ADD UNIQUE KEY `User_phone` (`User_phone`);
 
 --
 -- Indexes for table `user_skill`
 --
 ALTER TABLE `user_skill`
-  ADD PRIMARY KEY (`user_skillID`,`userID_skill`),
-  ADD KEY `userID_skill` (`userID_skill`);
+ ADD PRIMARY KEY (`user_skillID`,`userID_skill`), ADD KEY `userID_skill` (`userID_skill`);
 
 --
 -- Indexes for table `violations`
 --
 ALTER TABLE `violations`
-  ADD PRIMARY KEY (`violation_id`),
-  ADD KEY `violation_admin` (`violation_admin`);
+ ADD PRIMARY KEY (`violation_id`), ADD KEY `violation_admin` (`violation_admin`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -426,14 +441,12 @@ ALTER TABLE `violations`
 -- AUTO_INCREMENT for table `cats`
 --
 ALTER TABLE `cats`
-  MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
+MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `SkillID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+MODIFY `SkillID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- Constraints for dumped tables
 --
@@ -442,70 +455,69 @@ ALTER TABLE `skills`
 -- Constraints for table `cats`
 --
 ALTER TABLE `cats`
-  ADD CONSTRAINT `cats_ibfk_1` FOREIGN KEY (`CatMain`) REFERENCES `cats` (`CatID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `cats_ibfk_1` FOREIGN KEY (`CatMain`) REFERENCES `cats` (`CatID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cert`
 --
 ALTER TABLE `cert`
-  ADD CONSTRAINT `cert_ibfk_1` FOREIGN KEY (`CertUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `cert_ibfk_1` FOREIGN KEY (`CertUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comblaints`
 --
 ALTER TABLE `comblaints`
-  ADD CONSTRAINT `comblaint_fk3` FOREIGN KEY (`comblaint_admin`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comblaints_ibfk_2` FOREIGN KEY (`comblaint_user`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `comblaint_fk3` FOREIGN KEY (`comblaint_admin`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `comblaints_ibfk_2` FOREIGN KEY (`comblaint_user`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `msgs`
 --
 ALTER TABLE `msgs`
-  ADD CONSTRAINT `msgs_ibfk_1` FOREIGN KEY (`msgsFrom`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `msgs_ibfk_2` FOREIGN KEY (`msgsTo`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `msgs_ibfk_1` FOREIGN KEY (`msgsFrom`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `msgs_ibfk_2` FOREIGN KEY (`msgsTo`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `offers`
 --
 ALTER TABLE `offers`
-  ADD CONSTRAINT `offers_ibfk_1` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `offers_ibfk_2` FOREIGN KEY (`OffersUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `offers_ibfk_3` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `offers_ibfk_4` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`);
+ADD CONSTRAINT `offers_ibfk_1` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `offers_ibfk_2` FOREIGN KEY (`OffersUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `offers_ibfk_3` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `offers_ibfk_4` FOREIGN KEY (`OffersService`) REFERENCES `services` (`id_services`);
 
 --
 -- Constraints for table `penalties`
 --
 ALTER TABLE `penalties`
-  ADD CONSTRAINT `penalties_ibfk_1` FOREIGN KEY (`penaltie_user`) REFERENCES `users` (`User_id`);
+ADD CONSTRAINT `penalties_ibfk_1` FOREIGN KEY (`penaltie_user`) REFERENCES `users` (`User_id`);
 
 --
 -- Constraints for table `portfoilo`
 --
 ALTER TABLE `portfoilo`
-  ADD CONSTRAINT `portfoilo_ibfk_1` FOREIGN KEY (`PortfoiloUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `portfoilo_ibfk_1` FOREIGN KEY (`PortfoiloUser`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `services`
 --
 ALTER TABLE `services`
-  ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `services_ibfk_2` FOREIGN KEY (`sections_services`) REFERENCES `cats` (`CatID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `services_ibfk_3` FOREIGN KEY (`offer_id`) REFERENCES `offers` (`OffersID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `services_ibfk_2` FOREIGN KEY (`sections_services`) REFERENCES `cats` (`CatID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `services_ibfk_3` FOREIGN KEY (`offer_id`) REFERENCES `offers` (`OffersID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_skill`
 --
 ALTER TABLE `user_skill`
-  ADD CONSTRAINT `user_skill_ibfk_1` FOREIGN KEY (`user_skillID`) REFERENCES `skills` (`SkillID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_skill_ibfk_2` FOREIGN KEY (`userID_skill`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `user_skill_ibfk_1` FOREIGN KEY (`user_skillID`) REFERENCES `skills` (`SkillID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `user_skill_ibfk_2` FOREIGN KEY (`userID_skill`) REFERENCES `users` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `violations`
 --
 ALTER TABLE `violations`
-  ADD CONSTRAINT `violations_ibfk_1` FOREIGN KEY (`violation_admin`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
+ADD CONSTRAINT `violations_ibfk_1` FOREIGN KEY (`violation_admin`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
