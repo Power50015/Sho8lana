@@ -6,9 +6,9 @@
                     <h2 class="f-30">شغلانه</h2>
                        <ul class="list-unstyled">
                            <li><a href="about.php" class=" text-white">من نحن</a></li>
-                           <li><a href="#" class="text-white">تواصل معنا</a></li>
+                           <li><a href="contact-us.php" class="text-white">تواصل معنا</a></li>
                            <li><a href="questions.php" class="text-white">سياسه الاستخدام</a></li>
-                           <li><a href="#" class="text-white">الشكاوي</a>
+                           <li><a href="complaints.php" class="text-white">الشكاوي</a>
                         </ul>
                     </div>
                    <div class="col-md-4 col-12 py-md-5 px-md-2 text-center">
@@ -20,9 +20,9 @@
                     <div class="col-md-4 col-12 py-md-5 px-md-2 text-center">   
                     <h2 class="f-30">تابعنا</h2>
                         <ul class="p-0">
-                           <li class=" d-inline"><a href="https://fb.com" class="text-white mr-2 f-2" ><i class="fab fa-facebook"></i></a></li>
-                           <li class="d-inline"><a href="https://twitter.com" class="text-white mr-2 f-2 " ><i class="fab fa-twitter-square"></i></a></li>
-                           <li class="d-inline" ><a href="https://instagram.com" class="text-white f-2" ><i class="fab fa-instagram"></i></a></li>
+                           <li class=" d-inline"><a href="#" class="text-white mr-2 f-2" ><i class="fab fa-facebook"></i></a></li>
+                           <li class="d-inline"><a href="#" class="text-white mr-2 f-2 " ><i class="fab fa-twitter-square"></i></a></li>
+                           <li class="d-inline" ><a href="#" class="text-white f-2" ><i class="fab fa-instagram"></i></a></li>
                         
                         </ul>
                     </div>
