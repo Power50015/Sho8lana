@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2019 at 06:46 PM
+-- Generation Time: Mar 18, 2019 at 07:07 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -107,6 +107,19 @@ CREATE TABLE `comblaints` (
   `comblaint_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `comblaint_admin` varchar(50) DEFAULT NULL,
   `comblaint_user` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `contact_id` varchar(11) NOT NULL,
+  `contact_name` varchar(50) NOT NULL,
+  `contact_des` text NOT NULL,
+  `contact_email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -377,6 +390,12 @@ ALTER TABLE `cert`
 ALTER TABLE `comblaints`
   ADD KEY `comblaints_ibfk_2` (`comblaint_user`),
   ADD KEY `comblaint_fk3` (`comblaint_admin`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`contact_id`);
 
 --
 -- Indexes for table `evaluations`
