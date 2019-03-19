@@ -9,9 +9,13 @@ if (isset($_GET['do'])) {
         if ($_GET['do'] == 'manage') {
             if (isset($_GET['filt'])) {
                 if ($_GET['filt'] == 'all') {
-                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " ORDER BY `service_time` DESC");
+                   try{
+                       $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " ORDER BY `service_time` DESC");
                     $stmt->execute();
-                    $services = $stmt->fetchAll();
+                    $services = $stmt->fetchAll();}
+                    catch (Exception $e){
+                        $services=array();
+                    }
 ?>
 <div class="container pt-5 position-relative">
     <table class="table table-striped">
@@ -52,9 +56,13 @@ if (isset($_GET['do'])) {
 </div>
 <?php
                 }elseif($_GET['filt'] == 'making'){
+                   try{
                     $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =1 ORDER BY `service_time` DESC");
                     $stmt->execute();
                     $services = $stmt->fetchAll();
+                   }catch (Exception $e){
+                        $services=array();
+                    } 
 ?>
 <div class="container pt-5 position-relative">
     <table class="table table-striped">
@@ -84,9 +92,12 @@ if (isset($_GET['do'])) {
 
                 }elseif($_GET['filt'] == 'finsh'){
                     
-                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat = 2 ORDER BY `service_time` DESC");
+                    try{$stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat = 2 ORDER BY `service_time` DESC");
                     $stmt->execute();
-                    $services = $stmt->fetchAll();
+                    $services = $stmt->fetchAll();}
+                    catch (Exception $e){
+                        $services=array();
+                    } 
 ?>
 <div class="container pt-5 position-relative">
     <table class="table table-striped">
@@ -116,9 +127,11 @@ if (isset($_GET['do'])) {
 
                 }elseif($_GET['filt'] == 'cansel'){
                     
-                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =3 ORDER BY `service_time` DESC");
+                    try{$stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =3 ORDER BY `service_time` DESC");
                     $stmt->execute();
-                    $services = $stmt->fetchAll();
+                    $services = $stmt->fetchAll();}catch (Exception $e){
+                        $services=array();
+                    } 
 ?>
 <div class="container pt-5 position-relative">
     <table class="table table-striped">

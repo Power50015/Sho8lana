@@ -1,36 +1,39 @@
 <?php
-session_start();
-include 'init.php';
-$pageTitle = 'الرئيسيه';
-if (!isset($_SESSION['Username'])) {
+ob_start(); // Start Out But Puffering
+session_start(); // Start Section 
+include 'init.php'; // Include init.php File
+$pageTitle = 'الرئيسيه'; // Page Name
+if (!isset($_SESSION['Username'])) { // Cheak if User is loging in Website
     header('Location: login.php'); // Redirect To Dashboard Page
     exit();
 }
+// Get User Data From DB
 $stmt = $con->prepare("SELECT  * FROM  `users` WHERE `User_id` = ? AND `User_name` = ?");
-$stmt->execute(array(
-    $_SESSION['ID'],
-    $_SESSION['Username']
-));
+$stmt->execute(array( $_SESSION['ID'], $_SESSION['Username']));
 $row = $stmt->fetch();
+
+// Update User Data Useing POST METHOD
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['des'])) {
-        $username = $_POST['username'];
-        $username = filter_var($username, FILTER_SANITIZE_STRING);
-        $userDes  = $_POST['userDes'];
-        $userDes  = filter_var($userDes, FILTER_SANITIZE_STRING);
-        if ($username == '' || $username == NULL) {
+    
+    if (isset($_POST['des'])) { // Updata Name ,Des or Img
+        $username = $_POST['username']; // Get User Name 
+        $username = filter_var($username, FILTER_SANITIZE_STRING); // Filter User input
+        $userDes  = $_POST['userDes']; // Get User Des
+        $userDes  = filter_var($userDes, FILTER_SANITIZE_STRING); // Filter User Des
+        if ($username == '' || $username == NULL) { // Cheak if The name = To NULL
             $username = $_SESSION['Username'];
-        } else {
+        } else { 
             $smallCap = strtolower($username);
-            if (strlen($username) < 4) {
+
+            if (strlen($username) < 4) { // Cheak if Name leng < 4 
                 $formErrors[] = 'يجب ان يزيد اسم المستخدم عن 4 حروف';
             }
             $username = substr($username, 0, 50);
-            if (cheak("`User_name`", "`users`", "`User_name` = '$username' OR `User_name` = '$smallCap'")) {
+            if (cheak("`User_name`", "`users`", "`User_name` = '$username' OR `User_name` = '$smallCap'")) { // If The User Name Is issest in DataBase
                 $formErrors[] = 'اسم المستخدم موجود بالفعل في قاعده البيانات ';
             }
         }
-        if ($userDes == '' || $userDes == NULL) {
+        if ($userDes == '' || $userDes == NULL) { // Cheak if The UserDes = To NULL
             $userDes = $row['User_Des'];
         } else {
             if (strlen($userDes) < 10) {
@@ -132,6 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
 include $tempDir . 'header.php';
 ?>
 <header class="d-flex h-500">
@@ -184,12 +188,13 @@ include $tempDir . 'header.php';
        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">المهارات</h2>
        <div>
        <?php
-        $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" .  $_SESSION['ID'] . "'");
+            $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" .  $_SESSION['ID'] . "'");
             $stmt->execute();
             $skills = $stmt->fetchAll();
             $numItems = count($skills);
             $j = 0;
-            $SQLSection = "(`SkillID` != ";
+            if ($numItems > 0){$SQLSection = "(`SkillID` != ";}
+            else {$SQLSection = "(1)";}
             foreach($skills as $x){
                 if(++$j === $numItems) {
                     $SQLSection = $SQLSection . $x['user_skillID'] . " )";
@@ -506,4 +511,5 @@ if ($row['User_paypal'] != NULL) {
 <!-- End Modals -->
 <?php
 include $tempDir . 'footer.php';
+ob_end_flush();
 ?>
