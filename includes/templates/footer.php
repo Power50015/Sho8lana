@@ -42,8 +42,7 @@
         <script src = "<?=($jsDir)?>jquery-ui.min.js" ></script>
         <script src = "<?=($jsDir)?>popper.min.js" ></script>
         <script src = "<?=($jsDir)?>bootstrap.min.js" ></script>
-        <script src="<?=($jsDir)?>owlcarousel/owl.carousel.min.js"></script>
-
+        
         <!--Upload Btn Plg-->
         <script src = "<?=($jsDir)?>input-file.js" ></script>
         
@@ -78,22 +77,7 @@
     $("#price").val("$" + $("#range-price").slider("values", 0) +
         " - " + " $" + $("#range-price").slider("values", 1));
     
-    $('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:5
-        }
-    }
-});
+    
         </script>
       
     </body>
