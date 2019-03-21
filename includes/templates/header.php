@@ -15,8 +15,8 @@
         <link rel = "stylesheet" href = "<?=($cssDir)?>bootstrap.rtl.min.css" />
         <link rel = "stylesheet" href = "<?=($cssDir)?>jquery-ui.min.css" />
         <link rel = "stylesheet" href = "<?=($cssDir)?>main.css" />
-        <link rel="stylesheet" href="<?=($cssDir)?>owlcarousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="<?=($cssDir)?>owlcarousel/owl.theme.default.min.css">
+        <link rel="stylesheet" href="<?=($cssDir)?>owl.carousel.min.css">
+        <link rel="stylesheet" href="<?=($cssDir)?>owl.theme.default.min.css">
 
     </head>
     <body dir='rtl' >
