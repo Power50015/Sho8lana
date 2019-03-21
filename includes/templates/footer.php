@@ -42,7 +42,7 @@
         <script src = "<?=($jsDir)?>jquery-ui.min.js" ></script>
         <script src = "<?=($jsDir)?>popper.min.js" ></script>
         <script src = "<?=($jsDir)?>bootstrap.min.js" ></script>
-        <script src="<?=($jsDir)?>owlcarousel/owl.carousel.min.js"></script>
+        <script src="<?=($jsDir)?>owl.carousel.min.js"></script>
 
         <!--Upload Btn Plg-->
         <script src = "<?=($jsDir)?>input-file.js" ></script>
@@ -82,6 +82,7 @@
     loop:true,
     margin:10,
     nav:true,
+    rtl: true,
     responsive:{
         0:{
             items:1

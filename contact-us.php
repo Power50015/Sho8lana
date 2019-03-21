@@ -42,7 +42,7 @@
 <div class="owl-carousel owl-theme">
     
     <div class="item">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="">
         <img src="upload\1.jpg" class="card-img-top" alt="">
         <div class="card-body text-center bg-color-11">
         <h5 class="card-title">محمد مصطفي </h5>
