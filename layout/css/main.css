@@ -571,3 +571,17 @@ main.services .price-range .range .range-box {
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/
+.card-img-top{
+        height: 285px;
+        width: 285px;
+    }
+.coname{
+        margin: 20px;
+        margin-right: 100px;
+    }
+/*---------------------------------------------------------------
+5.0 Media Queries
+----------------------------------------------------------------*/
+.stats-small {
+  min-height: 8.7rem;
+  overflow: hidden !important; }

@@ -142,4 +142,6 @@ $(function () {
     }, 1500);
     //   $('#canter-ul').css('left', ($('.row').width() / -2));
     // range js //
+
+    $('.owl-carousel').owlCarousel();
 });
