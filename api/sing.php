@@ -4,55 +4,34 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
+include_once 'functions.php';
 include_once 'config.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $username     = $_POST['name'];
     $email         = $_POST['email'];
     $password     = $_POST['password1'];
     $password2     = $_POST['password2'];
+    $json = array();
 
     if (isset($username)) {
 
         $username = filter_var($username, FILTER_SANITIZE_STRING);
 
         $smallCap = strtolower($username);
-
-        if (strlen($username) < 4) {
-
-            $formErrors[] = 'يجب ان يزيد اسم المستخدم عن 4 حروف';
-        }
-        if (isset($password) && isset($password2)) {
-
-            if (empty($password)) {
-
-                $formErrors[] = 'عليك كتابه كلمه السر';
-            }
-
-            if (sha1($password) !== sha1($password2)) {
-
-                $formErrors[] = 'كلمه السر غير متطابقه';
-            }
-            if (strlen($password) < 10) {
-
-                $formErrors[] = 'يجب الا تقل كلمه السر عن 10 رموز';
-            }
-        }
-
-        if (isset($email)) {
-
-            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
-            if (filter_var($email, FILTER_VALIDATE_EMAIL) != true) {
-
-                $formErrors[] = 'البريد الالكترونى غير صحيح';
-            }
-            if (cheak("`User_E-mail`", "`users`", "`User_E-mail` = '$email'")) {
-                $formErrors[] = 'البريد الالكترونى موجود بالفعل في قاعده البيانات ';
-            }
-        }
         if (cheak("`User_name`", "`users`", "`User_name` = '$username' OR `User_name` = '$smallCap'")) {
-            $formErrors[] = 'اسم المستخدم موجود بالفعل في قاعده البيانات ';
+            array_push($json, array('key' => false));
+            array_push($json, array('msg' => 'اسم المستخدم موجود في قاعده البيانات'));
+            $formErrors[] = "false";
+        } elseif (cheak("`User_E-mail`", "`users`", "`User_E-mail` = '$email'")) {
+            array_push($json, array('key' => false));
+            array_push($json, array('msg' => 'البريد المستخدم موجود في قاعده البيانات'));
+            $formErrors[] = "false";
+        } elseif ($password != $password2) {
+            array_push($json, array('key' => false));
+            array_push($json, array('msg' => 'كلمه السر غير متطابقه'));
+            $formErrors[] = "false";
         }
     }
 
@@ -82,7 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ));
 
         // Echo Success Message
-
-        $succesMsg = "لقد اصبحت عضو في الموقع الان";
+        array_push($json, array('key' => true));
+        array_push($json, array('msg' => 'تم الإضافه'));
     }
+    echo json_encode($json);
 }
