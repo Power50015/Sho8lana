@@ -69,22 +69,78 @@
   .stats-small--1 canvas {
     opacity: 0.5; }
   
+  .custom-select-sm {
+  font-size: 0.6875rem;
+  border-radius: 0.25rem; }
+
+.custom-select-lg {
+  border-radius: 0.25rem; }
+
+.custom-control {
+  line-height: 1.5rem; }
+
+.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::after {
+  border-color: #becad6; }
+
+.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::after {
+  background: #becad6; }
+
+.custom-toggle .custom-control-input:checked:disabled ~ .custom-control-label::after {
+  background: #becad6; }
+  
             
- }
+
   
  
         </style>
     </head>
     <body>
-         <div class="container">
-     <!-- Small Stats Blocks -->
+        <div class="row">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+          
+          <div class="nav-wrapper">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">
+                  <i class="material-icons">edit</i>
+                  <span>صفحة التحكم</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="">
+                  <i class="material-icons">view_module</i>
+                  <span>الخدمات</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="">
+                  <i class="material-icons">view_module</i>
+                  <span>العروض</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="">
+                  <i class="material-icons">view_module</i>
+                  <span>الشكاوي</span>
+                </a>
+              </li>  
+             
+            </ul>
+          </div>
+        </aside>
+            
+        
+        <!-- End Main Sidebar -->
+        <!-- Small Stats Blocks -->
+            <div class="col-10">
             <div class="row mt-5">
-              <div class="col-lg-2 col-md-6 col-sm-6 mb-4 ">
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex bg-light">
+                  <div class="card-body p-0 d-flex">
                     <div class="d-flex flex-column m-auto">
                       <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">الاعلانات </span>
+                        <span class="stats-small__label text-uppercase">العروض</span>
                         <h6 class="stats-small__value count my-3">2,390</h6>
                       </div>
                       <div class="stats-small__data">
@@ -95,12 +151,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-2 col-md-6 col-sm-6 mb-4">
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex bg-light">
+                  <div class="card-body p-0 d-flex">
                     <div class="d-flex flex-column m-auto">
                       <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">الصفحات </span>
+                        <span class="stats-small__label text-uppercase">الخدمات</span>
                         <h6 class="stats-small__value count my-3">182</h6>
                       </div>
                       <div class="stats-small__data">
@@ -111,12 +167,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+              <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex bg-light">
+                  <div class="card-body p-0 d-flex">
                     <div class="d-flex flex-column m-auto">
                       <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">الكومنتات </span>
+                        <span class="stats-small__label text-uppercase">المستخدمين</span>
                         <h6 class="stats-small__value count my-3">8,147</h6>
                       </div>
                       <div class="stats-small__data">
@@ -127,53 +183,24 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex bg-light">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">المستخدمين </span>
-                        <h6 class="stats-small__value count my-3">2,413</h6>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-12 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex bg-light">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase">المشتركين</span>
-                        <h6 class="stats-small__value count my-3">17,281</h6>
-                      </div>
-                      <div class="stats-small__data">
-                        <span class="stats-small__percentage stats-small__percentage--decrease">2.4%</span>
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
-                  </div>
-                </div>
-              </div>
+            </div>
             </div>
             <!-- End Small Stats Blocks -->
-            <div class="row">
-              <!-- Users Stats -->
-              <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
+           
+            </div>
+        <!-- Users Stats -->
+            <div class="container">
+              <div class="col-lg-9 col-md-12 col-sm-12 mb-4 ml-5">
                 <div class="card card-small">
                   <div class="card-header border-bottom">
-                    <h6 class="m-0">المستخدمين</h6>
+                    <h6 class="m-0">الخدمات</h6>
                   </div>
                   <div class="card-body pt-0">
                     <div class="row border-bottom py-2 bg-light">
                       <div class="col-12 col-sm-6">
                         <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
-                          <input type="text" class="input-sm form-control" name="start" placeholder="بدء التاريخ" id="blog-overview-date-range-1">
-                          <input type="text" class="input-sm form-control" name="end" placeholder="انتهاء التاريخ" id="blog-overview-date-range-2">
+                          <input type="text" class="input-sm form-control" name="start" placeholder="تاريخ البدء" id="blog-overview-date-range-1">
+                          <input type="text" class="input-sm form-control" name="end" placeholder="تاريخ الانتهاء" id="blog-overview-date-range-2">
                           <span class="input-group-append">
                             <span class="input-group-text">
                               <i class="material-icons"></i>
@@ -182,74 +209,32 @@
                         </div>
                       </div>
                       <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
-                        <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">عرض التقرير الكامل&rarr;</button>
+                        <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">عرض التقارير كامل &rarr;</button>
                       </div>
                     </div>
                     <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
                   </div>
                 </div>
               </div>
+                
               <!-- End Users Stats -->
-              <!-- Users By Device Stats -->
-              <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card card-small h-100">
-                  <div class="card-header border-bottom">
-                    <h6 class="m-0">المستخدمين من الاجهزة</h6>
-                  </div>
-                  <div class="card-body d-flex py-0">
-                    <canvas height="220" class="blog-users-by-device m-auto"></canvas>
-                  </div>
-                  <div class="card-footer border-top">
-                    <div class="row">
-                      <div class="col">
-                        <select class="custom-select custom-select-sm" style="max-width: 130px;">
-                          <option selected>الاسبوع الماضي </option>
-                          <option value="1">اليوم</option>
-                          <option value="2">الشهر الماضى </option>
-                          <option value="3">السنة الماضية </option>
-                        </select>
-                      </div>
-                      <div class="col text-right view-report">
-                        <a href="#">تقرير كامل  &rarr;</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Users By Device Stats -->
-              <!-- New Draft Component -->
-              <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <!-- Quick Post -->
-                <div class="card card-small h-100">
-                  <div class="card-header border-bottom">
-                    <h6 class="m-0">مشروع جديد</h6>
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <form class="quick-post-form">
-                      <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="عنوان جديد"> </div>
-                      <div class="form-group">
-                        <textarea class="form-control" placeholder="ادخل النص...."></textarea>
-                      </div>
-                      <div class="form-group mb-0">
-                        <button type="submit" class="btn btn-accent">أنشاء مشروع </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <!-- End Quick Post -->
-              </div>
-              <!-- End New Draft Component -->
               <!-- Discussions Component -->
-              <div class="col-lg-5 col-md-12 col-sm-12 mb-4">
+              <div class="col-lg-9 col-md-12 col-sm-12 mb-4 ml-5">
                 <div class="card card-small blog-comments">
                   <div class="card-header border-bottom">
-                    <h6 class="m-0">اقتراحات</h6>
+                    <div class="row">
+                       <div class="col">
+                         <h6 class="m-0">المستخدمين</h6>
+                       </div>
+                       <div class="col">
+                          <input type="text" class="input-sm form-control" name="start" placeholder="بحث" id="blog-overview-date-range-1">
+                        </div>
+                      </div>
                   </div>
                   <div class="card-body p-0">
                     <div class="blog-comments__item d-flex p-3">
                       <div class="blog-comments__avatar mr-3">
-                        <img src="avatars\1.jpg" alt="User avatar" /> </div>
+                        <img src="avatars/1.jpg" alt="User avatar" /> </div>
                       <div class="blog-comments__content">
                         <div class="blog-comments__meta text-muted">
                           <a class="text-secondary" href="#">James Johnson</a> on
@@ -262,11 +247,11 @@
                             <button type="button" class="btn btn-white">
                               <span class="text-success">
                                 <i class="material-icons">check</i>
-                              </span> قبول </button>
+                              </span> اضافة </button>
                             <button type="button" class="btn btn-white">
                               <span class="text-danger">
                                 <i class="material-icons">clear</i>
-                              </span> رفض </button>
+                              </span> حذف </button>
                             <button type="button" class="btn btn-white">
                               <span class="text-light">
                                 <i class="material-icons">more_vert</i>
@@ -277,7 +262,7 @@
                     </div>
                     <div class="blog-comments__item d-flex p-3">
                       <div class="blog-comments__avatar mr-3">
-                        <img src="avatars\2.jpg" alt="User avatar" /> </div>
+                        <img src="avatars/2.jpg" alt="User avatar" /> </div>
                       <div class="blog-comments__content">
                         <div class="blog-comments__meta text-muted">
                           <a class="text-secondary" href="#">James Johnson</a> on
@@ -290,11 +275,11 @@
                             <button type="button" class="btn btn-white">
                               <span class="text-success">
                                 <i class="material-icons">check</i>
-                              </span> قبول </button>
+                              </span> اضافة </button>
                             <button type="button" class="btn btn-white">
                               <span class="text-danger">
                                 <i class="material-icons">clear</i>
-                              </span> رفض  </button>
+                              </span> حذف </button>
                             <button type="button" class="btn btn-white">
                               <span class="text-light">
                                 <i class="material-icons">more_vert</i>
@@ -305,7 +290,7 @@
                     </div>
                     <div class="blog-comments__item d-flex p-3">
                       <div class="blog-comments__avatar mr-3">
-                        <img src="avatars\3.jpg" alt="User avatar" /> </div>
+                        <img src="avatars/3.jpg" alt="User avatar" /> </div>
                       <div class="blog-comments__content">
                         <div class="blog-comments__meta text-muted">
                           <a class="text-secondary" href="#">James Johnson</a> on
@@ -318,11 +303,11 @@
                             <button type="button" class="btn btn-white">
                               <span class="text-success">
                                 <i class="material-icons">check</i>
-                              </span> قبول </button>
+                              </span> اضافة </button>
                             <button type="button" class="btn btn-white">
                               <span class="text-danger">
                                 <i class="material-icons">clear</i>
-                              </span> رفض </button>
+                              </span> حذف </button>
                             <button type="button" class="btn btn-white">
                               <span class="text-light">
                                 <i class="material-icons">more_vert</i>
@@ -335,77 +320,15 @@
                   <div class="card-footer border-top">
                     <div class="row">
                       <div class="col text-center view-report">
-                        <button type="submit" class="btn btn-white">عرض الكل </button>
+                        <button type="submit" class="btn btn-white">عرض الكل</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- End Discussions Component -->
-              <!-- Top Referrals Component -->
-              <div class="col-lg-3 col-md-12 col-sm-12 mb-4">
-                <div class="card card-small">
-                  <div class="card-header border-bottom">
-                    <h6 class="m-0">Top Referrals</h6>
-                  </div>
-                  <div class="card-body p-0">
-                    <ul class="list-group list-group-small list-group-flush">
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">GitHub</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">19,291</span>
-                      </li>
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">Stack Overflow</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">11,201</span>
-                      </li>
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">Hacker News</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">9,291</span>
-                      </li>
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">Reddit</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">8,281</span>
-                      </li>
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">The Next Web</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">7,128</span>
-                      </li>
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">Tech Crunch</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">6,218</span>
-                      </li>
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">YouTube</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">1,218</span>
-                      </li>
-                      <li class="list-group-item d-flex px-3">
-                        <span class="text-semibold text-fiord-blue">Adobe</span>
-                        <span class="ml-auto text-right text-semibold text-reagent-gray">827</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-footer border-top">
-                    <div class="row">
-                      <div class="col">
-                        <select class="custom-select custom-select-sm">
-                          <option selected>الاسبوع الماضي</option>
-                          <option value="1">اليوم</option>
-                          <option value="2">الشهر الماضي </option>
-                          <option value="3">السنة الماضية </option>
-                        </select>
-                      </div>
-                      <div class="col text-right view-report">
-                        <a href="#">تقرير كامل  &rarr;</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Top Referrals Component -->
-    </div>
-    </div>
+        </div>
         
-        
-        
+        <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
     </body>
 </html>

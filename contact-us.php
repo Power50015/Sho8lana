@@ -43,7 +43,7 @@
      <h2 class="bg-color-3 d-inline-block mt-5 px-3 py-1 f-30 font-cairo text-light"> الفريق </h2>
     
     
-<div class="owl-carousel owl-theme">
+<div class="owl-carousel owl-theme ">
     
     <div class="item">
         <div class="card" style="">
@@ -78,7 +78,7 @@
         </div>
     </div>
     
-    <div class="item">
+   
         <div class="item">
         <div class="card" style="width: 18rem;">
         <img src="upload\4.jpg" class="card-img-top" alt="">
@@ -88,9 +88,9 @@
         </div>
         </div>
         </div>
-    </div>
+   
     
-    <div class="item">
+   
         <div class="item">
         <div class="card" style="width: 18rem;">
         <img src="upload\5.jpg" class="card-img-top" alt="">
@@ -100,9 +100,9 @@
         </div>
         </div>
         </div>
-    </div>
+   
     
-    <div class="item">
+    
         <div class="item">
         <div class="card" style="width: 18rem;">
         <img src="upload\6.jpg" class="card-img-top" alt="">
@@ -112,7 +112,7 @@
         </div>
         </div>
         </div>
-    </div>
+    
     
      <div class="item">
         <div class="card" style="width: 18rem;">
@@ -126,7 +126,7 @@
    
         
     
-        </div>
+</div>
     <div class="row justify-content-center ml-5">
     <div class="col-6 ">
     <input type="submit" value="تواصل معنا " name="login" class="btn btn-danger d-block w-50 mb-3 py-2 font-cairo f-18 " >
