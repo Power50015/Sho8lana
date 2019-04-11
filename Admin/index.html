@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>dashboard</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css" integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
         <link rel = "stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:400,600,700|Changa:400,500,600,700">
         <style>
@@ -19,6 +19,9 @@
             .bg-color-8 {
                  background: #eeeeee ;
                     }
+           .bg-color-12 {
+               background: #2d3c51 !important;
+                  }  
             .card-small {
                   box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12), 0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1); }
             .stats-small {
@@ -177,24 +180,24 @@
             <!-- Users Stats -->
               <div class="col-lg-9 col-md-12 col-sm-12 mb-4 ">
                 <div class="card card-small">
-                  <div class="card-header border-bottom">
+                  <div class="card-header border-bottom bg-color-12 text-white">
                     <h6 class="m-0">الخدمات</h6>
                   </div>
                   <div class="card-body pt-0">
-                    <div class="row border-bottom py-2 bg-light">
+                    <div class="row border-bottom py-2 bg-color-12">
                       <div class="col-12 col-sm-6">
                         <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
                           <input type="text" class="input-sm form-control" name="start" placeholder="تاريخ البدء" id="blog-overview-date-range-1">
                           <input type="text" class="input-sm form-control" name="end" placeholder="تاريخ الانتهاء" id="blog-overview-date-range-2">
                           <span class="input-group-append">
-                            <span class="input-group-text">
-                              <i class="material-icons"></i>
+                            <span class="input-group-text" style=" color: Tomato;">
+                              <i class="far fa-calendar-minus"></i>
                             </span>
                           </span>
                         </div>
                       </div>
                       <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
-                        <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">عرض التقارير كامل &rarr;</button>
+                        <button type="button" class="btn btn-sm btn-danger ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">عرض التقارير كامل &rarr;</button>
                       </div>
                     </div>
                     <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
@@ -204,21 +207,28 @@
                 
               <!-- End Users Stats -->
               <!-- Discussions Component -->
-              <div class="col-lg-9 col-md-12 col-sm-12 mt-4 ">
+              <div class="col-lg-9 col-md-12 col-sm-12 mt-4 mb-5">
                 <div class="card card-small blog-comments">
-                  <div class="card-header border-bottom">
-                    <div class="row">
-                       <div class="col">
+                  <div class="card-header border-bottom bg-color-12">
+                    <div class="row ">
+                       <div class="col  text-white">
                          <h6 class="m-0">المستخدمين</h6>
                        </div>
                        <div class="col">
-                          <input type="text" class="input-sm form-control" name="start" placeholder="بحث" id="blog-overview-date-range-1">
+                          <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
+                          <input type="text" class="input-sm form-control" name="end" placeholder="بحث" id="blog-overview-date-range-2">
+                          <span class="input-group-append">
+                            <span class="input-group-text" style=" color: Tomato;">
+                              <i class="fas fa-search-plus"></i>
+                            </span>
+                          </span>
+                        </div>
                         </div>
                       </div>
                   </div>
-                  <div class="card-body p-0">
+                  <div class="card-body p-0 ">
                     <div class="blog-comments__item d-flex p-3">
-                      <div class="blog-comments__avatar mr-3">
+                      <div class="blog-comments__avatar mr-3 ">
                         <img src="avatars/1.jpg" alt="User avatar" /> </div>
                       <div class="blog-comments__content">
                         <div class="blog-comments__meta text-muted">
@@ -228,20 +238,12 @@
                         </div>
                         <p class="m-0 my-1 mb-2 text-muted">Well, the way they make shows is, they make one show ...</p>
                         <div class="blog-comments__actions">
-                          <div class="btn-group btn-group-sm">
-                            <button type="button" class="btn btn-white">
-                              <span class="text-success">
-                                <i class="material-icons">check</i>
-                              </span> اضافة </button>
-                            <button type="button" class="btn btn-white">
-                              <span class="text-danger">
-                                <i class="material-icons">clear</i>
-                              </span> حذف </button>
-                            <button type="button" class="btn btn-white">
-                              <span class="text-light">
-                                <i class="material-icons">more_vert</i>
-                              </span> تعديل </button>
-                          </div>
+                           <div class="btn-group btn-group-sm">
+                             <input type="submit" value="اضافة" name="login" class="btn btn-danger  font-cairo f-18" >
+                             <input type="submit" value="حذف" name="login" class="btn btn-danger    font-cairo f-18" >
+                             <input type="submit" value="تعديل" name="login" class="btn btn-danger   font-cairo f-18" >
+                             <input type="submit" value="عرض" name="login" class="btn btn-danger  font-cairo f-18" >
+                             </div>
                         </div>
                       </div>
                     </div>
@@ -256,20 +258,12 @@
                         </div>
                         <p class="m-0 my-1 mb-2 text-muted">After the avalanche, it took us a week to climb out. Now...</p>
                         <div class="blog-comments__actions">
-                          <div class="btn-group btn-group-sm">
-                            <button type="button" class="btn btn-white">
-                              <span class="text-success">
-                                <i class="material-icons">check</i>
-                              </span> اضافة </button>
-                            <button type="button" class="btn btn-white">
-                              <span class="text-danger">
-                                <i class="material-icons">clear</i>
-                              </span> حذف </button>
-                            <button type="button" class="btn btn-white">
-                              <span class="text-light">
-                                <i class="material-icons">more_vert</i>
-                              </span> تعديل </button>
-                          </div>
+                           <div class="btn-group btn-group-sm">
+                             <input type="submit" value="اضافة" name="login" class="btn btn-danger  font-cairo f-18" >
+                             <input type="submit" value="حذف" name="login" class="btn btn-danger    font-cairo f-18" >
+                             <input type="submit" value="تعديل" name="login" class="btn btn-danger   font-cairo f-18" >
+                             <input type="submit" value="عرض" name="login" class="btn btn-danger  font-cairo f-18" >
+                             </div>
                         </div>
                       </div>
                     </div>
@@ -284,28 +278,20 @@
                         </div>
                         <p class="m-0 my-1 mb-2 text-muted">My money's in that office, right? If she start giving me...</p>
                         <div class="blog-comments__actions">
-                          <div class="btn-group btn-group-sm">
-                            <button type="button" class="btn btn-white">
-                              <span class="text-success">
-                                <i class="material-icons">check</i>
-                              </span> اضافة </button>
-                            <button type="button" class="btn btn-white">
-                              <span class="text-danger">
-                                <i class="material-icons">clear</i>
-                              </span> حذف </button>
-                            <button type="button" class="btn btn-white">
-                              <span class="text-light">
-                                <i class="material-icons">more_vert</i>
-                              </span> تعديل </button>
-                          </div>
+                           <div class="btn-group btn-group-sm">
+                             <input type="submit" value="اضافة" name="login" class="btn btn-danger  font-cairo f-18" >
+                             <input type="submit" value="حذف" name="login" class="btn btn-danger    font-cairo f-18" >
+                             <input type="submit" value="تعديل" name="login" class="btn btn-danger   font-cairo f-18" >
+                             <input type="submit" value="عرض" name="login" class="btn btn-danger  font-cairo f-18" >
+                             </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer border-top">
-                    <div class="row">
+                  <div class="card-footer border-top bg-color-12">
+                    <div class="row ">
                       <div class="col text-center view-report">
-                        <button type="submit" class="btn btn-white">عرض الكل</button>
+                        <input type="submit" value="عرض" name=" view" class="btn btn-danger  font-cairo f-18" >
                       </div>
                     </div>
                   </div>
