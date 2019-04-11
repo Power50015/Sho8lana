@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+    <head>
+        <title>dashboard</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css" integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
+        <link rel = "stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:400,600,700|Changa:400,500,600,700">
+        <style>
+            .f-18 {
+              font-size: 18px;
+                  }
+            .nav-item a {
+              color: #706e6e;
+                  }
+           
+           .font-700 {
+                font-weight: 700;
+                     }
+            .bg-color-8 {
+                 background: #eeeeee ;
+                    }
+           .bg-color-12 {
+               background: #2d3c51 !important;
+                  }  
+            .card-small {
+                  box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12), 0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1); }
+            .stats-small {
+                     min-height: 8.7rem;
+                     overflow: hidden !important; }
+           
+            .stats-small canvas {
+                     position: absolute;
+                     bottom: 0; }
+            .stats-small__data {
+                     flex: 1;
+                     display: flex;
+                     justify-content: center;
+                     flex-flow: column;
+                     max-width: 50%;
+                     z-index: 1; }
+            .stats-small__label {
+                    font-size: 0.625rem;
+                    letter-spacing: 0.0625rem;
+                    color: #818EA3; }
+            .stats-small__value {
+                    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+                    font-size: 1.5rem;
+                    font-weight: 500; }
+            .stats-small__percentage {
+                    position: relative;
+                    display: table;
+                    margin-left: auto;
+                    padding-left: 0.9375rem; }
+            .stats-small__percentage--increase, .stats-small__percentage--decrease {
+                    font-size: 0.75rem; }
+            .stats-small__percentage--increase::before, .stats-small__percentage--decrease::before {
+                    content: "";
+                    width: 0.75rem;
+                    height: 0.375rem;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-position: center center;
+                    background-repeat: no-repeat; }
+           .stats-small__percentage--increase {
+                    color: #17c671; }
+           .stats-small__percentage--increase::before {
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMTdjNjcxIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZD0iTTcgMTRsNS01IDUgNXoiLz4gPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiA8L3N2Zz4=); }
+           .stats-small__percentage--decrease {
+                    color: #c4183c; }
+           .stats-small__percentage--decrease::before {
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjYzQxODNjIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTcgMTBsNSA1IDUtNXoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==); }
+           .stats-small--1 .stats-small__data {
+                    max-width: 100%; }
+           .stats-small--1 .stats-small__percentage {
+                    margin: 0 auto; }
+           .stats-small--1 .stats-small__value {
+                   font-size: 2.0625rem; }
+           .stats-small--1 .stats-small__label {
+                   font-size: 0.75rem; }
+           .stats-small--1 .stats-small__percentage {
+                   font-size: 0.75rem; }
+           .stats-small--1 canvas {
+                   opacity: 0.5; }
+             .custom-select-sm {
+  font-size: 0.6875rem;
+  border-radius: 0.25rem; }
+
+.custom-select-lg {
+  border-radius: 0.25rem; }
+
+.custom-control {
+  line-height: 1.5rem; }
+
+.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::after {
+  border-color: #becad6; }
+
+.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::after {
+  background: #becad6; }
+
+.custom-toggle .custom-control-input:checked:disabled ~ .custom-control-label::after {
+  background: #becad6; }
+  
+        </style>
+    </head>
+    <body dir='rtl' >
+        <div class="row">
+            <!-- start main-sidebar-->
+            <aside class="main-sidebar col-12 col-md-3 col-lg-2">
+                <ul class="nav flex-column  f-18 font-700">
+                   <li class="nav-item active-link ">
+                     <a class="nav-link " href="#">صفحة التحكم</a>
+                   </li>
+                   <li class="nav-item ">
+                     <a class="nav-link" href="#">الخدمات </a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="#">العروض</a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="#">الشكاوي</a>
+                   </li>
+                 </ul>
+            </aside>      
+         <!-- end main-sidebar-->
+         <!-- Small Stats Blocks -->
+            <div class="col-10 bg-color-8">
+            <div class="row mt-5">
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">العروض</span>
+                        <h6 class="stats-small__value count my-3">2,390</h6>
+                      </div>
+                      <div class="stats-small__data">
+                        <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">الخدمات</span>
+                        <h6 class="stats-small__value count my-3">182</h6>
+                      </div>
+                      <div class="stats-small__data">
+                        <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="stats-small stats-small--1 card card-small">
+                  <div class="card-body p-0 d-flex">
+                    <div class="d-flex flex-column m-auto">
+                      <div class="stats-small__data text-center">
+                        <span class="stats-small__label text-uppercase">المستخدمين</span>
+                        <h6 class="stats-small__value count my-3">8,147</h6>
+                      </div>
+                      <div class="stats-small__data">
+                        <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span>
+                      </div>
+                    </div>
+                    <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Small Stats Blocks --> 
+            <!-- Users Stats -->
+              <div class="col-lg-9 col-md-12 col-sm-12 mb-4 ">
+                <div class="card card-small">
+                  <div class="card-header border-bottom bg-color-12 text-white">
+                    <h6 class="m-0">الخدمات</h6>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="row border-bottom py-2 bg-color-12">
+                      <div class="col-12 col-sm-6">
+                        <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
+                          <input type="text" class="input-sm form-control" name="start" placeholder="تاريخ البدء" id="blog-overview-date-range-1">
+                          <input type="text" class="input-sm form-control" name="end" placeholder="تاريخ الانتهاء" id="blog-overview-date-range-2">
+                          <span class="input-group-append">
+                            <span class="input-group-text" style=" color: Tomato;">
+                              <i class="far fa-calendar-minus"></i>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
+                        <button type="button" class="btn btn-sm btn-danger ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">عرض التقارير كامل &rarr;</button>
+                      </div>
+                    </div>
+                    <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
+                  </div>
+                </div>
+                </div>
+                
+              <!-- End Users Stats -->
+              <!-- Discussions Component -->
+              <div class="col-lg-9 col-md-12 col-sm-12 mt-4 mb-5">
+                <div class="card card-small blog-comments">
+                  <div class="card-header border-bottom bg-color-12">
+                    <div class="row ">
+                       <div class="col  text-white">
+                         <h6 class="m-0">المستخدمين</h6>
+                       </div>
+                       <div class="col">
+                          <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
+                          <input type="text" class="input-sm form-control" name="end" placeholder="بحث" id="blog-overview-date-range-2">
+                          <span class="input-group-append">
+                            <span class="input-group-text" style=" color: Tomato;">
+                                <i class="fas fa-search-plus"></i>
+                            </span>
+                          </span>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="card-body p-0 ">
+                    <div class="blog-comments__item d-flex p-3">
+                      <div class="blog-comments__avatar mr-3 ">
+                        <img src="avatars/1.jpg" alt="User avatar" /> </div>
+                      <div class="blog-comments__content">
+                        <div class="blog-comments__meta text-muted">
+                          <a class="text-secondary" href="#">James Johnson</a> on
+                          <a class="text-secondary" href="#">Hello World!</a>
+                          <span class="text-muted">– 3 days ago</span>
+                        </div>
+                        <p class="m-0 my-1 mb-2 text-muted">Well, the way they make shows is, they make one show ...</p>
+                        <div class="blog-comments__actions">
+                           <div class="btn-group btn-group-sm">
+                             <input type="submit" value="اضافة" name="login" class="btn btn-danger  font-cairo f-18" >
+                             <input type="submit" value="حذف" name="login" class="btn btn-danger    font-cairo f-18" >
+                             <input type="submit" value="تعديل" name="login" class="btn btn-danger   font-cairo f-18" >
+                             <input type="submit" value="عرض" name="login" class="btn btn-danger  font-cairo f-18" >
+                             </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="blog-comments__item d-flex p-3">
+                      <div class="blog-comments__avatar mr-3">
+                        <img src="avatars/2.jpg" alt="User avatar" /> </div>
+                      <div class="blog-comments__content">
+                        <div class="blog-comments__meta text-muted">
+                          <a class="text-secondary" href="#">James Johnson</a> on
+                          <a class="text-secondary" href="#">Hello World!</a>
+                          <span class="text-muted">– 4 days ago</span>
+                        </div>
+                        <p class="m-0 my-1 mb-2 text-muted">After the avalanche, it took us a week to climb out. Now...</p>
+                        <div class="blog-comments__actions">
+                           <div class="btn-group btn-group-sm">
+                             <input type="submit" value="اضافة" name="login" class="btn btn-danger  font-cairo f-18" >
+                             <input type="submit" value="حذف" name="login" class="btn btn-danger    font-cairo f-18" >
+                             <input type="submit" value="تعديل" name="login" class="btn btn-danger   font-cairo f-18" >
+                             <input type="submit" value="عرض" name="login" class="btn btn-danger  font-cairo f-18" >
+                             </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="blog-comments__item d-flex p-3">
+                      <div class="blog-comments__avatar mr-3">
+                        <img src="avatars/3.jpg" alt="User avatar" /> </div>
+                      <div class="blog-comments__content">
+                        <div class="blog-comments__meta text-muted">
+                          <a class="text-secondary" href="#">James Johnson</a> on
+                          <a class="text-secondary" href="#">Hello World!</a>
+                          <span class="text-muted">– 5 days ago</span>
+                        </div>
+                        <p class="m-0 my-1 mb-2 text-muted">My money's in that office, right? If she start giving me...</p>
+                        <div class="blog-comments__actions">
+                           <div class="btn-group btn-group-sm">
+                             <input type="submit" value="اضافة" name="login" class="btn btn-danger  font-cairo f-18" >
+                             <input type="submit" value="حذف" name="login" class="btn btn-danger    font-cairo f-18" >
+                             <input type="submit" value="تعديل" name="login" class="btn btn-danger   font-cairo f-18" >
+                             <input type="submit" value="عرض" name="login" class="btn btn-danger  font-cairo f-18" >
+                             </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer border-top bg-color-12">
+                    <div class="row ">
+                      <div class="col text-center view-report">
+                        <input type="submit" value="عرض" name=" view" class="btn btn-danger  font-cairo f-18" >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Discussions Component -->
+            </div>
+              
+        
+            </div>
+        
+        
+        
+        
+        
+  
+        
+        
+        <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js" integrity="sha384-a9xOd0rz8w0J8zqj1qJic7GPFfyMfoiuDjC9rqXlVOcGO/dmRqzMn34gZYDTel8k" crossorigin="anonymous"></script> 
+    </body>
+
+</html>
