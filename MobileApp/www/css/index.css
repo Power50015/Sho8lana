@@ -73,83 +73,31 @@ body {
         /* offset horizontal: half of image width and text area width */
     }
 }
-
-h1 {
-    font-size: 24px;
-    font-weight: normal;
-    margin: 0px;
-    overflow: visible;
-    padding: 0px;
-    text-align: center;
-    color: #FFF;
-    margin-bottom: 50px;
-}
-
-.event {
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    color: #FFFFFF;
-    font-size: 12px;
-    margin: 0px 30px;
-    padding: 2px 0px;
-}
-
-.event.listening {
-    background-color: #333333;
-    display: block;
-}
-
-.event.received {
-    background-color: #4B946A;
-    display: none;
-}
-
-@keyframes fade {
-    from {
-        opacity: 1.0;
-    }
-
-    50% {
-        opacity: 0.4;
-    }
-
-    to {
-        opacity: 1.0;
-    }
-}
-
-@-webkit-keyframes fade {
-    from {
-        opacity: 1.0;
-    }
-
-    50% {
-        opacity: 0.4;
-    }
-
-    to {
-        opacity: 1.0;
-    }
-}
-
-.blink {
-    animation: fade 3000ms infinite;
-    -webkit-animation: fade 3000ms infinite;
-}
-
-header {
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
+header{
     background-image: url(../img/bg.jpg);
-    position: relative;
-}
-
-header .over {
-    width: 100%;
     height: 100vh;
-    position: absolute;
-    background-color: #333333;
-    z-index: 1;
+}
+header .title {
+    color:#fff;
+}
+header .word {
+    color: #ff3363 !important;
+}
+header .over {
+    height: 100%;
+    width: 100%;
     opacity: 0.4;
+    background: #000;
+    position: absolute;
+}
+.navbar-brand img {
+    width: 50%;
+}
+.index {
+    background: #36455a;
+    text-align: center;
+}
+.index .btn {
+    background: #ff3363;
+    border: none;
 }
