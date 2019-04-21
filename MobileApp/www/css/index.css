@@ -76,6 +76,8 @@ body {
 header{
     background-image: url(../img/bg.jpg);
     height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 header .title {
     color:#fff;
@@ -100,4 +102,23 @@ header .over {
 .index .btn {
     background: #ff3363;
     border: none;
+}
+.nav-pag {
+    background: #EEE;
+}
+.nav-pag .my-nav {
+    list-style: none;
+}
+.nav-pag .my-nav li a{
+    font-size: 30px;
+    color: #1c4169;
+    font-weight: 900;
+}
+.about-title {
+        color: #eee;
+    background: #e9436c;
+    display: inline-block;
+    opacity: 0.7;
+    width: 67%;
+    padding: 5px;
 }
