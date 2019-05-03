@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html dir="rtl">
 
 <head>
     <!--
@@ -29,25 +29,43 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+
     <title>Hello World</title>
 </head>
 
 <body>
-    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+        <a href="nav1.html" class="navbar-toggler d-block ">
+            <span class="navbar-toggler-icon"></span>
+        </a>
+        </div>
+    </nav>
+    <header class=" position-relative">
         <div class="over"></div>
-        <div class="app">
-            <h1>منصه للعمل الحر</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">جارى التشغيل</p>
+        <div class="container">
+            <div class="row ">
+                <div class="col-9 pt-5">
+                    <h3 class="title"><span class="word">إنجز</span> مشاريعك بالاعتماد على توظيف مستقلين محترفين</h3>
+                </div>
             </div>
         </div>
     </header>
+    <section class="index pt-5 pb-5">
+        <a href="#" class="btn btn-primary ">سجل دخولك لأول مره الأن من هنا</a>
+    </section>
+    <script src="js/Jquery.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
