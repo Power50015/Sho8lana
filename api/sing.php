@@ -9,10 +9,10 @@ include_once 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $username     = $_POST['name'];
-    $email         = $_POST['email'];
-    $password     = $_POST['password1'];
-    $password2     = $_POST['password2'];
+    $username     =     $_POST['name'];
+    $email         =    $_POST['email'];
+    $password     =     $_POST['password1'];
+    $password2     =    $_POST['password2'];
     $json = array();
 
     if (isset($username)) {

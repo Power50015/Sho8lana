@@ -176,7 +176,7 @@ if (isset($_GET['do'])) {
     <div class="container pt-5 position-relative">
         <h2 class="bg-color-3 d-inline-block mx-5 px-4 py-2 f-30 font-cairo text-light">اضافه خدمه جديده</h2>
         <div class="row justify-content-center mt-3">
-            <form class="login col-lg-6 col-sm-12 col-xs-12 d-block p-5 mt-5 rounded mb-5" action="?do=Insert" method="POST">
+            <form class="login col-lg-6 col-sm-12 col-xs-12 d-block p-5 mt-5 rounded mb-5" action="?do=insert" method="POST">
                 <div class="form-group pt-3 pb-2">
                     <input type="text" name="adsName" required class="form-control rounded-0 px-3 py-3 font-cairo" placeholder="عنوان المشروع">
                 </div>

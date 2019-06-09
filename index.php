@@ -241,7 +241,6 @@
             <?php }?>
         </div>
         <a href="services.php" class="btn btn-lg btn-block mt-3 mb-5 text-white bg-color-3 hover">تصفح جميع المشاريع</a>
-    </div>
 </section>
 <!-- End Offers Section Section -->
 <?php
