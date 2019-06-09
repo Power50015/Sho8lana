@@ -661,6 +661,9 @@ section {
         -ms-flex-pack: center;
         justify-content: center;
     }
+    .font-700 {
+  font-weight: 700;
+}
 }
 
 .form-header2 .au-btn--submit {
