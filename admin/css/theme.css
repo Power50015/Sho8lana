@@ -12,7 +12,7 @@ Primary use:	Open Source
 
 * body
     + Header / header
-	+ Page Content / .page-content .name-page
++ Page Content / .page-content .name-page
         + Section Layouts / section .name-section
         ...
 	+ Footer / footer
@@ -143,6 +143,7 @@ h5 {
 h6 {
     font-size: 13px;
 }
+
 
 blockquote {
     margin: 0;
