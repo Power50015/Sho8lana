@@ -661,9 +661,7 @@ section {
         -ms-flex-pack: center;
         justify-content: center;
     }
-    .font-700 {
-  font-weight: 700;
-}
+    
 }
 
 .form-header2 .au-btn--submit {
@@ -14643,3 +14641,13 @@ section {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
+ 
+        .font-700 {
+  font-weight: 700;
+}.font-color-2 {
+  color: #fff;
+}
+        .bg-color-9 {
+  background: #c13543!important;
+}
+        
