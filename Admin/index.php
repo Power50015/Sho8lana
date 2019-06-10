@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-
-    <!-- Title Page-->
-    <title>dashboard</title>
-    
-
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
-
-</head>
+<?php
+include 'head.php';
+?>
 
 <body class="animsition">
     <div class="page-wrapper">
@@ -43,7 +9,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="">
+                        <a class="logo" href="index.php">
                             <img src="images/logo.png" alt="" style="width: auto; height:40px;">
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -58,31 +24,31 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="">
+                            <a class="js-arrow" href="index.php">
                                 <i class="fas fa-tachometer-alt" style="color:tomato;"></i>الرئيسية</a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="services.php">
                                 <i class="fas fa-chart-bar"></i>الخدمات</a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="offers.php">
                                 <i class="fas fa-table"></i>العروض</a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="complaints.php">
                                 <i class="far fa-check-square"></i>الشكاوي</a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </nav>
         </header>
         <!-- END HEADER MOBILE-->
 
-       
-         <div class="page-container">
-          <!-- HEADER DESKTOP-->
+
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -136,55 +102,56 @@
                     </div>
                 </div>
             </header>
-            <!-- HEADER DESKTOP-->  
-             
-              <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="images/logo.png" alt=""  style="width: auto; height:40px;"/>
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="">
-                                <i class="fas fa-tachometer-alt"></i>الرئيسية </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fas fa-chart-bar"></i>الخدمات</a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fas fa-table"></i>العروض</a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="far fa-check-square"></i>الشكاوي</a>
-                        </li>
-                      
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-         <!-- MAIN CONTENT-->
+            <!-- HEADER DESKTOP-->
+
+            <!-- MENU SIDEBAR-->
+            <aside class="menu-sidebar d-none d-lg-block">
+                <div class="logo">
+                    <a href="#">
+                        <img src="images/logo.png" alt="" style="width: auto; height:40px;" />
+                    </a>
+                </div>
+                <div class="menu-sidebar__content js-scrollbar1">
+                    <nav class="navbar-sidebar">
+                        <ul class="list-unstyled navbar__list">
+                            <li class="active has-sub">
+                                <a class="js-arrow" href="index.php">
+                                    <i class="fas fa-tachometer-alt"></i>الرئيسية </a>
+                            </li>
+                            <li>
+                                <a href="services.php">
+                                    <i class="fas fa-chart-bar"></i>الخدمات</a>
+                            </li>
+                            <li>
+                                <a href="offers.php">
+                                    <i class="fas fa-table"></i>العروض</a>
+                            </li>
+                            <li>
+                                <a href="complaints.php">
+                                    <i class="far fa-check-square"></i>الشكاوي</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <!-- END MENU SIDEBAR-->
+            <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">نظرة عامة </h2>
-                                    
+                                    <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">
+                                        نظرة عامة </h2>
+
                                 </div>
                             </div>
                         </div>
-                      
+
                         <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c1">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -192,15 +159,21 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
+                                                <?php
+                                                $stmt = $con->prepare("SELECT * FROM users");
+                                                $stmt->execute();
+                                                $users = $stmt->fetch();
+                                                $users = $stmt->rowCount();
+                                                echo ' <h2>' . $users . '</h2>';
+                                                ?>
                                                 <span>المستخدمين </span>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -208,15 +181,21 @@
                                                 <i class="zmdi zmdi-shopping-cart"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
-                                                <span>العروض</span>
+                                                <?php
+                                                $stmt = $con->prepare("SELECT * FROM services");
+                                                $stmt->execute();
+                                                $services = $stmt->fetch();
+                                                $services = $stmt->rowCount();
+                                                echo ' <h2>' . $services . '</h2>';
+                                                ?>
+                                                <span>الخدمات</span>
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c3">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -224,101 +203,55 @@
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>1,086</h2>
-                                                <span>الخدمات</span>
+                                                <?php
+                                                $stmt = $con->prepare("SELECT * FROM services");
+                                                $stmt->execute();
+                                                $offers = $stmt->fetch();
+                                                $offers = $stmt->rowCount();
+                                                echo ' <h2>' . $offers . '</h2>';
+                                                ?>
+                                                <span>العروض</span>
                                             </div>
                                         </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c4">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>$1,060,386</h2>
-                                                <span>اجمالي الارباح</span>
-                                            </div>
-                                        </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row m-t-25">
-                              <div class="col-lg-6">
+                            <div class="col-lg-6">
                                 <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
                                     <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
                                         <div class="bg-overlay bg-overlay--blue"></div>
                                         <h3>
                                             <i class="zmdi zmdi-account-calendar"></i>الخدمات</h3>
-                                        <button class="au-btn-plus">
-                                            <i class="zmdi zmdi-plus"></i>
-                                        </button>
                                     </div>
                                     <div class="au-task js-list-load">
                                         <div class="au-task__title">
-                                            <p>الخدمات المقدمة اخر فترة </p>
+                                            <p>الخدمات المقدمة</p>
                                         </div>
                                         <div class="au-task-list js-scrollbar3">
-                                            <div class="au-task__item au-task__item--danger">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">تطبيق متجر الكتروني محترف</a>
-                                                    </h5>
-                                                    <span class="time">10:00 م</span>
+                                            <?php
+                                            $stmt = $con->prepare("SELECT * FROM `services`");
+                                            $stmt->execute();
+                                            $services = $stmt->fetchAll();
+                                            foreach ($services as $x) {
+                                                ?>
+                                                <div class="au-task__item au-task__item--danger">
+                                                    <div class="au-task__item-inner">
+                                                        <h5 class="task">
+                                                            <a href="../services.php?singl=<?= ($x['id_services']) ?>" target="_blank"><?= ($x['service_title']) ?></a>
+                                                        </h5>
+                                                        <span class="time"><?= ($x['service_time']) ?></span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--warning">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">تحديث تطبيق مفردات</a>
-                                                    </h5>
-                                                    <span class="time">11:00 م</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--primary">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                    </h5>
-                                                    <span class="time">02:00 ص</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--success">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Create new task for Dashboard</a>
-                                                    </h5>
-                                                    <span class="time">03:30 PM</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--danger js-load-item">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                    </h5>
-                                                    <span class="time">10:00 AM</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--warning js-load-item">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Create new task for Dashboard</a>
-                                                    </h5>
-                                                    <span class="time">11:00 AM</span>
-                                                </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <div class="col-lg-6 ">
                                 <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
                                     <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
@@ -448,46 +381,19 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                           
-                                        
+
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                        
                     </div>
                 </div>
+                <!-- END MAIN CONTENT-->
+                <!-- END PAGE CONTAINER-->
             </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
-        </div>
-    
-    
- <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
-    </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
-
-</body>
-
-</html>
-<!-- end document-->
+            <?php
+            include 'footer.php';
+            ?>
