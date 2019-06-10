@@ -93,7 +93,7 @@
                 $stmt->execute(array(
                     'sidu'  => $userId,
                     'suser' => $username,
-                    'spass' => $password,
+      .              'spass' => $password,
                     'smail' => $email
 
                 ));

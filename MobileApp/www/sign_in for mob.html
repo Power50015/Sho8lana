@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+
+
+<html dir="rtl">  
+    
+    
+<head>
+    
+    
+      <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->  
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <title>Hello World</title>
+    </head>
+<body>
+    
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+        <a href="nav1.html" class="navbar-toggler d-block ">
+            <span class="navbar-toggler-icon"></span>
+        </a>
+        </div>
+    </nav>
+    
+<header id='fullHeader'>
+    <div class="over"></div>
+    <div class="container pt-5 position-relative">
+        <h2 class="bg-color-3 d-inline-block px-3 py-1 f-30 font-cairo text-light"><button>أنشاء حساب جديد</button></h2> 
+            <div class="row justify-content-center mt-3">
+                <form class="login col-lg-6 col-sm-12 col-xs-12 d-block p-5 mt-5 rounded mb-5" action="<?=($_SERVER['PHP_SELF'])?>" method="POST">
+                    <div class="form-group pt-1 pb-2">
+                        <input type="name"
+                               name="name" 
+                               required 
+                               class="form-control rounded-0 px-3 py-3 font-cairo" 
+                               aria-describedby="emailHelp"
+                               placeholder="الأسم"
+                               pattern=".{4,}"
+                               title="يجب ان لا يقل اسم المستخدم عن 4 حروف"/>
+                    </div>
+                    <div class="form-group pt-1 pb-2">
+                        <input type="email" 
+                               name="email" 
+                               required 
+                               class="form-control rounded-0 px-3 py-3 font-cairo" 
+                               aria-describedby="emailHelp" 
+                               placeholder="البريد الإلكتروني"
+                               minlength="7"/>
+                    </div>
+                    <div class="form-group pt-2">
+                        <input type="password" 
+                               name="password1" 
+                               required 
+                               class="form-control rounded-0 px-3 py-3 font-cairo" 
+                               placeholder="الرقم السري"
+                               minlength="10"
+                               title="يجب ان لا يقل الرقم السى عن 10 حروف"/>
+                    </div>
+                    <div class="form-group pt-1">
+                        <input type="password" 
+                               name="password2" 
+                               required 
+                               class="form-control rounded-0 px-3 py-3 font-cairo" 
+                               placeholder="اعادة كتابة الرقم السري"
+                               minlength="10"/>
+                    </div>
+                    
+    
+                        <div class="pt-5">
+                        <input type="submit" value="أنشاء حساب الأن" name="signup" class="btn btn-danger d-block w-100 mb-3 py-2  font-cairo f-18" >
+                     </div>   
+                </form>
+            </div>
+    </div>  
+</header>
+           
+            
+    
+                </body>
+</html>
+
+
+
