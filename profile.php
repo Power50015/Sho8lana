@@ -113,7 +113,7 @@ if (isset($_GET['user'])) {
                         </div>
                         <div class="row mt-3">
                             <?php
-                            $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" . $_SESSION['ID'] . "'");
+                            $stmt = $con->prepare("SELECT `user_skillID` FROM `user_skill` WHERE `userID_skill` = '" . $_GET['user'] . "'");
                             $stmt->execute();
                             $skills = $stmt->fetchAll();
                             $numItems = count($skills);
