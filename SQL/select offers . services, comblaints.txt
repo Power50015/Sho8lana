@@ -1,0 +1,23 @@
+﻿الخدمات
+
+SELECT id_services , service_title , service_time,service_needTime , service_money , user_id 
+FROM services ; 
+
+
+
+
+العروض
+
+SELECT offersID,offersDed,offersService,offersUser,PriceOffers
+FROM offers ;  
+
+
+
+
+
+
+الشكاوي
+
+
+SELECT comblaint_id,comblaint_des,comblaint_date,comblaint_user
+FROM comblaints
