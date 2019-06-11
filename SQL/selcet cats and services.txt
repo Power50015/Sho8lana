@@ -1,0 +1,6 @@
+﻿SELECT * FROM 
+cats INNER JOIN services 
+ON
+cats.CatID = services.sections_services 
+WHERE
+cats.CatMain = 1 ;
