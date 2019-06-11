@@ -29,11 +29,11 @@ if ($_GET['do'] == 'delete') {
 }
 ?>
 
-<header class="#E5E5E5">
+<header class="bg-light">
     <div class="container">
-    <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 px-4 py-2">تسجيل الدخول </h2>
+    <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 mt-5 px-4 py-2">تسجيل الدخول </h2>
         <div class="row justify-content-center mt-3">
-            <form class="login col-lg-6 col-sm-12 col-xs-12 d-block p-5 mt-5 rounded mb-5">
+            <form class="login col-lg-6 col-sm-12 col-xs-12 d-block p-5 mt-2 rounded mb-5">
                     <div class="form-group pt-3 pb-2">
                         <input type="email" name="email" required class="form-control rounded-0 px-3 py-3 font-cairo" aria-describedby="emailHelp" placeholder="البريد الإلكتروني ">
                     </div>

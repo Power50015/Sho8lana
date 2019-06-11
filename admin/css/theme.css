@@ -14642,12 +14642,27 @@ section {
     padding-left: 30px;
 }
  
-        .font-700 {
+.font-700 {
   font-weight: 700;
-}.font-color-2 {
+}
+.font-color-2 {
   color: #fff;
 }
-        .bg-color-9 {
+.bg-color-9 {
   background: #c13543!important;
+}
+.bg-color-10 {
+  background: #E5E5E5!important;
+}
+
+.login {
+  background: rgba(171, 177, 188, 0.5);
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+.login form {
+  margin-top: 40px;
+  background: rgba(0, 0, 0, 0.5);
 }
         
