@@ -41,92 +41,51 @@
 <section class="bg-color-12">
 <div class="container">
      <h2 class="bg-color-3 d-inline-block mt-5 px-3 py-1 f-30 font-cairo text-light"> الفريق </h2>
-    
-    
-<div class="owl-carousel owl-theme ">
-    
+     <div class="owl-carousel owl-theme">
     <div class="item">
-        <div class="card" style="">
-        <img src="upload\1.jpg" class="card-img-top" alt="">
-        <div class="card-body text-center bg-color-11">
-        <h5 class="card-title">محمد مصطفي </h5>
-        <p class="card-text">مبرمج</p>
-        </div>
-        </div>
-    </div>
-    
-     <div class="item">
-        <div class="item">
-        <div class="card" style="width: 18rem;">
-        <img src="upload\7.jpg" class="card-img-top" alt="">
-        <div class="card-body text-center bg-color-11">
-        <h5 class="card-title">فوزية محمد </h5>
-        <p class="card-text">مصممة مواقع </p>
-        </div>
-        </div>
-    </div>
-    
-    </div>
-    
+              <div class="card" >
+                <img src="upload\1.jpg" class="card-img-top" alt="">
+                <div class="card-body text-center bg-color-11">
+                <h5 class="card-title">???? ????? </h5>
+                <p class="card-text">?????</p>
+                </div>
+              </div>
+         </div>
     <div class="item">
-        <div class="card" style="width: 18rem;">
-        <img src="upload\3.jpg" class="card-img-top" alt="">
-        <div class="card-body text-center bg-color-11">
-        <h5 class="card-title">محمد عاطف </h5>
-        <p class="card-text">مصمم</p>
-        </div>
-        </div>
-    </div>
+               <div class="card" style="width: 18rem;">
+                 <img src="upload\7.jpg" class="card-img-top" alt="">
+                 <div class="card-body text-center bg-color-11">
+                 <h5 class="card-title">????? ???? </h5>
+                 <p class="card-text">????? ????? </p>
+                 </div>
+               </div>
+         </div>
+    <div class="item">
+             <div class="card" style="width: 18rem;">
+                 <img src="upload\7.jpg" class="card-img-top" alt="">
+                 <div class="card-body text-center bg-color-11">
+                 <h5 class="card-title">????? ???? </h5>
+                 <p class="card-text">????? ????? </p>
+                 </div>
+               </div> 
+         </div>
+    <div class="item">
+         </div>
+    <div class="item"><h4>5</h4></div>
+    <div class="item"><h4>6</h4></div>
+    <div class="item"><h4>7</h4></div>
+    <div class="item"><h4>8</h4></div>
+    <div class="item"><h4>9</h4></div>
+    <div class="item"><h4>10</h4></div>
+    <div class="item"><h4>11</h4></div>
+    <div class="item"><h4>12</h4></div>
+</div>
     
-   
-        <div class="item">
-        <div class="card" style="width: 18rem;">
-        <img src="upload\4.jpg" class="card-img-top" alt="">
-        <div class="card-body text-center bg-color-11">
-        <h5 class="card-title">مصطفي محمود </h5>
-        <p class="card-text">محلل مواقع</p>
-        </div>
-        </div>
-        </div>
-   
-    
-   
-        <div class="item">
-        <div class="card" style="width: 18rem;">
-        <img src="upload\5.jpg" class="card-img-top" alt="">
-        <div class="card-body text-center bg-color-11">
-        <h5 class="card-title">ايثاراحمد  </h5>
-        <p class="card-text">مصممة مواقع </p>
-        </div>
-        </div>
-        </div>
-   
-    
-    
-        <div class="item">
-        <div class="card" style="width: 18rem;">
-        <img src="upload\6.jpg" class="card-img-top" alt="">
-        <div class="card-body text-center bg-color-11">
-        <h5 class="card-title"> اسراء محمود </h5>
-        <p class="card-text">محلله مواقع </p>
-        </div>
-        </div>
-        </div>
-    
-    
-     <div class="item">
-        <div class="card" style="width: 18rem;">
-        <img src="upload\2.jpg" class="card-img-top" alt="">
-        <div class="card-body text-center bg-color-11">
-        <h5 class="card-title">نورهان امام </h5>
-        <p class="card-text">مصممة مواقع </p>
-        </div>
-        </div>
-    </div>   
+
    
         
     
-</div>
+
     <div class="row justify-content-center ml-5">
     <div class="col-6 ">
     <input type="submit" value="تواصل معنا " name="login" class="btn btn-danger d-block w-50 mb-3 py-2 font-cairo f-18 " >
