@@ -10,7 +10,7 @@ if (isset($_GET['do'])) {
             if (isset($_GET['filt'])) {
                 if ($_GET['filt'] == 'all') {
                    try{
-                       $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " ORDER BY `service_time` DESC");
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = '" . $_SESSION['ID'] . "' ORDER BY `service_time` DESC");
                     $stmt->execute();
                     $services = $stmt->fetchAll();}
                     catch (Exception $e){
@@ -34,7 +34,16 @@ if (isset($_GET['do'])) {
     <tr>
     <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
     <td><?= ($x['service_time']) ?></td>
-    <td><?= ($x['services_stat']) ?></td>
+    <td>
+        <?php
+            if ($x['services_stat'] == 0) {
+                echo "بنتظار الرد";
+            } elseif ($x['services_stat'] == 1) {
+                echo " تحت الانشاء";
+            } elseif ($x['services_stat'] == 2) {
+                echo " منتهيه";
+            }?>
+    </td>
       <?php
                         if ($x['services_stat'] == 0) {
 ?>
@@ -57,7 +66,7 @@ if (isset($_GET['do'])) {
 <?php
                 }elseif($_GET['filt'] == 'making'){
                    try{
-                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =1 ORDER BY `service_time` DESC");
+                    $stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = '" . $_SESSION['ID'] . "' AND services_stat =1 ORDER BY `service_time` DESC");
                     $stmt->execute();
                     $services = $stmt->fetchAll();
                    }catch (Exception $e){
@@ -70,7 +79,6 @@ if (isset($_GET['do'])) {
             <tr>
             <th scope="col">عنوان الخدمه المطلوبه</th>
             <th scope="col">تاريخ الإضافه</th>
-            <th scope="col">الحاله</th>
             </tr>
         </thead>
         <tbody>
@@ -92,7 +100,7 @@ if (isset($_GET['do'])) {
 
                 }elseif($_GET['filt'] == 'finsh'){
                     
-                    try{$stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat = 2 ORDER BY `service_time` DESC");
+                    try{$stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = '" . $_SESSION['ID'] . "' AND services_stat = 2 ORDER BY `service_time` DESC");
                     $stmt->execute();
                     $services = $stmt->fetchAll();}
                     catch (Exception $e){
@@ -105,7 +113,6 @@ if (isset($_GET['do'])) {
             <tr>
             <th scope="col">عنوان الخدمه المطلوبه</th>
             <th scope="col">تاريخ الإضافه</th>
-            <th scope="col">الحاله</th>
             </tr>
         </thead>
         <tbody>
@@ -127,7 +134,7 @@ if (isset($_GET['do'])) {
 
                 }elseif($_GET['filt'] == 'cansel'){
                     
-                    try{$stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = " . $_SESSION['ID'] . " AND services_stat =3 ORDER BY `service_time` DESC");
+                    try{$stmt = $con->prepare("SELECT * FROM `services` WHERE `user_id` = '" . $_SESSION['ID'] . "' AND services_stat =0 ORDER BY `service_time` DESC");
                     $stmt->execute();
                     $services = $stmt->fetchAll();}catch (Exception $e){
                         $services=array();
@@ -139,7 +146,6 @@ if (isset($_GET['do'])) {
             <tr>
             <th scope="col">عنوان الخدمه المطلوبه</th>
             <th scope="col">تاريخ الإضافه</th>
-            <th scope="col">الحاله</th>
             </tr>
         </thead>
         <tbody>
@@ -149,7 +155,6 @@ if (isset($_GET['do'])) {
     <tr>
     <th scope="row"><a href="services.php?singl=<?= ($x['id_services']) ?>"><?= ($x['service_title']) ?></a></th>
     <td><?= ($x['service_time']) ?></td>
-    <td><?= ($x['services_stat']) ?></td>
     </tr>
 <?php
                     }
@@ -187,7 +192,7 @@ if (isset($_GET['do'])) {
             $stmt->execute();
             $cats = $stmt->fetchAll();
             foreach ($cats as $x) {
-                echo "<option value='" . $x['CatID'] . "'>" . $x['CatName'] . "</option>";
+                echo "<option disabled='disabled' value='" . $x['CatID'] . "'>" . $x['CatName'] . "</option>";
                 $stmt2 = $con->prepare("SELECT * FROM `cats` WHERE `CatMain` = " . $x['CatID']);
                 $stmt2->execute();
                 $subCats = $stmt2->fetchAll();
