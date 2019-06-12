@@ -3,7 +3,7 @@ Theme Name: Sho8lana
 Theme URI: https://github.com/Power50015/Sho8lana
 Author: 
     - Mohamed Mostafa (Team Leader)
-    - Mohamed Atef  (Web Desiner)
+    - Mohamed Atef  (UI&UX Desiner)
     - Noor Emam (Front-End)
     - Mostafa Younes (DateBase System)
 Author URI: 
@@ -15,7 +15,7 @@ Description:
 Version: 1.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: Sho8lana.powerware.site
+Text Domain: Sho8lana.3salya.com
 Tags: 
 */
 
@@ -48,7 +48,7 @@ body {
 }
 
 .bg-color-3,
-input[type="radio"]:checked + label span {
+input[type="radio"]:checked+label span {
   background: #ff3363 !important;
 }
 
@@ -147,8 +147,9 @@ p {
 .f-20 {
   font-size: 20px;
 }
+
 .f-22 {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .f-24 {
@@ -343,7 +344,7 @@ header .container {
   z-index: -1;
 }
 
-.input-file + .js-labelFile {
+.input-file+.js-labelFile {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -351,11 +352,11 @@ header .container {
   cursor: pointer;
 }
 
-.input-file + .js-labelFile .icon:before {
+.input-file+.js-labelFile .icon:before {
   content: "\f093";
 }
 
-.input-file + .js-labelFile.has-file .icon:before {
+.input-file+.js-labelFile.has-file .icon:before {
   content: "\f00c";
   color: #5aac7b;
 }
@@ -387,11 +388,11 @@ input[type="radio"] {
   display: none;
 }
 
-input[type="radio"] + label {
+input[type="radio"]+label {
   cursor: pointer;
 }
 
-input[type="radio"] + label span {
+input[type="radio"]+label span {
   display: inline-block;
   width: 19px;
   height: 19px;
@@ -401,8 +402,8 @@ input[type="radio"] + label span {
   background-color: #292b2a;
 }
 
-input[type="radio"] + label span,
-input[type="radio"]:checked + label span {
+input[type="radio"]+label span,
+input[type="radio"]:checked+label span {
   -webkit-transition: background-color 0.4s linear;
   -o-transition: background-color 0.4s linear;
   -moz-transition: background-color 0.4s linear;
@@ -464,11 +465,11 @@ input[type="radio"]:checked + label span {
 /*--------------------------------------------------------------
 3.5 Show Services layout 
 --------------------------------------------------------------*/
-main.services aside > div {
+main.services aside>div {
   border: #ff5e8a 5px solid;
 }
 
-main.services section > a {
+main.services section>a {
   border: #ff5e8a 5px solid;
 }
 
@@ -532,6 +533,7 @@ main.services .price-range .range .range-box {
 .port_grid_section .link-hover div.w-100 {
   overflow: hidden;
 }
+
 .port_grid_section .over:hover {
   opacity: 0.4;
   -webkit-transition: all 0.3s ease-in-out;
@@ -539,18 +541,21 @@ main.services .price-range .range .range-box {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .port_grid_section .link-hover div img {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .port_grid_section .link-hover:hover div img {
   -webkit-transform: scale(1.2) rotate(5deg);
   -moz-transform: scale(1.2) rotate(5deg);
   -o-transform: scale(1.2) rotate(5deg);
   transform: scale(1.2) rotate(5deg);
 }
+
 /*--------------------------------------------------------------
 3.6 Masgs layout 
 --------------------------------------------------------------*/
@@ -562,26 +567,31 @@ main.services .price-range .range .range-box {
   direction: ltr;
   word-wrap: break-word;
 }
+
 .msg2 {
   width: 100%;
   background-color: #fff;
   direction: ltr;
   word-wrap: break-word;
 }
+
 /*--------------------------------------------------------------
 4.0 Media Queries
 --------------------------------------------------------------*/
-.card-img-top{
-        height: 285px;
-        width: 285px;
-    }
-.coname{
-        margin: 20px;
-        margin-right: 100px;
-    }
+.card-img-top {
+  height: 285px;
+  width: 285px;
+}
+
+.coname {
+  margin: 20px;
+  margin-right: 100px;
+}
+
 /*---------------------------------------------------------------
 5.0 Media Queries
 ----------------------------------------------------------------*/
 .stats-small {
   min-height: 8.7rem;
-  overflow: hidden !important; }
+  overflow: hidden !important;
+}
