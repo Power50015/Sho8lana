@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-    <head>
+    <head lang="ar">
         <title>login</title>
         <!-- Bootstrap core CSS -->
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,11 +15,11 @@
                   background: #c13543!important;
                         }
             .bg-color-10 {
-                  background: #E5E5E5!important;
+                  background: #2d3c51!important;
                          }
 
            .login {
-                  background: rgba(54, 69, 90, 0.5);
+                  background: rgba(253, 245, 245, 0.5);
                   padding-left: 30px !important;
                   padding-right: 30px !important;
                   }
@@ -27,11 +27,12 @@
                   margin-top: 40px;
                   background: rgba(0, 0, 0, 0.5);
                        }
+            
         
 
         </style>
     </head>
-    <body  class="bg-color-10">
+    <body dir="rtl"  class="bg-color-10">
     <div class="container">
     <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 mt-5 px-4 py-2">تسجيل الدخول </h2>
         <div class="row justify-content-center mt-3">
@@ -42,13 +43,6 @@
                     <div class="form-group pt-4">
                         <input type="password" name="password" required class="form-control rounded-0 px-3 py-3 font-cairo" placeholder="الرقم السري">
                     </div>
-                    <?php if(isset($loginError)){?>
-                        <div class="alert alert-danger m-0 p -0 rounded-0" role="alert">
-                            هناك خطاء في البريد الالكترونى او كلمه السر 
-                        </div>
-                    <?php
-                        }
-                    ?>
                     <div class="form-group pt-4 pb-5">
                         <a href="#" class="font-cairo"> هل نسيت كلمة السر؟</a>
                     </div>
