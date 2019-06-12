@@ -1,35 +1,37 @@
-<?php
-include 'head.php';
-if ($_GET['do'] == 'delete') {
-    if (isset($_GET['serv'])) {
-        if (!empty($_GET['serv'])) {
-            $stmt = $con->prepare("SELECT * FROM `offers` WHERE `OffersService` = '" . $_GET['serv'] . "'");
-            $stmt->execute();
-            $ddoffers = $stmt->fetchAll();
-            foreach ($ddoffers as $x) {
-                $stmt = $con->prepare("DELETE FROM `offers` WHERE `OffersID` = :zid");
-                $stmt->bindParam(":zid", $x['OffersID']);
-                $stmt->execute();
-            }
-            $stmt = $con->prepare("DELETE FROM `services` WHERE `id_services` = :zid");
-            $stmt->bindParam(":zid", $_GET['serv']);
-            $stmt->execute();
-            $url = "services.php";
-            header('Location: ' . $url);
-        } else {
-            $url = "login.php";
-            header('Location: ' . $url);
-            exit();
-        }
-    } else {
-        $url = "login.php";
-        header('Location: ' . $url);
-        exit();
-    }
-}
-?>
+<!doctype html>
+<html>
+    <head>
+        <title>login</title>
+        <!-- Bootstrap core CSS -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .font-700 {
+                font-weight: 700;
+                      }
+            .font-color-2 {
+                  color: #fff;
+                          }
+            .bg-color-9 {
+                  background: #c13543!important;
+                        }
+            .bg-color-10 {
+                  background: #E5E5E5!important;
+                         }
 
-<header class="bg-light">
+           .login {
+                  background: rgba(54, 69, 90, 0.5);
+                  padding-left: 30px !important;
+                  padding-right: 30px !important;
+                  }
+           .login form {
+                  margin-top: 40px;
+                  background: rgba(0, 0, 0, 0.5);
+                       }
+        
+
+        </style>
+    </head>
+    <body  class="bg-color-10">
     <div class="container">
     <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mb-lg-0 mb-4 mt-5 px-4 py-2">تسجيل الدخول </h2>
         <div class="row justify-content-center mt-3">
@@ -54,8 +56,8 @@ if ($_GET['do'] == 'delete') {
                 </form>
         </div>
     </div>
-    </header>
-
-    <?php
-    include 'footer.php';
-    ?>
+        
+        
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
