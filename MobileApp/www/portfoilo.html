@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html dir="rtl">
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <title>Hello World</title>
+</head>
+    <body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+        <a href="nav1.html" class="navbar-toggler d-block ">
+            <span class="navbar-toggler-icon"></span>
+        </a>
+        </div>
+    </nav>
+    
+        <header id='fullHeader'>
+            <div class="over"></div>
+        </header>
+        <section class="main py-5">
+            <div class="container">
+                
+
+                    <div class="col-lg-8 col-sm-12  text-sm-center text-lg-left" data-toggle="modal" data-target="#personal-name">
+                      
+                        <p class="hover2 bg-color-2 d-block rounded font-700 font-color-2  p-4 pb-0 text-center"> 
+                             <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mt-5 mb-lg-0 mb-4 px-4 py-2"> الشهادات </h2>
+                        <div class="mt-2">
+                            <a href="cert.php?cert=<?= ($_GET['user']) ?>" class="font-color-3 font-700 f-18 ">عرض الكل</a>
+                       
+                    </div>
+                              <div class="personal-img position-relative col-lg-3 col-sm-12 p-0 mr-lg-4" data-toggle="modal" data-target="#personal-img">
+                        <div class="over h-100"></div>
+                        <img src="upload/avatars/<?= ($UserRow['User_Img']) ?>" class="rounded w-100 h-100 position-relative" alt="...">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+               
+                    <div class="col-lg-8  col-sm-12 ">
+
+             <div class="col-5">
+         <img src="upload\cert\<?= ($x['Certimg']) ?>" class="rounded w-100 h-100 position-relative" alt="...">
+             </div>
+
+                    <div class="col-lg-3 col-sm-12">
+                        <h2 class="hover2  font-color-2  bg-color-2 px-4 font-700 mb-lg-0 mb-3 py-3"></h2>
+                        <div class="mt-4  ">
+                            <a type="link" class="hover2  font-color-2 f-20 text-white  bg-color-2 px-4 font-700  py-3" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-tv"></i> الموقع الشخصي
+                            </a>
+                        </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h2 class="hover2  font-color-2  bg-color-2 px-4 font-700 mb-lg-0 mb-3 py-3"></h2>
+                        <div class="mt-4  ">
+                            <a type="link" class="hover2  font-color-2 f-20 text-white  bg-color-2 px-4 font-700  py-3" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-tv"></i> الموقع الشخصي
+                            </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                   <h5 class="hover2  font-color-2   bg-color-2 px-4 font-700 mt-lg-4 py-3  mb-3"> <i class="fas fa-star"></i> تقييم %100</h5>
+
+                    </div>
+                </div>
+                
+        </section>
+        <section>
+            <div class="container">
+               
+                    <div class="col">
+                        <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mt-4 mb-lg-0 mb-4 px-4 py-2"> المهارات </h2>
+                        <div class="mt-2">
+                            <a href="skill.php?skills=<?= ($_GET['user']) ?>" class="font-color-3 font-700 f-18 ">عرض الكل</a>
+                       
+                    
+        <div class="col-2">
+                                        <img src="upload\skills\<?= ($x['SkillImg']) ?>" class="rounded w-100 h-100 position-relative" alt="<?= ($x['SkillName']) ?>" title="<?= ($x['SkillName']) ?>" />
+                                    
+                        </div>
+                         <h2 class="bg-color-9 d-inline-block font-700 font-color-2 mt-5 mb-lg-0 mb-4 px-4 py-2"> الأعمال السابقة </h2>
+                        <div class="mt-2">
+                            <a href="portfoilo.php?prot=<?= ($_GET['user']) ?>" class="font-color-3 font-700 f-18 ">عرض الكل</a>
+                        </div>
+                       
+                               <div class="col-3 ">
+                                    <img src="upload/port/<?= ($po['PortfoiloImg']) ?>" class="rounded w-100 h-100 position-relative" alt="...">
+                                   <h6 class="hover font-color-2 bg-color-9 px-4 font-700  py-3 text-center mb-3"></h6>
+                            
+                               <div class="col-3 ">
+                                    <img src="upload/port/<?= ($po['PortfoiloImg']) ?>" class="rounded w-100 h-100 position-relative" alt="...">
+                                   <h6 class="hover font-color-2 bg-color-9 px-4 font-700  py-3 text-center mb-3"></h6>
+                                </div>
+                                  </div>
+
+                    </div>
+                </div>
+                     </div>
+        </section>
+        </body>
+
+</html>
